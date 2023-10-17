@@ -13317,9 +13317,9 @@ select.tt-hint {
     padding: 14px 0 14px 25px; }
     .table th img,
     .table td img {
-      width: 30px;
-      height: 29px;
-      border-radius: 100%; }
+      width: 150px;
+      
+      }
     .table th .badge,
     .table td .badge {
       margin-bottom: 0; }

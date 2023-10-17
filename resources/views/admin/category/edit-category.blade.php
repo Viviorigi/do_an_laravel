@@ -23,6 +23,9 @@
                     <div class="form-group">
                         <label for="exampleInputUsername1">Category name</label>
                         <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username" name="name" value="{{$category->name}}"/>
+                        @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
