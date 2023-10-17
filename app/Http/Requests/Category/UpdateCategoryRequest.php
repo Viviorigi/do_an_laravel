@@ -22,13 +22,14 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
+            'name'=>'required|unique:categories,name,'.$this->id,
             'status'=>'required'
         ];
     }
     public function messages(){
         return [
             'name.required'=>'Tên không để trống',
+            'name.unique'=>"Tên $this->name đã tồn tại ",
             'status.required'=>'Trạng thái không để trống',
         ];
     }

@@ -45,35 +45,47 @@
                         <tr>
                             <th>STT</th>
                             <th>Name</th>
+                            <th>Slug</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Sale Price</th>
                             <th>Created</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                            
+                            <th>Status</th>            
+                            <th colspan="1">Action</th>   
+                            <th></th>             
                         </tr>
                     </thead>
-                    {{-- <tbody>
-                        @foreach ($cate as $item)
+                    <tbody>
+                        @foreach ($product as $item)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->slug}}</td>
+                            <td><img src="{{asset('storage/images')}}/{{$item->image}}"  width="300px"></td>
+                            <td>{{number_format($item->price)}}đ</td>
+                            <td>{{number_format($item->sale_price)}}đ</td>
+                            
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td>
-                                <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"HIện":"Ẩn"}}</label>
+                                <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label>
                             </td>
-                            <td class="d-flex">
-                                <a href="{{route('product.edit',$item)}}" class="btn btn-primary"> Edit</a>
-                                <a href="">
+                           
+                            <td >
+                                <a href="{{route('product.edit',$item)}}" class="btn btn-primary "> Edit</a>             
+                            </td>
+                            <td>
+                                <a href="" >
                                     <form action="{{route('product.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
                                     </form>
-                                </a>
+                                </a>    
                             </td>                           
                         </tr>
                         @endforeach
                         
                       
-                    </tbody> --}}
+                    </tbody>
                 </table>
             </div>
         </div>
