@@ -11,7 +11,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required|unique:categories,name,'.$this->id,
+            'name'=>'required|unique:categories,name,'. $this->category->id,
             'status'=>'required'
         ];
     }

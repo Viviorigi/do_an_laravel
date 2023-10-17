@@ -40,7 +40,7 @@
                           </label>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2"> EDIT</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{route('category.index')}}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>
