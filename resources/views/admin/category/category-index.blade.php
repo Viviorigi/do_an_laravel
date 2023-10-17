@@ -58,7 +58,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td>
-                                <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"HIện":"Ẩn"}}</label>
+                                <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Hiện":"Ẩn"}}</label>
                             </td>
                             <td class="d-flex">
                                 <a href="{{route('category.edit',$item)}}" class="btn btn-primary"> Edit</a>

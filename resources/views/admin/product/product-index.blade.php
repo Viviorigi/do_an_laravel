@@ -29,7 +29,7 @@
                 
                 <div class="m-2 d-flex justify-content-between">
                     <a href="{{route('product.create')}}" class="btn btn-success">ADD new Product</a>
-                    {{-- <a href="{{route('product.trash')}}" class="btn btn-primary mr-5">Trash <i class="mdi mdi-delete"></i></a> --}}
+                    <a href="{{route('product.trash')}}" class="btn btn-primary mr-5">Trash <i class="mdi mdi-delete"></i></a>
                 </div>
                 <table class="table">
                     @if ($message = Session::get('success'))
@@ -49,6 +49,7 @@
                             <th>Image</th>
                             <th>Price</th>
                             <th>Sale Price</th>
+                            <th>Category</th>
                             <th>Created</th>
                             <th>Status</th>            
                             <th colspan="1">Action</th>   
@@ -64,7 +65,7 @@
                             <td><img src="{{asset('storage/images')}}/{{$item->image}}"  width="300px"></td>
                             <td>{{number_format($item->price)}}đ</td>
                             <td>{{number_format($item->sale_price)}}đ</td>
-                            
+                            <td>{{$item->category->name}}</td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td>
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label>

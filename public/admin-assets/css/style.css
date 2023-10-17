@@ -1851,7 +1851,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 1.5;
   color: #343a40;
@@ -1873,7 +1873,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1.5rem; }
 
 abbr[title],
 abbr[data-original-title] {
@@ -1952,7 +1952,7 @@ code,
 kbd,
 samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1em; }
+  font-size: 1.5em; }
 
 pre {
   margin-top: 0;
@@ -2062,7 +2062,7 @@ legend {
   max-width: 100%;
   padding: 0;
   margin-bottom: .5rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: inherit;
   color: inherit;
   white-space: normal; }
@@ -2105,25 +2105,25 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2; }
 
 h1, .h1 {
-  font-size: 2.5rem; }
+  font-size: 4rem; }
 
 h2, .h2 {
-  font-size: 2rem; }
+  font-size: 3.5rem; }
 
 h3, .h3 {
-  font-size: 1.75rem; }
+  font-size: 2.5rem; }
 
 h4, .h4 {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
 
 h5, .h5 {
-  font-size: 1.25rem; }
+  font-size: 1.5rem; }
 
 h6, .h6 {
   font-size: 1rem; }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 300; }
 
 .display-1 {
@@ -2181,7 +2181,7 @@ mark,
 
 .blockquote {
   margin-bottom: 1rem;
-  font-size: 1.25rem; }
+  font-size: 1.75rem; }
 
 .blockquote-footer {
   display: block;
@@ -3648,7 +3648,7 @@ select.tt-hint:focus::-ms-value {
 .col-form-label-lg {
   padding-top: calc(0.94rem + 1px);
   padding-bottom: calc(0.94rem + 1px);
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1.5; }
 
 .col-form-label-sm {
@@ -3682,7 +3682,7 @@ select.tt-hint:focus::-ms-value {
 .form-control-lg {
   height: 3.175rem;
   padding: 0.94rem 1.94rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   border-radius: 0.3rem; }
 
@@ -3721,12 +3721,12 @@ textarea.tt-hint {
 .form-check {
   position: relative;
   display: block;
-  padding-left: 1.25rem; }
+  padding-left: 1.75rem; }
 
 .form-check-input {
   position: absolute;
   margin-top: 0.3rem;
-  margin-left: -1.25rem; }
+  margin-left: -1.75rem; }
   .form-check-input[disabled] ~ .form-check-label,
   .form-check-input:disabled ~ .form-check-label {
     color: #6c7293; }
@@ -4035,8 +4035,8 @@ textarea.is-invalid.tt-hint {
   background-color: transparent;
   border: 1px solid transparent;
   padding: 3px 18px;
-  font-size: 0.875rem;
-  line-height: 1.71;
+  font-size: 2.5rem;
+  line-height: 2.5;
   border-radius: 0.1875rem;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -5136,7 +5136,7 @@ input[type="button"].btn-block {
 .fc .input-group-lg > .input-group-append > button,
 .ajax-upload-dragdrop .input-group-lg > .input-group-append > .ajax-file-upload {
   padding: 0.94rem 1.94rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1.5;
   border-radius: 0.3rem; }
 
@@ -5210,7 +5210,7 @@ input[type="button"].btn-block {
   left: 0;
   z-index: -1;
   width: 1rem;
-  height: 1.25rem;
+  height: 1.75rem;
   opacity: 0; }
   .custom-control-input:checked ~ .custom-control-label::before {
     color: #fff;
@@ -5361,7 +5361,7 @@ input[type="button"].btn-block {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
-  font-size: 1.25rem; }
+  font-size: 1.75rem; }
 
 .custom-file {
   position: relative;
@@ -5652,7 +5652,7 @@ input[type="button"].btn-block {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: inherit;
   white-space: nowrap; }
   .navbar-brand:hover, .navbar-brand:focus {
@@ -5693,7 +5693,7 @@ input[type="button"].btn-block {
 
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
@@ -5994,7 +5994,7 @@ input[type="button"].btn-block {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem; }
+  padding: 1.75rem; }
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -6010,10 +6010,10 @@ input[type="button"].btn-block {
   text-decoration: none; }
 
 .card-link + .card-link {
-  margin-left: 1.25rem; }
+  margin-left: 1.75rem; }
 
 .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.75rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid #e6e6e6; }
@@ -6023,7 +6023,7 @@ input[type="button"].btn-block {
     border-top: 0; }
 
 .card-footer {
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.75rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid #e6e6e6; }
   .card-footer:last-child {
@@ -6045,7 +6045,7 @@ input[type="button"].btn-block {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1.25rem; }
+  padding: 1.75rem; }
 
 .card-img,
 .card-img-top,
@@ -6133,9 +6133,9 @@ input[type="button"].btn-block {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-    -webkit-column-gap: 1.25rem;
-    -moz-column-gap: 1.25rem;
-    column-gap: 1.25rem;
+    -webkit-column-gap: 1.75rem;
+    -moz-column-gap: 1.75rem;
+    column-gap: 1.75rem;
     orphans: 1;
     widows: 1; }
     .card-columns .card {
@@ -6238,7 +6238,7 @@ input[type="button"].btn-block {
 
 .pagination-lg .page-link {
   padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1.5; }
 
 .pagination-lg .page-item:first-child .page-link {
@@ -6398,7 +6398,8 @@ input[type="button"].btn-block {
 
 .alert {
   position: relative;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem; }
@@ -6415,7 +6416,7 @@ input[type="button"].btn-block {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.75rem;
     color: inherit; }
 
 .alert-primary {
@@ -6587,7 +6588,7 @@ input[type="button"].btn-block {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.75rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125); }
   .list-group-item:first-child {
@@ -10780,10 +10781,10 @@ p {
   font-size: 0.875rem; }
 
 h1, .h1 {
-  font-size: 2.19rem; }
+  font-size: 3.5rem; }
 
 h2, .h2 {
-  font-size: 28px; }
+  font-size: 3rem; }
 
 h3, .h3 {
   font-size: 1.5rem; }
@@ -10798,7 +10799,7 @@ h6, .h6 {
   font-size: 14px; }
 
 p {
-  font-size: .9375rem;
+  font-size: 1.5rem;
   line-height: 1.5; }
 
 .display-1 {
@@ -10826,13 +10827,13 @@ p {
       font-size: 1.5rem; } }
 
 .display-5 {
-  font-size: 1.25rem; }
+  font-size: 1.75rem; }
   @media (max-width: 991px) {
     .display-5 {
       font-size: 1rem; } }
 
 .blockquote {
-  padding: 1.25rem;
+  padding: 1.75rem;
   border: 1px solid #ebedf2; }
 
 address p {
@@ -11280,10 +11281,10 @@ code {
 /* Badges */
 .badge {
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 20px;
   font-weight: medium;
   line-height: 1;
-  padding: 5px 7px;
+  padding: 8px 10px;
   font-family: "Rubik", sans-serif; }
   .badge.badge-pill {
     border-radius: 10rem; }
@@ -11564,7 +11565,7 @@ code {
 
 /* Buttons */
 .btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   line-height: 1.71;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
@@ -12184,9 +12185,9 @@ code {
   padding-left: 0; }
   .form-check .form-check-label {
     display: block;
-    margin-left: 1.75rem;
-    font-size: 0.875rem;
-    line-height: 1.5; }
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.25rem; }
     .rtl .form-check .form-check-label {
       margin-left: 0;
       margin-right: 1.75rem; }
@@ -12358,7 +12359,7 @@ code {
   border: 1px solid #ebedf2;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
-  font-size: 0.8125rem;
+  font-size: 1.25rem;
   height: auto;
   padding: 9px 11px;
   border-radius: 0px; }
@@ -12448,7 +12449,7 @@ select.tt-hint {
       outline: 1px solid #3e4b5b; }
 
 .form-group label {
-  font-size: 0.875rem;
+  font-size: 1.75rem;
   line-height: 1;
   vertical-align: top;
   margin-bottom: 0.5rem; }
@@ -13311,7 +13312,7 @@ select.tt-hint {
   .table th,
   .table td {
     vertical-align: middle;
-    font-size: 0.875rem;
+    font-size: 1.5rem;
     line-height: 1;
     white-space: nowrap;
     padding: 14px 0 14px 25px; }
@@ -13515,8 +13516,8 @@ select.tt-hint {
     cursor: pointer;
     font-size: 1.438rem;
     font-weight: 600;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1.75rem;
+    height: 1.75rem;
     line-height: 20px;
     text-align: center; }
   .list-wrapper .completed {
@@ -14946,7 +14947,7 @@ dl {
         .sidebar .nav .nav-item .nav-link i {
           color: inherit; }
           .sidebar .nav .nav-item .nav-link i.menu-icon {
-            font-size: 20px;
+            font-size: 24px;
             line-height: 1;
             margin-right: 10px;
             color: #423a8e; }
@@ -14977,7 +14978,7 @@ dl {
         .sidebar .nav .nav-item .nav-link .menu-title {
           color: #141212;
           display: inline-block;
-          font-size: 15px;
+          font-size: 20px;
           line-height: 1;
           vertical-align: middle; }
           .rtl .sidebar .nav .nav-item .nav-link .menu-title {
@@ -15003,7 +15004,7 @@ dl {
         height: auto;
         line-height: 1;
         border-top: 0;
-        padding: 1.25rem 0; }
+        padding: 1.75rem 0; }
         .sidebar .nav .nav-item.nav-profile .nav-link .nav-profile-image {
           width: 35px;
           height: 35px; }
@@ -15037,7 +15038,7 @@ dl {
         .sidebar .nav .nav-item.sidebar-actions ul li {
           list-style: none;
           color: #423a8e;
-          font-size: 15px;
+          font-size: 24px;
           font-weight: 500; }
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.nav-profile) > .nav-link {
       color: #29323d; }
@@ -15064,7 +15065,7 @@ dl {
             height: 9px;
             border: 2px solid #3e4b5b;
             border-radius: 50%;
-            margin-left: -1.25rem;
+            margin-left: -1.75rem;
             top: 19px;
             top: 50%;
             -webkit-transform: translateY(-50%);
