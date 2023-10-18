@@ -34,7 +34,6 @@ class BannerController extends Controller
         $file_name=$request->photo->getClientOriginalName();
         $request->photo->storeAs('public/images',$file_name);
         $request->merge(['image'=>$file_name]);  
-        $banner=$request->validated();    
         try {
            
             Banner::create($request->all());
