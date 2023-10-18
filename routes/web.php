@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\admin\BannerController;
 
 
 /*
@@ -33,4 +34,5 @@ Route::prefix('admin')->group(function () {
     Route::post('/product/find', [ProductController::class, 'find'])->name('product.find');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::resource('banner', BannerController::class);
 });
