@@ -10,21 +10,6 @@
         <div class="card mt-5">
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
-                    <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" />
-                                <div class="input-group-append">
-                                    <button type="submit" class="input-group-text">
-
-                                        <i class="mdi mdi-magnify"></i>
-
-                                    </button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </li>
 
                 </div>
                 <table class="table">

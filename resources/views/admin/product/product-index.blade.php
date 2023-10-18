@@ -11,14 +11,13 @@
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
                     <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0">
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="POST" action="{{route('product.find')}}">
+                            @csrf
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" />
+                                <input type="text" class="form-control" placeholder="Search" name="keyword"/>
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text">
-
                                         <i class="mdi mdi-magnify"></i>
-
                                     </button>
 
                                 </div>
@@ -88,6 +87,9 @@
                       
                     </tbody>
                 </table>
+                <div class="mt-3 ml-5"> 
+                    {{ $product->links() }}
+                </div>
             </div>
         </div>
     </div>

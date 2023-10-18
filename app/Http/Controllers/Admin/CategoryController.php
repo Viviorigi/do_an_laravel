@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {   
-        $cate =Category::all();
+        $cate =Category::paginate(5);
         return view('admin.category.category-index',compact('cate'));
     }
 
@@ -77,6 +77,7 @@ class CategoryController extends Controller
     public function trash(){
        
         $cate=Category::onlyTrashed()->get();
+        
         return view('admin.category.trash-category',compact('cate'));
     }
 
@@ -87,5 +88,12 @@ class CategoryController extends Controller
     public function forcedelete($id){
         Category::where('id',$id)->forceDelete();
         return redirect()->route('category.trash')->with('success','xóa thành công ');
+    }
+
+    public function find(Request $request) {
+        $cate= Category::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);
+        
+        return view('admin.category.category-index',compact('cate'));
+        
     }
 }
