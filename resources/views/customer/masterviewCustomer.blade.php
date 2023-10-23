@@ -76,8 +76,8 @@
                         <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                         <li><a href="{{ route('checkout') }}">Check Out</a></li>
                         <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                        <li><a href="{{ route('signIn') }}">Sign in</a></li>
-                        <li><a href="{{ route('signUp') }}">Sign up</a></li>
+                        <li><a href="{{ route('login') }}">Sign in</a></li>
+                        <li><a href="{{ route('register') }}">Sign up</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('blog') }}">Blog</a></li>

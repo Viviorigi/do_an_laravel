@@ -26,8 +26,8 @@ Route::get('/products', [CustomerController::class, 'products'])->name('products
 Route::get('/product-detail', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/shopping-cart', [CustomerController::class, 'shoppingCart'])->name('shopping-cart');
 Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
-Route::get('/signIn', [CustomerController::class, 'signIn'])->name('signIn');
-Route::get('/signUp', [CustomerController::class, 'signUp'])->name('signUp');
+Route::get('/login', [CustomerController::class, 'login'])->name('login');
+Route::get('/register', [CustomerController::class, 'register'])->name('register');
 
 
 Route::prefix('admin')->group(function () {
