@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\customer\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,17 @@ use App\Http\Controllers\Admin\BannerController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[CustomerController::class, 'home'])->name('/');
+Route::get('/contact',[CustomerController::class, 'contact'])->name('contact');
+Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
+Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
+Route::get('/products', [CustomerController::class, 'products'])->name('products');
+Route::get('/product-detail', [CustomerController::class, 'productDetail'])->name('product-detail');
+Route::get('/shopping-cart', [CustomerController::class, 'shoppingCart'])->name('shopping-cart');
+Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
+Route::get('/signIn', [CustomerController::class, 'signIn'])->name('signIn');
+Route::get('/signUp', [CustomerController::class, 'signUp'])->name('signUp');
+
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
