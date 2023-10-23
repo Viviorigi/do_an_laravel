@@ -1,6 +1,6 @@
 @extends('admin.masterview')
 @section('title')
-    ADD Product
+   EDIT Product
 @endsection
 
 @section('main-content')
