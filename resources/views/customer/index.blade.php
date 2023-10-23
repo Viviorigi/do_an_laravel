@@ -1,4 +1,9 @@
 @extends('customer.masterviewCustomer')
+@section('load')
+{{-- <div id="preloder">
+    <div class="loader"></div>
+</div> --}}
+@endsection
 @section('main-content')
 <section class="hero">
     <div class="container">

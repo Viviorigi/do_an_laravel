@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\Dashboard;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\customer\CustomerController;
+use App\Http\Controllers\customer\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ use App\Http\Controllers\customer\CustomerController;
 |
 */
 
-Route::get('/',[CustomerController::class, 'home'])->name('/');
+Route::get('/',[CustomerController::class, 'home'])->name('index');
 Route::get('/contact',[CustomerController::class, 'contact'])->name('contact');
 Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
@@ -26,11 +28,14 @@ Route::get('/products', [CustomerController::class, 'products'])->name('products
 Route::get('/product-detail', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/shopping-cart', [CustomerController::class, 'shoppingCart'])->name('shopping-cart');
 Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
-Route::get('/login', [CustomerController::class, 'login'])->name('login');
-Route::get('/register', [CustomerController::class, 'register'])->name('register');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'postlogin']);
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/register', [UserController::class, 'create']);
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
     Route::post('/category/find', [CategoryController::class, 'find'])->name('category.find');
     Route::get('/category/trash', [CategoryController::class,'trash'])->name('category.trash');
@@ -44,3 +49,6 @@ Route::prefix('admin')->group(function () {
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);
 });
+Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
+Route::post('/logon', [AdminController::class, 'postlogon']);
+Route::get('/logoutadmin', [AdminController::class, 'adminlogout'])->name('admin.logout');

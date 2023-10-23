@@ -37,9 +37,7 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+    @yield('load')
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
@@ -49,7 +47,15 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="">Log in<i class="fa-solid fa-user"></i></a></li>
+                @if (Auth::check() && Auth::user()->role == 0)
+                <li>
+                    <a href="">Hello {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                    <a href="{{route('logout')}}"><strong> | Logout</strong></a>
+                </li>  
+                @else
+                <li><a href="{{route('login')}}"> <strong>Login</strong><i class="fa fa-user"></i></a></li>
+                @endif
+                
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
@@ -63,13 +69,10 @@
                     <li><a href="#">English</a></li>
                 </ul>
             </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{ route('/') }}">Home</a></li>
+                <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li>Pages
                     <ul class="header__menu__dropdown">
@@ -77,8 +80,7 @@
                         <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                         <li><a href="{{ route('checkout') }}">Check Out</a></li>
                         <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                        <li><a href="{{ route('login') }}">Sign in</a></li>
-                        <li><a href="{{ route('register') }}">Sign up</a></li>
+                      
                     </ul>
                 </li>
                 <li><a href="{{ route('blog') }}">Blog</a></li>
@@ -145,7 +147,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul class="w-100">
-                            <li class="active"><a href="{{ route('/') }}">Home</a></li>
+                            <li class="active"><a href="{{ route('index') }}">Home</a></li>
                             <li><a href="{{ route('products') }}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
@@ -153,8 +155,7 @@
                                     <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                                     <li><a href="{{ route('checkout') }}">Check Out</a></li>
                                     <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                                    <li><a href="{{ route('signIn') }}">Sign in</a></li>
-                                    <li><a href="{{ route('signUp') }}">Sign up</a></li>
+                                  
                                 </ul>
                             </li>
                             <li><a href="{{ route('blog') }}">Blog</a></li>
@@ -166,7 +167,16 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="{{route('login')}}"> Login <i class="fa fa-user"></i></a></li>
+                            @if (Auth::check() && Auth::user()->role == 0)
+                                                          
+                                    <li>
+                                        <a href="">Hello {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                                        <a href="{{route('logout')}}"><strong> | Logout</strong></a>
+                                    </li>                            
+                                                 
+                            @else
+                            <li><a href="{{route('login')}}"> <strong>Login</strong> <i class="fa fa-user"></i></a></li>
+                            @endif                    
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>

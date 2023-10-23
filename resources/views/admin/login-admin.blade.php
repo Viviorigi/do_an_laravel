@@ -17,16 +17,17 @@
         <div class="row mt-5 ">
         
             <div class="col-lg-6 m-auto box2">
-             <form>
+             <form action="" method="POST">
+              @csrf
                  <!-- Email input -->
                  <div class="form-outline mb-4">
-                   <input type="email" id="form2Example1" class="form-control" />
+                   <input type="email" id="form2Example1" class="form-control" name="email" />
                    <label class="form-label" for="form2Example1">Email address</label>
                  </div>
                
                  <!-- Password input -->
                  <div class="form-outline mb-4">
-                   <input type="password" id="form2Example2" class="form-control" />
+                   <input type="password" id="form2Example2" class="form-control" name="password" />
                    <label class="form-label" for="form2Example2">Password</label>
                  </div>
                
@@ -34,15 +35,12 @@
                  <div class="row mb-4">
                    <div class="col d-flex justify-content-center">
                      <!-- Checkbox -->
-                     <div class="form-check">
-                       <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                       <label class="form-check-label" for="form2Example31"> Remember me </label>
-                     </div>
+                
                    </div>
                  </div>
                
                  <!-- Submit button -->
-                 <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
                
                  <!-- Register buttons -->
         

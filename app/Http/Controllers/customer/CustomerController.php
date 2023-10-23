@@ -27,11 +27,6 @@ class CustomerController extends Controller
     public function productDetail() {
         return view('customer.product-detail');   
     }
-    public function signIn() {
-        return view('customer.signIn');   
-    }
-    public function signUp() {
-        return view('customer.signUp');   
-    }
+   
     
 }
