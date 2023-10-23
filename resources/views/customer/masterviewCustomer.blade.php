@@ -49,6 +49,7 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
+                <li><a href="">Log in<i class="fa-solid fa-user"></i></a></li>
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
@@ -165,6 +166,7 @@
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
+                            <li><a href="{{route('login')}}"> Login <i class="fa fa-user"></i></a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
