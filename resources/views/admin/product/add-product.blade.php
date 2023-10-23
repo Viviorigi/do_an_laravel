@@ -165,7 +165,7 @@
         reader.readAsDataURL(file);
         reader.onload = function() {
             let img = document.getElementById(target);
-            // can also use "this.result"
+          
             img.src = reader.result;
         }
     }
