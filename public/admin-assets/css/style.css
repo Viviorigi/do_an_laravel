@@ -10777,7 +10777,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: medium; }
 
 p {
-  font-size: 0.875rem; }
+  font-size: 1.2rem; }
 
 h1, .h1 {
   font-size: 2.19rem; }
@@ -10798,7 +10798,7 @@ h6, .h6 {
   font-size: 14px; }
 
 p {
-  font-size: .9375rem;
+  font-size: 1.2rem;
   line-height: 1.5; }
 
 .display-1 {
@@ -13311,15 +13311,15 @@ select.tt-hint {
   .table th,
   .table td {
     vertical-align: middle;
-    font-size: 0.875rem;
+    font-size: 1.2rem;
     line-height: 1;
     white-space: nowrap;
     padding: 14px 0 14px 25px; }
     .table th img,
     .table td img {
-      width: 30px;
-      height: 29px;
-      border-radius: 100%; }
+      width: 200px;
+      height: 250px;
+      }
     .table th .badge,
     .table td .badge {
       margin-bottom: 0; }
@@ -14977,7 +14977,7 @@ dl {
         .sidebar .nav .nav-item .nav-link .menu-title {
           color: #141212;
           display: inline-block;
-          font-size: 15px;
+          font-size: 19px;
           line-height: 1;
           vertical-align: middle; }
           .rtl .sidebar .nav .nav-item .nav-link .menu-title {
@@ -15037,7 +15037,7 @@ dl {
         .sidebar .nav .nav-item.sidebar-actions ul li {
           list-style: none;
           color: #423a8e;
-          font-size: 15px;
+          font-size: 18px;
           font-weight: 500; }
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.nav-profile) > .nav-link {
       color: #29323d; }
