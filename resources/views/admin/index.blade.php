@@ -321,13 +321,123 @@
                                 <h5 class="mb-0">$459/mo</h5>
                             </div>
                         </div>
-                        <a class="text-black mt-3 d-block font-weight-medium h6" href="#">View all
-                            <i class="mdi mdi-chevron-right"></i></a>
+                        <div
+                            class="d-flex flex-wrap border-bottom py-2 border-top justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_3.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Villa called Archagel</h5>
+                                <p class="mb-0 text-muted">St, San Diego, CA</p>
+                                <h5 class="mb-0">$600/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_1.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Luxury villa in Hermo</h5>
+                                <p class="mb-0 text-muted">Glendale, CA</p>
+                                <h5 class="mb-0">$900/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_2.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">House on the Clarita</h5>
+                                <p class="mb-0 text-muted">Business Survey</p>
+                                <h5 class="mb-0">$459/mo</h5>
+                            </div>
+                        </div>
+                        <div
+                            class="d-flex flex-wrap border-bottom py-2 border-top justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_3.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Villa called Archagel</h5>
+                                <p class="mb-0 text-muted">St, San Diego, CA</p>
+                                <h5 class="mb-0">$600/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_1.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Luxury villa in Hermo</h5>
+                                <p class="mb-0 text-muted">Glendale, CA</p>
+                                <h5 class="mb-0">$900/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_2.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">House on the Clarita</h5>
+                                <p class="mb-0 text-muted">Business Survey</p>
+                                <h5 class="mb-0">$459/mo</h5>
+                            </div>
+                        </div>
+                        <div
+                            class="d-flex flex-wrap border-bottom py-2 border-top justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_3.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Villa called Archagel</h5>
+                                <p class="mb-0 text-muted">St, San Diego, CA</p>
+                                <h5 class="mb-0">$600/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_1.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Luxury villa in Hermo</h5>
+                                <p class="mb-0 text-muted">Glendale, CA</p>
+                                <h5 class="mb-0">$900/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_2.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">House on the Clarita</h5>
+                                <p class="mb-0 text-muted">Business Survey</p>
+                                <h5 class="mb-0">$459/mo</h5>
+                            </div>
+                        </div>
+                        <div
+                            class="d-flex flex-wrap border-bottom py-2 border-top justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_3.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Villa called Archagel</h5>
+                                <p class="mb-0 text-muted">St, San Diego, CA</p>
+                                <h5 class="mb-0">$600/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_1.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">Luxury villa in Hermo</h5>
+                                <p class="mb-0 text-muted">Glendale, CA</p>
+                                <h5 class="mb-0">$900/mo</h5>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap border-bottom py-2 justify-content-between">
+                            <img class="survey-img mb-lg-3" src="{{asset('admin-assets')}}//images/dashboard/img_2.jpg"
+                                alt="" />
+                            <div class="pt-2">
+                                <h5 class="mb-0">House on the Clarita</h5>
+                                <p class="mb-0 text-muted">Business Survey</p>
+                                <h5 class="mb-0">$459/mo</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-xl-4 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -508,7 +618,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-xl-8 grid-margin stretch-card">
                 <div class="card card-calender">
@@ -881,10 +991,8 @@
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                bootstrapdash.com 2020</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
-                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard template</a>
-                from Bootstrapdash.com</span>
+                C2208i1coder</span>
+            
         </div>
     </footer>
 </div>
