@@ -4,6 +4,7 @@ namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CustomerController extends Controller
 {
@@ -20,7 +21,8 @@ class CustomerController extends Controller
         return view('customer.blog-details');   
     }
     public function products() {
-        return view('customer.products');   
+        $product = Product::all();
+        return view('customer.products',compact('product'));   
     }
     public function productDetail() {
         return view('customer.product-detail');   
