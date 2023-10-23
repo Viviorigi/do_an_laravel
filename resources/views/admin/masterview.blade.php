@@ -76,9 +76,7 @@
                             <div class="border-none">
                                 <p class="text-black">Notification</p>
                             </div>
-                            <ul class="mt-4 pl-0">
-                                <li>Sign Out</li>
-                            </ul>
+                         
                         </div>
                     </div>
                 </li>
@@ -214,7 +212,7 @@
                             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('admin.logout')}}">
                                     <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
                             </div>
                         </li>
