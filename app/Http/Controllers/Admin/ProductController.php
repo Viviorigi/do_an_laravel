@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product=Product::all();
+        $product=Product::paginate(5);
         return view('admin.product.product-index',compact('product'));
     }
 
@@ -123,7 +123,18 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success','khôi phục thành công ');
     }
     public function forcedelete($id){
-        Product::where('id',$id)->forceDelete();
+        ImgProducts::where('product_id',$id)->delete();
+        Product::where('id',$id)->forceDelete();    
         return redirect()->route('product.trash')->with('success','xóa thành công ');
+    }
+    public function find(Request $request) {
+        $product= Product::where('name','LIKE',"%$request->keyword%")
+        ->orwhere('id','LIKE',"%$request->keyword%")
+        ->orwhere('price','LIKE',"%$request->keyword%")
+        ->orwhere('sale_price','LIKE',"%$request->keyword%")
+        ->paginate(5);
+        
+        return view('admin.product.product-index',compact('product'));
+        
     }
 }
