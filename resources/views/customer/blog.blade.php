@@ -8,7 +8,7 @@
                     <div class="breadcrumb__text">
                         <h2>Blog</h2>
                         <div class="breadcrumb__option">
-                            <a href="{{ route('/') }}">Home</a>
+                            <a href="{{ route('index') }}">Home</a>
                             <span>Blog</span>
                         </div>
                     </div>
