@@ -74,12 +74,13 @@
                                 <a href="{{route('product.edit',$item)}}" class="btn btn-primary "> Edit</a>             
                             </td>
                             <td>
-                                <a href="" >
+                               
                                     <form action="{{route('product.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger show-alert-delete-box" >DELETE</button>
                                     </form>
-                                </a>    
+                                 
                             </td>                           
                         </tr>
                         @endforeach
@@ -94,4 +95,8 @@
         </div>
     </div>
     </div>
+@endsection
+
+@section('script_edit')
+    
 @endsection

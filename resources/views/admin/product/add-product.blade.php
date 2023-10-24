@@ -71,8 +71,8 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleSelectGender">Category</label>
-                        <select class="form-control" id="exampleSelectGender" name="category_id">
-                            <option>Category</option>
+                        <select class="form-control js-example-basic-single" name="category_id" >
+                            <option value="">Category</option>
                             @foreach ($cate as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach

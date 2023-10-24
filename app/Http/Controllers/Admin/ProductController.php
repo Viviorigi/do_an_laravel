@@ -9,7 +9,7 @@ use  App\Models\Product;
 use  App\Models\ImgProducts;
 use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class ProductController extends Controller
 {
     /**
@@ -52,9 +52,11 @@ class ProductController extends Controller
                     ]);
                 }
             }
-            return redirect()->route('product.index')->with('success','thêm mới thành công');
+            alert()->success('Thêm mới','thành công');
+            return redirect()->route('product.index')->with('success','Thêm mới thành công');
         } catch (\Throwable $th) {
-            dd($th);
+           
+            alert()->error('Thêm mới','thêm mới thất bại');
             return redirect()->back()->with('error','thêm mới thất bại');
         }
 
@@ -94,9 +96,10 @@ class ProductController extends Controller
                 }
                 
             } 
+            alert()->success('Cập nhật','thành công');
             return redirect()->route('product.index')->with('success','Cập nhật thành công');
         } catch (\Throwable $th) {
-            dd($th);
+            alert()->error('Thêm mới','Cập nhật thất bại');
             return redirect()->back()->with('success','Cập nhật thất bại');
         }
        
@@ -106,11 +109,14 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
-    {
+    {   
+        $product->delete();
         try {
-            $product->delete();
+            
+            alert()->success('Xóa','thành công');
             return redirect()->route('product.index')->with('success','xóa thành công ');
         } catch (\Throwable $th) {
+            alert()->error('Xóa','thất bại');
             return redirect()->back()->with('error','xóa không thành công');
         }   
     }
@@ -121,11 +127,13 @@ class ProductController extends Controller
 
     public function restore($id){
         Product::where('id',$id)->restore();
+        alert()->success('Khôi phục','thành công');
         return redirect()->route('product.index')->with('success','khôi phục thành công ');
     }
     public function forcedelete($id){
         ImgProducts::where('product_id',$id)->delete();
         Product::where('id',$id)->forceDelete();    
+        alert()->success('Xóa vĩnh viễn','thành công');
         return redirect()->route('product.trash')->with('success','xóa thành công ');
     }
     public function find(Request $request) {

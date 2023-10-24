@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use  App\Models\Category;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 class CategoryController extends Controller
 {
     /**
@@ -34,8 +35,10 @@ class CategoryController extends Controller
         $category=$request->validated();
         try {
             Category::create($category);
+            alert()->success('Thêm mới','thành công');
             return redirect()->route('category.index')->with('success','Thêm mới Thành công');
         } catch (\Throwable $th) {
+            alert()->error('Thêm mới','thêm mới thất bại');
             return redirect()->back()->with('error','Thêm mới không thành công');
         }     
     }
@@ -55,8 +58,10 @@ class CategoryController extends Controller
         $updatecategory=$request->validated();
         try {
             $category->update($updatecategory);
+            alert()->success('Cập nhật','thành công');
             return redirect()->route('category.index')->with('success','Sửa thành công ');
         } catch (\Throwable $th) {
+            alert()->error('Thêm mới','Cập nhật thất bại');
             return redirect()->back()->with('error','Sửa không thành công');
         }   
     }
@@ -68,8 +73,10 @@ class CategoryController extends Controller
     {
         try {
             $category->delete();
+            alert()->success('Xóa','thành công');
             return redirect()->route('category.index')->with('success','xóa thành công ');
         } catch (\Throwable $th) {
+            alert()->error('Xóa','thất bại');
             return redirect()->back()->with('error','xóa không thành công');
         }   
     }
@@ -83,10 +90,12 @@ class CategoryController extends Controller
 
     public function restore($id){
         Category::where('id',$id)->restore();
+        alert()->success('Khôi phục','thành công');
         return redirect()->route('category.index')->with('success','khôi phục thành công ');
     }
     public function forcedelete($id){
         Category::where('id',$id)->forceDelete();
+        alert()->success('Xóa vĩnh viễn','thành công');
         return redirect()->route('category.trash')->with('success','xóa thành công ');
     }
 
