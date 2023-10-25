@@ -19,20 +19,20 @@ class StoreBannerRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            'name'=>'required',
-            'photo'=>'required|image',
-            'status'=>'required'
-        ];
-    }
-    public function message(){
-        return[
-            'name.required'=>'not null',
-            'photo.required'=>'not null',
-            'photo.image'=>'not recognize type of image',
-            'status.required'=>'not null',
-        ];
-    }
+        public function rules(): array
+        {
+            return [
+                'name'=>'required',
+                'photo'=>'required|image',
+                'status'=>'required'
+            ];
+        }
+        public function messages(){
+            return[
+                'name.required'=>'Tên không để trống',
+                'photo.required'=>'ảnh không để trống',
+                'photo.image'=>'yêu cầu đúng định dạng ảnh',
+                'status.required'=>'Trạng thái không để trống',
+            ];
+        }
 }

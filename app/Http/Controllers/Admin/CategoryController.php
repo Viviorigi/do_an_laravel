@@ -32,9 +32,8 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {   
-        $category=$request->validated();
         try {
-            Category::create($category);
+            Category::create($request->all());
             alert()->success('Thêm mới','thành công');
             return redirect()->route('category.index')->with('success','Thêm mới Thành công');
         } catch (\Throwable $th) {
@@ -55,9 +54,8 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $updatecategory=$request->validated();
         try {
-            $category->update($updatecategory);
+            $category->update($request->all());
             alert()->success('Cập nhật','thành công');
             return redirect()->route('category.index')->with('success','Sửa thành công ');
         } catch (\Throwable $th) {

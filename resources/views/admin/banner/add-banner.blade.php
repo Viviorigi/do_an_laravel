@@ -4,9 +4,9 @@
 @endsection
 
 @section('main-content')
-    <div class="col-lg-12  grid-margin stretch-card">
-        <div class="col-lg-10 m-auto">
-            <h2>Add banner</h2>
+    <div class="col-lg-12  grid-margin stretch-card mt-5">
+        <div class="col-lg-10 m-auto ">
+            <h2 class="mt-5">Add banner</h2>
             <div class="">
                 
                 <form class="forms-sample" method="POST" action="{{route('banner.store')}}" enctype="multipart/form-data">
@@ -21,18 +21,21 @@
                 @endif
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputUsername1">name</label>
+                        <label for="exampleInputUsername1">Banner name</label>
                         <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username" name="name" />
                     @error('name')
                         <span class="mt-2 text-danger">{{$message}}</span>
                     @enderror
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputUsername1">image</label>
-                        <input type="file" class="form-control" id="exampleInputUsername1" placeholder="Username" name="photo" />
+                        <label for="exampleInputUsername1">Image</label>
+                        <input type="file" class="form-control" id="exampleInputUsername1" onchange="showImg(this,'img')" name="photo" />
                     @error('image')
                         <span class="mt-2 text-danger">{{$message}}</span>
                     @enderror
+                    <div >
+                        <img id="img"  alt="" width="300px">
+                      </div>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
@@ -47,9 +50,25 @@
                           </label>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2"> ADD</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a href="{{ route('banner.index') }}" class="btn btn-light">Cancel</a>
                 </form>
             </div>
         </div>
     </div>
 @endsection
+
+@section('script-edit')
+    <script>
+         function showImg(input, target) {
+        let file = input.files[0];
+        let reader = new FileReader();
+
+        reader.readAsDataURL(file);
+        reader.onload = function() {
+            let img = document.getElementById(target);
+          
+            img.src = reader.result;
+        }
+    }
+    </script>
+@show

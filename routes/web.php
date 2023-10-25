@@ -45,9 +45,13 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/product/{id}/restore', [ProductController::class,'restore'])->name('product.restore');
     Route::get('/product/{id}/forcedelete', [ProductController::class,'forcedelete'])->name('product.forcedelete');
     Route::post('/product/find', [ProductController::class, 'find'])->name('product.find');
+    Route::get('/banner/trash', [BannerController::class,'trash'])->name('banner.trash');
+    Route::get('/banner/{id}/restore', [BannerController::class,'restore'])->name('banner.restore');
+    Route::get('/banner/{id}/forcedelete', [BannerController::class,'forcedelete'])->name('banner.forcedelete');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);
+   
 });
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
 Route::post('/logon', [AdminController::class, 'postlogon']);
