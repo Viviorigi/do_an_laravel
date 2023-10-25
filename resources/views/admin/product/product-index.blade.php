@@ -78,7 +78,7 @@
                                     <form action="{{route('product.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger show-alert-delete-box" >DELETE</button>
+                                        <button type="submit" class="btn btn-danger show-alert-delete-box" onclick="confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
                                     </form>
                                  
                             </td>                           

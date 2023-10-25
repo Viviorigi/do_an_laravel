@@ -259,8 +259,7 @@
     <script src="{{ asset('admin-assets') }}/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
+   
     <script src="{{ asset('admin-assets') }}/js/dashboard.js"></script>
     <!-- End custom js for this page -->
     <script src="{{asset('vendor')}}/sweetaler/sweetalert.all.js"></script>
