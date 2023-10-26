@@ -46,6 +46,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Name</th>
+                            <th>Slug</th>
                             <th>Image</th>
                             <th>Created</th>
                             <th>Status</th>
@@ -58,6 +59,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->name}}</td>
+                            <td>{{$item->slug}}</td>
                             <td>
                                 <img src="{{asset('storage/images')}}/{{$item->image}}" width="200px"    alt="">
                             </td>
