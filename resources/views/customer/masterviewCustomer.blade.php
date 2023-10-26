@@ -36,16 +36,12 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
 
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{asset('Customer-assets')}}/img/logo.png" alt=""></a>
+            <a href="#"><img src="{{asset('Customer-assets')}}/img/logo.png" width="200px" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -64,7 +60,7 @@
                 </ul>
             </div>
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="{{route('login')}}"><i class="fa fa-user"></i> Login</a>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
@@ -77,8 +73,6 @@
                         <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                         <li><a href="{{ route('checkout') }}">Check Out</a></li>
                         <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                        <li><a href="{{ route('login') }}">Sign in</a></li>
-                        <li><a href="{{ route('register') }}">Sign up</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('blog') }}">Blog</a></li>
@@ -139,7 +133,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{asset('Customer-assets')}}/img/logo.png" alt=""></a>
+                        <a href="./index.html"><img src="{{asset('Customer-assets')}}/img/logo.png" width="80px" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -153,8 +147,7 @@
                                     <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                                     <li><a href="{{ route('checkout') }}">Check Out</a></li>
                                     <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                                    <li><a href="{{ route('signIn') }}">Sign in</a></li>
-                                    <li><a href="{{ route('signUp') }}">Sign up</a></li>
+                                   
                                 </ul>
                             </li>
                             <li><a href="{{ route('blog') }}">Blog</a></li>

@@ -63,6 +63,7 @@
 <!-- Categories Section Begin -->
 <section class="categories">
     <div class="container">
+        <h1>featured products</h1>
         <div class="row">
             <div class="categories__slider owl-carousel">
                 <div class="col-lg-3">

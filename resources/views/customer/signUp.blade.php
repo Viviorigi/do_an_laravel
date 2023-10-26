@@ -12,7 +12,7 @@
                     <input class="input100" type="text" name="username" placeholder="Username">
                     <span class="focus-input100"></span>
                 </div>
-
+                
                 <div class="wrap-input100 validate-input" data-validate = "Please enter password">
                     <input class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>

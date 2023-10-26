@@ -992,16 +992,19 @@ ol {
 
 .latest-product__item__pic {
 	float: left;
-	margin-right: 26px;
+	width: 50% !important;
+	margin-right:  5%;	
 }
 
 .latest-product__item__pic img {
 	height: 110px;
-	width: 110px;
+	width: 100%;
+
 }
 
 .latest-product__item__text {
 	overflow: hidden;
+	width: 45% !important;
 	padding-top: 10px;
 }
 
