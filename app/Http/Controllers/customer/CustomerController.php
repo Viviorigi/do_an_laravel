@@ -21,12 +21,11 @@ class CustomerController extends Controller
         return view('customer.blog-details');   
     }
     public function products() {
-        $product = Product::all();
-        return view('customer.products',compact('product'));   
+        $product = Product::orderBy('created_at','DESC')->get();        
+        $latestProduct =  Product::orderBy('created_at','DESC')->take(2)->get();
+        return view('customer.products',compact('product','latestProduct'));   
     }
     public function productDetail() {
         return view('customer.product-detail');   
     }
-   
-    
 }

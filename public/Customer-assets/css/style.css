@@ -29,7 +29,9 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
-
+.logo-img{
+	width: 80px !important;
+}
 html,
 body {
 	height: 100%;
