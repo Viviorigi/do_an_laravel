@@ -28,14 +28,14 @@
                     @enderror
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputUsername1">Image</label>
-                        <input type="file" class="form-control" id="exampleInputUsername1" onchange="showImg(this,'img')" name="photo" />
-                    @error('image')
-                        <span class="mt-2 text-danger">{{$message}}</span>
-                    @enderror
-                    <div >
-                        <img id="img"  alt="" width="300px">
-                      </div>
+                        <label for="">Image</label>
+                        <input type="file" class="form-control" name="photo" id="" onchange="showImg(this,'img')">
+                            @error('photo')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div >
+                              <img id="img" src="" alt="" width="300px">
+                            </div>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
@@ -57,7 +57,7 @@
     </div>
 @endsection
 
-@section('script-edit')
+@section('script_edit')
     <script>
          function showImg(input, target) {
         let file = input.files[0];
@@ -71,4 +71,4 @@
         }
     }
     </script>
-@show
+@endsection

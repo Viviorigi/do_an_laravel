@@ -46,6 +46,7 @@
                         <tr>
                             <th>STT</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Created</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -57,19 +58,25 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->name}}</td>
+                            <td>
+                                <img src="{{asset('storage/images')}}/{{$item->image}}" width="200px"    alt="">
+                            </td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td>
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Hiện":"Ẩn"}}</label>
                             </td>
-                            <td class="d-flex">
+                            <td >
                                 <a href="{{route('category.edit',$item)}}" class="btn btn-primary"> Edit</a>
+                                
+                            </td>     
+                            <td>
                                 <a href="">
                                     <form action="{{route('category.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
                                     </form>
                                 </a>
-                            </td>                           
+                            </td>                      
                         </tr>
                         @endforeach
                         

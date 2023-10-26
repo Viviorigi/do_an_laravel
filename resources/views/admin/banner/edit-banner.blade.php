@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="exampleInputUsername1">Image</label>
                         <input type="file" class="form-control" id="exampleInputUsername1"  name="photo" onchange="showImg(this,'img')" />
-                        @error('image')
+                        @error('photo')
                         <span class="mt-2 text-danger">{{ $message }}</span>
                     @enderror
                         <img id="img" src="{{asset('storage/images')}}/{{$banner->image}}" alt=""  width="300px">

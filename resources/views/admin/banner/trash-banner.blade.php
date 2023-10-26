@@ -45,7 +45,7 @@
                             <td>
                                 <img src="{{asset('storage/images')}}/{{$item->image}}" width="400px"    alt="">
                             </td>
-                            <td class="d-flex">
+                            <td >
                                 <a href="{{route('banner.restore',$item->id)}}" class="btn btn-primary"> RESTORE</a>
                                 
                             </td>    

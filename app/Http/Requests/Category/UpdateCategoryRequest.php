@@ -23,7 +23,8 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:categories,name,'. $this->category->id,
-            'status'=>'required'
+            'status'=>'required',
+            'photo'=>'image'
         ];
     }
     public function messages(){
@@ -31,6 +32,7 @@ class UpdateCategoryRequest extends FormRequest
             'name.required'=>'Tên không để trống',
             'name.unique'=>"Tên $this->name đã tồn tại ",
             'status.required'=>'Trạng thái không để trống',
+            'photo.image'=>'yêu cầu đúng định dạng ảnh'
         ];
     }
 }

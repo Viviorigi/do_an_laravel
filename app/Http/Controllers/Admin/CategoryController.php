@@ -32,6 +32,11 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {   
+        if(!$request->photo==''){
+            $file_name=$request->photo->getClientOriginalName();
+            $request->photo->storeAs('public/images',$file_name);
+            $request->merge(['image'=>$file_name]);  
+        }
         try {
             Category::create($request->all());
             alert()->success('Thêm mới','thành công');
@@ -54,6 +59,11 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
+        if(!$request->photo==''){
+            $file_name=$request->photo->getClientOriginalName();
+            $request->photo->storeAs('public/images',$file_name);
+            $request->merge(['image'=>$file_name]);  
+        }
         try {
             $category->update($request->all());
             alert()->success('Cập nhật','thành công');
