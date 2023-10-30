@@ -31,7 +31,8 @@ class CustomerController extends Controller
         $latestProduct =  Product::orderBy('created_at','DESC')->take(2)->get();
         return view('customer.products',compact('product','latestProduct'));   
     }
-    public function productDetail() {
-        return view('customer.product-detail');   
+    public function productDetail($slug) {
+        $detail = Product::where('slug',$slug)->first();
+        return view('customer.product-detail',compact('detail'));   
     }
 }

@@ -25,7 +25,7 @@ Route::get('/contact',[CustomerController::class, 'contact'])->name('contact');
 Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
 Route::get('/products', [CustomerController::class, 'products'])->name('products');
-Route::get('/product-detail', [CustomerController::class, 'productDetail'])->name('product-detail');
+Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/shopping-cart', [CustomerController::class, 'shoppingCart'])->name('shopping-cart');
 Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
 Route::get('/login', [UserController::class, 'login'])->name('login');

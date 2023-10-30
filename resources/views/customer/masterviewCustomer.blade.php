@@ -75,8 +75,7 @@
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
                 <li>Pages
-                    <ul class="header__menu__dropdown">
-                        <li><a href="{{ route('product-detail') }}">Shop Details</a></li>
+                    <ul class="header__menu__dropdow
                         <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                         <li><a href="{{ route('checkout') }}">Check Out</a></li>
                         <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
@@ -151,7 +150,6 @@
                             <li><a href="{{ route('products') }}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="{{ route('product-detail') }}">Shop Details</a></li>
                                     <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
                                     <li><a href="{{ route('checkout') }}">Check Out</a></li>
                                     <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
