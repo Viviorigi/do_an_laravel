@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create(['name'=>'admin', 'email'=>'admin@admin.com', 'email_verified_at'=> now(), 'password'=> bcrypt('123456'),'role'=>1]);
+        \App\Models\User::factory()->create(['name'=>'admin', 'email'=>'admin@gmail.com', 'email_verified_at'=> now(), 'password'=> bcrypt('123456'),'role'=>1]);
     }
     
 }

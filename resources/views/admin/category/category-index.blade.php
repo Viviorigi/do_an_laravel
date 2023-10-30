@@ -11,10 +11,10 @@
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
                     <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0" method="POST" action="{{route('category.find')}}">
-                            @csrf
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('category.find')}}">
+                           
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="keyword" />
+                                <input type="text" class="form-control" placeholder="Search" name="keyword" value="{{Request::get('keyword')}}" />
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text">
 

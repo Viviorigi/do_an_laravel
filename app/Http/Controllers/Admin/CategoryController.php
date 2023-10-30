@@ -108,6 +108,7 @@ class CategoryController extends Controller
     }
 
     public function find(Request $request) {
+        
         $cate= Category::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);
         
         return view('admin.category.category-index',compact('cate'));

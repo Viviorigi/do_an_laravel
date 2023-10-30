@@ -37,15 +37,16 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
-    Route::post('/category/find', [CategoryController::class, 'find'])->name('category.find');
+    Route::get('/category/find', [CategoryController::class, 'find'])->name('category.find');
     Route::get('/category/trash', [CategoryController::class,'trash'])->name('category.trash');
     Route::get('/category/{id}/restore', [CategoryController::class,'restore'])->name('category.restore');
     Route::get('/category/{id}/forcedelete', [CategoryController::class,'forcedelete'])->name('category.forcedelete');
     Route::get('/product/trash', [ProductController::class,'trash'])->name('product.trash');
     Route::get('/product/{id}/restore', [ProductController::class,'restore'])->name('product.restore');
     Route::get('/product/{id}/forcedelete', [ProductController::class,'forcedelete'])->name('product.forcedelete');
-    Route::post('/product/find', [ProductController::class, 'find'])->name('product.find');
+    Route::get('/product/find', [ProductController::class, 'find'])->name('product.find');
     Route::get('/banner/trash', [BannerController::class,'trash'])->name('banner.trash');
+    Route::get('/banner/find', [BannerController::class, 'find'])->name('banner.find');
     Route::get('/banner/{id}/restore', [BannerController::class,'restore'])->name('banner.restore');
     Route::get('/banner/{id}/forcedelete', [BannerController::class,'forcedelete'])->name('banner.forcedelete');
     Route::resource('category', CategoryController::class);

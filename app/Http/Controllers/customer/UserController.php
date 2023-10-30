@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Auth;
+use App\Http\Requests\customer\SignUp;
+
 class UserController extends Controller
 {
 
@@ -16,13 +18,13 @@ class UserController extends Controller
     public function register() {
         return view('customer.signUp');   
     }
-    public function create(Request $req) {
+    public function create(SignUp $req) {
         
         $req->merge(['password'=>Hash::make($req->password)]);
        
         try {
             User::create($req->all());
-            return redirect()->route('login');
+            return redirect()->route('login')->with('success','Đăng ký thành công');
         } catch (\Throwable $th) {
             //throw $th;
             dd($th);

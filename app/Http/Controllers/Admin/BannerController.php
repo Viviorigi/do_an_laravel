@@ -108,6 +108,12 @@ class BannerController extends Controller
         alert()->success('Xóa vĩnh viễn','thành công');
         return redirect()->route('banner.trash')->with('success','xóa thành công ');
     }
-
+    public function find(Request $request) {
+        
+        $banner= Banner::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);
+        
+        return view('admin.banner.banner-index',compact('banner'));
+        
+    }
 
 }

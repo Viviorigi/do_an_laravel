@@ -11,10 +11,9 @@
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
                     <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0" method="POST" action="{{route('product.find')}}">
-                            @csrf
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('product.find')}}">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="keyword"/>
+                                <input type="text" class="form-control" placeholder="Search" name="keyword" value="{{Request::get('keyword')}}" />
                                 <div class="input-group-append">
                                     <button type="submit" class="input-group-text">
                                         <i class="mdi mdi-magnify"></i>
@@ -43,7 +42,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>
+                            <th >Name</th>
                             <th>Slug</th>
                             <th>Image</th>
                             <th>Price</th>
@@ -58,29 +57,27 @@
                     <tbody>
                         @foreach ($product as $item)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->slug}}</td>
-                            <td><img src="{{asset('storage/images')}}/{{$item->image}}"  width="300px"></td>
-                            <td>{{number_format($item->price)}}đ</td>
-                            <td>{{number_format($item->sale_price)}}đ</td>
-                            <td>{{$item->category->name}}</td>
-                            <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
-                            <td>
+                            <td >{{$loop->iteration}}</td>
+                            <td class="text-wrap" >{{$item->name}}</td>
+                            <td class="text-wrap" >{{$item->slug}}</td>
+                            <td ><img src="{{asset('storage/images')}}/{{$item->image}}"  width="100px"></td>
+                            <td >{{number_format($item->price)}}đ</td>
+                            <td >{{number_format($item->sale_price)}}đ</td>
+                            <td >{{$item->category->name}}</td>
+                            <td >{{date("d/m/Y", strtotime($item->created_at))}}</td>
+                            <td >
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label>
                             </td>
                            
                             <td >
                                 <a href="{{route('product.edit',$item)}}" class="btn btn-primary "> Edit</a>             
                             </td>
-                            <td>
-                               
+                            <td >                              
                                     <form action="{{route('product.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger show-alert-delete-box" onclick="confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
-                                    </form>
-                                 
+                                    </form>                              
                             </td>                           
                         </tr>
                         @endforeach

@@ -17,13 +17,25 @@
 
                         </div>
                     @endif
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Email">
-                        <input class="input100" type="email" name="email" placeholder="Email">
+                    @if($message = Session::get('success'))
+
+                    <div class="alert alert-success alert-block">
+                    
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                    
+                            <strong>{{ $message }}</strong>
+                    
+                    </div>
+                    
+                    @endif
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
+                        <input class="input100" type="email" name="email" value="{{old('email')}}" placeholder="Email"  >
                         <span class="focus-input100"></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-                        <input class="input100" type="password" name="password" placeholder="Password">
+                    <div class="wrap-input100 validate-input" data-validate = "Vui lòng nhập mật khẩu">
+                        <input class="input100" type="password" name="password" placeholder="Password" >
                         <span class="focus-input100"></span>
                     </div>
 
@@ -34,7 +46,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
                             Sign in
                         </button>
                     </div>
