@@ -20,6 +20,12 @@ class CustomerController extends Controller
     public function blogDetails() {
         return view('customer.blog-details');   
     }
+    public function checkout() {
+        return view('customer.checkout');   
+    }
+    public function shoppingCart() {
+        return view('customer.cart');   
+    }
     public function products() {
         $product = Product::orderBy('created_at','DESC')->get();        
         $latestProduct =  Product::orderBy('created_at','DESC')->take(2)->get();

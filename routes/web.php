@@ -33,6 +33,7 @@ Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'create']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/userProfile', [UserController::class, 'userProfile'])->name('userProfile');
 
 
 Route::prefix('admin')->middleware('adminAuth')->group(function () {

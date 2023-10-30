@@ -18,6 +18,9 @@ class UserController extends Controller
     public function register() {
         return view('customer.signUp');   
     }
+    public function userProfile() {
+        return view('customer.userProfile');   
+    }
     public function create(SignUp $req) {
         
         $req->merge(['password'=>Hash::make($req->password)]);
