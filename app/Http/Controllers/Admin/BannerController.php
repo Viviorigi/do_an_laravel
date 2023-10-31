@@ -14,7 +14,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = Banner::all();
+        $banner = Banner::orderBy('updated_at', 'DESC')->paginate(5);
         return view('admin.banner.banner-index',compact('banner'));
     }
 
@@ -111,7 +111,7 @@ class BannerController extends Controller
     public function find(Request $request) {
         
         $banner= Banner::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);
-        
+        $banner->appends(['keyword' => $request->keyword]);
         return view('admin.banner.banner-index',compact('banner'));
         
     }

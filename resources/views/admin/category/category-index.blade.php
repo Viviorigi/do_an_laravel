@@ -85,7 +85,7 @@
                       
                     </tbody>
                 </table>
-                <div class="mt-3 ml-5"> 
+                <div class="mt-3 m-4"> 
                     {{ $cate->links() }}
                 </div>
                

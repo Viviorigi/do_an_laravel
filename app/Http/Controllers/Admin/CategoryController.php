@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {   
-        $cate =Category::paginate(5);
+        $cate =Category::orderBy('updated_at', 'DESC')->paginate(5);
         return view('admin.category.category-index',compact('cate'));
     }
 
@@ -110,7 +110,7 @@ class CategoryController extends Controller
     public function find(Request $request) {
         
         $cate= Category::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);
-        
+        $cate->appends(['keyword' => $request->keyword]);
         return view('admin.category.category-index',compact('cate'));
         
     }
