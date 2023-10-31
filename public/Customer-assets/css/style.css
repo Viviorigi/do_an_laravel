@@ -1742,7 +1742,6 @@ ol {
 
 .product__details__text ul li b {
 	font-weight: 700;
-	width: 170px;
 	display: inline-block;
 }
 
@@ -3467,4 +3466,8 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+}
+.des-pro{
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 20px !important;
 }

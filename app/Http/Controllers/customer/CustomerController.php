@@ -33,6 +33,8 @@ class CustomerController extends Controller
     }
     public function productDetail($slug) {
         $detail = Product::where('slug',$slug)->first();
-        return view('customer.product-detail',compact('detail'));   
+        $related = Product::where('category_id',$detail->category_id)->where('id','!=',$detail->id)->get();
+
+        return view('customer.product-detail',compact('detail','related'));   
     }
 }
