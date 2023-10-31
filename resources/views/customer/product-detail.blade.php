@@ -43,7 +43,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h3>{{$detail->name}}</h3>  
-                        <div class="product__details__price">{{$detail->sale_price}} VND</div>
+                        <div class="d-flex align-items-center"><h4><del >{{number_format($detail->price)}}VNĐ</h4> </del> <h3 class="text-danger mt-3">  {{number_format($detail->sale_price)}} VNĐ</h4></div>
                         <div>{!!$detail->description!!}</div>
                         <div class="product__details__quantity">
                             <div class="quantity">
@@ -55,7 +55,7 @@
                         <a href="#" class="primary-btn">ADD TO CARD</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
-                            <li><label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label></li>
+                            <li><label class="badge {{$detail->status?"badge-success":"badge-danger"}} ">{{$detail->status?"Còn hàng":"Hết hàng" }}</label></li>
                             <li class=""><b>Giao ngay trong hôm nay </b></li>
                             <li><b>Khối lượng</b> <span>1 kg</span></li>
                             <li><b>Chia sẻ ngay :</b><br>
@@ -65,7 +65,7 @@
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                     <a href="#"><i class="fa fa-pinterest"></i></a>
                                 </div>
-                            </li>
+                            </li>   
                         </ul>
                     </div>
                 </div>
@@ -113,8 +113,8 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                        <h6><a href="#">{{$item->name}}</a></h6>
-                            <h5>{{$item->sale_price}}</h5>
+                        <h4 style="font-weight: bold"><a href="{{ route('product-detail',$item->slug) }}" style="font-size: 16px">{{$item->name}}</a></h4>
+                            <h6 style="font-weight: bold"><del>{{number_format($item->price)}}VNĐ</del>  {{number_format($item->sale_price)}}VNĐ</h6>
                         </div>
                     </div>
                 </div>
