@@ -1,4 +1,4 @@
 @extends('customer.masterviewCustomer')
-@section('mian-content')
+@section('main-content')
     
 @endsection
