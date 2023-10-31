@@ -1,5 +1,5 @@
 @extends('customer.masterviewCustomer')
-
+@section('main-content')
 @section('main-content')
 <section style="background-color: #eee;">
     <div class="container py-5">
