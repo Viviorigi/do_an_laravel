@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product=Product::paginate(5);
+        $product=Product::orderBy('updated_at', 'DESC')->paginate(5);
         return view('admin.product.product-index',compact('product'));
     }
 
@@ -141,8 +141,9 @@ class ProductController extends Controller
         ->orwhere('id','LIKE',"%$request->keyword%")
         ->orwhere('price','LIKE',"%$request->keyword%")
         ->orwhere('sale_price','LIKE',"%$request->keyword%")
+        ->orderBy('updated_at', 'DESC')
         ->paginate(5);
-        
+        $product->appends(['keyword' => $request->keyword]);
         return view('admin.product.product-index',compact('product'));
         
     }

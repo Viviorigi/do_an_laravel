@@ -25,11 +25,11 @@
                     </li>                 
                 </div>
                 
-                <div class="m-2 d-flex justify-content-between">
-                    <a href="{{route('product.create')}}" class="btn btn-success">ADD new Product</a>
-                    <a href="{{route('product.trash')}}" class="btn btn-primary mr-5">Trash <i class="mdi mdi-delete"></i></a>
+                <div class="m-2 d-flex justify-content-lg-between justify-content-md-around ">
+                    <a href="{{route('product.create')}}" class="btn btn-success ml-3">ADD new Product</a>
+                    <a href="{{route('product.trash')}}" class="btn btn-primary mr-3 ">Trash <i class="mdi mdi-delete"></i></a>
                 </div>
-                <table class="table">
+                <table class="table-responsive " >
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 
@@ -41,29 +41,27 @@
                     @endif
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th >Name</th>
-                            <th>Slug</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Sale Price</th>
-                            <th>Category</th>
-                            <th>Created</th>
-                            <th>Status</th>            
-                            <th colspan="1">Action</th>   
+                            <th class="pl-2">STT</th>
+                            <th >Name</th>                        
+                            <th >Image</th>
+                            <th >Price/Sale Price</th>                        
+                            <th >Category</th>
+                            <th >Created</th>
+                            <th >Status</th>            
+                            <th >Action</th>   
                             <th></th>             
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($product as $item)
                         <tr>
-                            <td >{{$loop->iteration}}</td>
+                            <td class="pl-2 mr-3">{{$loop->iteration}}</td>
                             <td class="text-wrap" >{{$item->name}}</td>
-                            <td class="text-wrap" >{{$item->slug}}</td>
-                            <td ><img src="{{asset('storage/images')}}/{{$item->image}}"  width="100px"></td>
-                            <td >{{number_format($item->price)}}đ</td>
-                            <td >{{number_format($item->sale_price)}}đ</td>
-                            <td >{{$item->category->name}}</td>
+                            
+                            <td ><img src="{{asset('storage/images')}}/{{$item->image}}"  width="150px"></td>
+                            <td >{{number_format($item->price)}}đ/{{number_format($item->sale_price)}}đ</td>
+                           
+                            <td class="text-center">{{$item->category->name}}</td>
                             <td >{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td >
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label>
@@ -76,7 +74,7 @@
                                     <form action="{{route('product.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger show-alert-delete-box" onclick="confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
+                                        <button type="submit" class="btn btn-danger show-alert-delete-box" >DELETE</button>
                                     </form>                              
                             </td>                           
                         </tr>
@@ -85,7 +83,7 @@
                       
                     </tbody>
                 </table>
-                <div class="mt-3 ml-5"> 
+                <div class="mt-3 m-4"> 
                     {{ $product->links() }}
                 </div>
             </div>

@@ -6,10 +6,11 @@
 @section('main-content')
     <div class="col-lg-12 mt-5 grid-margin stretch-card">
         <br>
-
+        
         <div class="card mt-5">
-            <div class="table-responsive">
-                <table class="table">
+            <h2>Product Trash</h2>
+            
+                <table class="table-responsive">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 
@@ -21,30 +22,27 @@
                     @endif
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Sale Price</th>
-                            <th>Category</th>
-                            <th>Created</th>
-                            <th>Status</th>            
-                            <th colspan="1">Action</th>   
-                            <th></th>             
+                            <th class="pl-2">STT</th>
+                            <th  >Name</th>                       
+                            <th >Image</th>
+                            <th >Price/Sale Price</th>                        
+                            <th >Category</th>
+                            <th >Status</th>            
+                            <th >Action</th>   
+                            <th ></th>             
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($product as $item)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->slug}}</td>
-                            <td><img src="{{asset('storage/images')}}/{{$item->image}}"  width="300px"></td>
-                            <td>{{number_format($item->price)}}đ</td>
-                            <td>{{number_format($item->sale_price)}}đ</td>
-                            <td>{{$item->category->name}}</td>
-                            <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
+                            <td class="pl-2">{{$loop->iteration}}</td>
+                            <td class="text-wrap">{{$item->name}}</td>
+                            
+                            <td><img src="{{asset('storage/images')}}/{{$item->image}}"  width="150px"></td>
+                            <td>{{number_format($item->price)}}đ/{{number_format($item->sale_price)}}đ</td>
+                           
+                            <td class="text-center">{{$item->category->name}}</td>
+                            
                             <td>
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"Còn hàng":"Hết hàng" }}</label>
                             </td>
@@ -64,7 +62,7 @@
                       
                     </tbody>
                 </table>
-            </div>
+            
         </div>
     </div>
     </div>
