@@ -20,8 +20,8 @@
             <div class="card-body text-center">
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                 class="rounded-circle img-fluid mb-2" style="width: 150px;">
-                <div class="w-50 m-auto">
-                    <input type="file" name="photo" id="">
+                <div class="mb-2 mt-2">
+                    <input type="file" class="w-50 m-auto" name="photo" id="">
                 </div>
               <div class="d-flex justify-content-center mb-2">
                 <button type="button" class="btn btn-primary">Follow</button>
@@ -85,76 +85,79 @@
                   <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card mb-4 mb-md-0">
-                <div class="card-body">
-                  <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                  </p>
-                  <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                  <div class="progress rounded mb-2" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card mb-4 mb-md-0">
-                <div class="card-body">
-                  <p class="mb-4"><span class="text-primary font-italic me-1">assigment</span> Project Status
-                  </p>
-                  <p class="mb-1" style="font-size: .77rem;">Web Design</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Website Markup</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
-                  <div class="progress rounded" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
-                  <div class="progress rounded mb-2" style="height: 5px;">
-                    <div class="progress-bar" role="progressbar" style="width: 66%" aria-valuenow="66"
-                      aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
+              <hr>
+              <div class="row">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modelId">
+                  Đổi mật khẩu
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form method="POST" action="" class=" p-4">
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1">Mật khẩu cũ</label>
+                                  <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                                    <span></span>    
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">Mật khẩu mới</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" >
+                                    <span></span>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" >
+                                    <span></span>
+                                </div>
+                                <button type="button" class="btn btn-success">Đổi ngay</button>
+                              </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="row px-3">
+            <div class="bg-white w-100">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+              
+        </div>
         </div>
       </div>
     </div>
