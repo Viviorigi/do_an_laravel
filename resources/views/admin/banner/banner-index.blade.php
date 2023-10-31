@@ -82,6 +82,9 @@
                       
                     </tbody>
                 </table>
+                <div class="mt-3 m-4"> 
+                    {{ $banner->links() }}
+                </div>
             </div>
         </div>
     </div>

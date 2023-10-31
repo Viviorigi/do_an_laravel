@@ -1985,7 +1985,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem; }
+ }
 
 button {
   border-radius: 0; }
@@ -3523,13 +3523,13 @@ pre {
     .table-responsive-sm > .table-bordered {
       border: 0; } }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768px) {
   .table-responsive-md {
     display: block;
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch; }
-    .table-responsive-md > .table-bordered {
+    .table-responsive-sm > .table-bordered {
       border: 0; } }
 
 @media (max-width: 991.98px) {
@@ -13302,27 +13302,28 @@ select.tt-hint {
       border-bottom-width: 1px;
       font-family: "Rubik", sans-serif;
       font-weight: 500;
-      padding-left: 25px; }
+      padding-left: 7px; }
       .rtl .table thead th {
-        padding-left: 0;
-        padding-right: 25px; }
-      .table thead th i {
-        margin-left: 0.325rem; }
+        padding-left: 3px;
+        padding-right: 7px; }
+     
   .table th,
   .table td {
     vertical-align: middle;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1;
     white-space: nowrap;
-    padding: 14px 0 14px 25px; }
+    margin: 10px 0 !important;
+    padding: 10px 10px 10px 10px; }
     .table th img,
     .table td img {
-      width: 200px;
-      height: 250px;
+      
+      width: 180px;
+      height: 230px;
       }
     .table th .badge,
     .table td .badge {
-      margin-bottom: 0; }
+      margin-top: 5px; }
   .table.table-borderless {
     border: none; }
     .table.table-borderless tr,
@@ -13332,7 +13333,7 @@ select.tt-hint {
 
 .table-responsive {
   display: inline-table; }
-  @media (max-width: 767px) {
+  @media (max-width: 1025px) {
     .table-responsive {
       display: block; } }
 

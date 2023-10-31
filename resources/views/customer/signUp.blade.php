@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="container-login100-form-btn mb-5">
-                        <button class="login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
                             Sign up
                         </button>
                     </div>
