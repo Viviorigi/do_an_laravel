@@ -23,7 +23,8 @@
     <link rel="stylesheet" href="{{asset('Customer-assets')}}/css/style.css" type="text/css">
 
     {{-- Css account  --}}
-   	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+   
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/animate/animate.css">
@@ -32,7 +33,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/select2/select2.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/daterangepicker/daterangepicker.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/util.css">
-        <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/main.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/main.css">  
 </head>
 
 <body>

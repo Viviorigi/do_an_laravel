@@ -57,8 +57,14 @@ class Cart{
     //cap nhat
     public function update($id,$quantity=1)  {
         if(isset($this->items[$id])){
-            $this->items[$id]['quantity'] =$quantity;
+            if($quantity==0){
+                unset($this->items[$id]);
+            }else{
+                $this->items[$id]['quantity'] =$quantity;  
+            }
+                 
         }
+        
         session(['cart'=>$this->items]);
     }
     //xoa het

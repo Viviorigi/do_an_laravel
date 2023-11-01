@@ -28,6 +28,7 @@
                 <div class="m-2 d-flex justify-content-lg-between justify-content-md-around ">
                     <a href="{{route('product.create')}}" class="btn btn-success ml-3">ADD new Product</a>
                     <a href="{{route('product.trash')}}" class="btn btn-primary mr-3 ">Trash <i class="mdi mdi-delete"></i></a>
+                    
                 </div>
                 <table class="table-responsive " >
                     @if ($message = Session::get('success'))

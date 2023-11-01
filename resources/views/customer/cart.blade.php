@@ -1,6 +1,6 @@
 @extends('customer.masterviewCustomer')
 @section('main-content')
-    <!-- Breadcrumb Section Begin -->
+  
     <section class="breadcrumb-section set-bg" data-setbg="{{asset('Customer-assets')}}/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
@@ -16,9 +16,7 @@
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
 
-    <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
         <div class="container">
             <div class="row">
@@ -31,7 +29,7 @@
                                     <th class="text-center">Price</th>
                                     <th class="text-center">Quantity</th>
                                     <th class="text-center">SubTotal</th>
-                                    <th class="text-right"><a href=""><span class="icon_close" style="font-size: 22px"></span></a></th>
+                                    <th class="text-right"><a href="{{route('cart.clear')}}" onclick="return confirm('Ban chac chan muon xoa het khoi gio')"><span class="icon_close" style="font-size: 22px"></span></a></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,8 +44,8 @@
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="number" name="quantity" class="qty" data-id="{{$item['product_id']}}" onchange="updateQuantity(this)" value="{{$item['quantity']}}">
+                                            <div class="pro-qty1">                                    
+                                                <input type="number" name="quantity" class="qty" data-id="{{$item['product_id']}}" onchange="updateQuantity(this)"  value="{{$item['quantity']}}">
                                             </div>
                                         </div>
                                     </td>
@@ -69,7 +67,7 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="{{route('products')}}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        <a href="{{route('cart.index')}}" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                             Upadate Cart</a>
                     </div>
                 </div>
@@ -105,7 +103,7 @@
             </div>
         </div>
     </section>
-    <!-- Shoping Cart Section End -->
+   
     <form action="{{route('cart.update')}}" method="POST" id="updateCartQty">
         @csrf
         <input type="hidden" name="id" id='id'>
@@ -115,12 +113,10 @@
 
 @section('custom-js')
     <script>
-        var input = document.getElementById('testNumber');
      function updateQuantity(qty){
         $('#id').val($(qty).data('id'));
         $('#quantity').val($(qty).val());
         $('#updateCartQty').submit();     
      }
- 
     </script>
 @endsection
