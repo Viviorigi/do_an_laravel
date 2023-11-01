@@ -134,7 +134,7 @@
                                             </div>
                                             <div class="latest-product__item__text">
                                                 <h6>{{$item->name}}</h6>
-                                                <span>{{$item->price}}</span>
+                                                <span>{{number_format($item->sale_price)}}VNĐ</span>
                                             </div>
                                         </a>
                                         @endforeach
@@ -159,13 +159,13 @@
                                             <div class="product__discount__percent">-20%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{ route('product-detail',$item->slug) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
-                                            <span>{{$item->category->name}}</span>
-                                            <h5><a href="#">{{$item->name}}</a></h5>
-                                            <div class="product__item__price">{{$item->sale_price}}<span>{{$item->price}}</span></div>
+                                            
+                                            <a href="{{ route('product-detail',$item->slug) }}"><h5>{{$item->name}}</h5></a>
+                                            <div class="product__item__price">{{number_format($item->sale_price)}} VNĐ <span>{{number_format($item->price)}} VNĐ</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -208,8 +208,8 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">{{$item->name}}</a></h6>
-                                    <h5>{{$item->price}}</h5>
+                                    <a href="{{ route('product-detail',$item->slug) }}" ><h4>{{$item->name}}</h4></a>
+                                    <h5>{{number_format($item->sale_price)}}VNĐ <del style="font-size: 14px">{{number_format($item->price)}}VNĐ</del></h5>
                                 </div>
                             </div>
                         </div>

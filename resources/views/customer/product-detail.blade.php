@@ -42,18 +42,24 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>{{$detail->name}}</h3>  
-                        <div class="d-flex align-items-center"><h4><del >{{number_format($detail->price)}}VNĐ</h4> </del> <h3 class="text-danger mt-3">  {{number_format($detail->sale_price)}} VNĐ</h4></div>
+                        <h2>{{$detail->name}}</h2>  
+                        <div class="d-flex "><h4 class="mt-2 pr-2"><del >{{number_format($detail->price)}}VNĐ  </h4> </del><h2 class="text-danger mt-1 ">  {{number_format($detail->sale_price)}} VNĐ</h2></div>
                         <div>{!!$detail->description!!}</div>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                        <div class="d-flex">
+                            <form action="{{route('cart.add')}}"   method="POST">    
+                                @csrf            
+                                <input type="hidden" name="id" value="{{$detail->id}}">
+                            <div class="product__details__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1" name="quantity">
+                                    </div>
                                 </div>
                             </div>
+                            <button  type="submit" class="primary-btn" >ADD TO CARD</button>
+                            </form>
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><label class="badge {{$detail->status?"badge-success":"badge-danger"}} ">{{$detail->status?"Còn hàng":"Hết hàng" }}</label></li>
                             <li class=""><b>Giao ngay trong hôm nay </b></li>

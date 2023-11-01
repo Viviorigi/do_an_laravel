@@ -57,7 +57,7 @@
                 @endif
                 
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
             </ul>
         </div>
         <div class="humberger__menu__widget">
@@ -74,14 +74,6 @@
             <ul>
                 <li class="active"><a href="{{ route('index') }}">Home</a></li>
                 <li><a href="./shop-grid.html">Shop</a></li>
-                <li>Pages
-                    <ul class="header__menu__dropdow
-                        <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
-                        <li><a href="{{ route('checkout') }}">Check Out</a></li>
-                        <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                      
-                    </ul>
-                </li>
                 <li><a href="{{ route('blog') }}">Blog</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
@@ -148,14 +140,6 @@
                         <ul class="w-100">
                             <li class="active"><a href="{{ route('index') }}">Home</a></li>
                             <li><a href="{{ route('products') }}">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="{{ route('shopping-cart') }}">Shoping Cart</a></li>
-                                    <li><a href="{{ route('checkout') }}">Check Out</a></li>
-                                    <li><a href="{{ route('blog-details') }}">Blog Details</a></li>
-                                  
-                                </ul>
-                            </li>
                             <li><a href="{{ route('blog') }}">Blog</a></li>
                             <li><a href="{{ route('contact') }}">Contact</a></li>
                             
@@ -176,7 +160,7 @@
                             <li><a href="{{route('login')}}"> <strong>Login</strong> <i class="fa fa-user"></i></a></li>
                             @endif                    
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -276,8 +260,8 @@
 	<script src="{{asset('account')}}/vendor/daterangepicker/daterangepicker.js"></script>
 	<script src="{{asset('account')}}/vendor/countdowntime/countdowntime.js"></script>
 	<script src="{{asset('account')}}/js/main.js"></script>
-
-
+    
+    @yield('custom-js')
 </body>
 
 </html>

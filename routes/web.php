@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
+use App\Http\Controllers\customer\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,7 @@ Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
 Route::get('/products', [CustomerController::class, 'products'])->name('products');
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
-Route::get('/shopping-cart', [CustomerController::class, 'shoppingCart'])->name('shopping-cart');
-Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
+
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
@@ -35,6 +35,10 @@ Route::post('/register', [UserController::class, 'create']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/userProfile', [UserController::class, 'userProfile'])->name('userProfile');
 
+Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');
+Route::get('cart', [CartController::class, 'index'])->name('cart.index');
+Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
+Route::get('remove-item-cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
