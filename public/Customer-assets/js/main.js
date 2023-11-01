@@ -221,7 +221,6 @@
         $button.parent().find('input').val(newVal);
         var input=document.getElementsByClassName('qty');
         console.log(input);
-        input=newVal;
     });
 
 })(jQuery);

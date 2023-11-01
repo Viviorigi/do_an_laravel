@@ -40,6 +40,7 @@ Route::get('cart', [CartController::class, 'index'])->name('cart.index');
 Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
 Route::get('remove-item-cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::get('cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
