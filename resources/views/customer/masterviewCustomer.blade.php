@@ -239,7 +239,7 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-
+    
     <!-- Js Plugins -->
     <script src="{{asset('Customer-assets')}}/js/jquery-3.3.1.min.js"></script>
     <script src="{{asset('Customer-assets')}}/js/bootstrap.min.js"></script>
@@ -249,9 +249,9 @@
     <script src="{{asset('Customer-assets')}}/js/mixitup.min.js"></script>
     <script src="{{asset('Customer-assets')}}/js/owl.carousel.min.js"></script>
     <script src="{{asset('Customer-assets')}}/js/main.js"></script>
-
+    
     {{-- account js --}}
-    <script src="{{asset('account')}}/vendor/jquery/jquery-3.2.1.min.js"></script>
+    {{-- <script src="{{asset('account')}}/vendor/jquery/jquery-3.2.1.min.js"></script> --}}
 	<script src="{{asset('account')}}/vendor/animsition/js/animsition.min.js"></script>
 	<script src="{{asset('account')}}/vendor/bootstrap/js/popper.js"></script>
 	<script src="{{asset('account')}}/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -260,8 +260,8 @@
 	<script src="{{asset('account')}}/vendor/daterangepicker/daterangepicker.js"></script>
 	<script src="{{asset('account')}}/vendor/countdowntime/countdowntime.js"></script>
 	<script src="{{asset('account')}}/js/main.js"></script>
-    
     @yield('custom-js')
+   
 </body>
 
 </html>

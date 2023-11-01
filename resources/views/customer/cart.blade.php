@@ -47,7 +47,7 @@
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
-                                                <input type="number" class="qty"  value="{{$item['quantity']}}">
+                                                <input type="number" name="quantity" class="qty" data-id="{{$item['product_id']}}" onchange="updateQuantity(this)" value="{{$item['quantity']}}">
                                             </div>
                                         </div>
                                     </td>
@@ -106,12 +106,21 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    <form action="{{route('cart.update')}}" method="POST" id="updateCartQty">
+        @csrf
+        <input type="hidden" name="id" id='id'>
+        <input type="hidden" name="quantity" id='quantity'>
+    </form>
 @endsection
 
 @section('custom-js')
     <script>
-        $('.qty').click(()=>{
-            alert('ok')
-        })
+        var input = document.getElementById('testNumber');
+     function updateQuantity(qty){
+        $('#id').val($(qty).data('id'));
+        $('#quantity').val($(qty).val());
+        $('#updateCartQty').submit();     
+     }
+ 
     </script>
 @endsection
