@@ -37,7 +37,7 @@
                             <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column pr-3">
-                            <span class="font-weight-medium mb-2">Henry Klein</span>
+                            <span class="font-weight-medium mb-2">{{Auth::user()->name}}</span>
                             <span class="font-weight-normal">$8,753.00</span>
                         </div>
                         <span class="badge badge-danger text-white ml-3 rounded">3</span>
@@ -210,7 +210,7 @@
                                 data-toggle="dropdown">
                                 <img class="nav-profile-img mr-2" alt=""
                                     src="{{ asset('admin-assets') }}//images/faces/face1.jpg" />
-                                <span class="profile-name">Henry Klein</span>
+                                <span class="profile-name">{{Auth::user()->name}}</span>
                             </a>
                             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
                                 <a class="dropdown-item" href="#">

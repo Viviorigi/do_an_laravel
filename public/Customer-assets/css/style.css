@@ -3491,3 +3491,16 @@ ol {
 	font-family: 'Times New Roman', Times, serif;
 	font-size: 20px !important;
 }
+
+.page-link{
+	line-height: 1.25rem !important;
+	
+}
+.page-item.active .page-link{
+	color:#ededed !important;	
+	background-color:#7fad39 !important;
+	border-color:#7fad39 !important;
+}
+.page-link{
+	color:#6AB963 !important;
+}

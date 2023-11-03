@@ -27,8 +27,8 @@ class CustomerController extends Controller
         return view('customer.cart');   
     }
     public function products() {
-        $product = Product::orderBy('created_at','DESC')->get();        
-        $latestProduct =  Product::orderBy('created_at','DESC')->take(2)->get();
+        $product = Product::orderBy('created_at','DESC')->paginate(9);        
+        $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
         return view('customer.products',compact('product','latestProduct'));   
     }
     public function productDetail($slug) {
