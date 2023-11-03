@@ -88,9 +88,9 @@
                         <ul>
                             <li>Total 
                                 @if ($cart->list() !='')
-                                <span> {{number_format($cart->getTotalPrice())}}Đ</span>
+                                <span> {{number_format($cart->getTotalPrice())}} Đ</span>
                                 @else
-                                <span>0 Đ</span>
+                                <span>0   Đ</span>
                                 @endif
                                 
                             
