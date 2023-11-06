@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
+use App\Http\Controllers\customer\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,10 +39,12 @@ Route::get('/userProfile', [UserController::class, 'userProfile'])->name('userPr
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');
 Route::get('cart', [CartController::class, 'index'])->name('cart.index');
-Route::get('/checkout', [CustomerController::class, 'checkout'])->name('checkout');
 Route::get('remove-item-cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::get('cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+Route::post('/postcheckout', [OrderController::class, 'postcheckout'])->name('post.checkout');
+Route::get('/checkout-success',[OrderController::class, 'success'])->name('checkout.success');
 
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');

@@ -1,9 +1,9 @@
 <?php
 namespace App\Helper;
 class Cart{
-    private $items=[];
-    private $total_quantity=0;
-    private $total_price=0;
+    public $items=[];
+    public $total_quantity=0;
+    public $total_price=0;
     
     public function __construct(){
         $this->items =session('cart')? session('cart'):[];

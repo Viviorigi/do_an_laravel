@@ -20,9 +20,6 @@ class CustomerController extends Controller
     public function blogDetails() {
         return view('customer.blog-details');   
     }
-    public function checkout() {
-        return view('customer.checkout');   
-    }
     public function shoppingCart() {
         return view('customer.cart');   
     }
