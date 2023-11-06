@@ -25,29 +25,29 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_phone"></span>
-                        <h4>Liên hệ</h4>
-                        <p>+84-981-673-718</p>
+                        <h4>Phone</h4>
+                        <p>+01-3-8888-6868</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_pin_alt"></span>
-                        <h4>Địa chỉ</h4>
-                        <p>Tòa Nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam</p>
+                        <h4>Address</h4>
+                        <p>60-49 Road 11378 New York</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_clock_alt"></span>
-                        <h4>Thời gian hoạt động</h4>
-                        <p>9:30 đến 20:59 pm</p>
+                        <h4>Open time</h4>
+                        <p>10:00 am to 23:00 pm</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 text-center">
                     <div class="contact__widget">
                         <span class="icon_mail_alt"></span>
                         <h4>Email</h4>
-                        <p>mkccl1810@gmail.com</p>
+                        <p>hello@colorlib.com</p>
                     </div>
                 </div>
             </div>
@@ -58,15 +58,17 @@
     <!-- Map Begin -->
     <div class="map">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.6585385736216!2d105.78092597500091!3d21.04634448717487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab3b4220c2bd%3A0x1c9e359e2a4f618c!2sB%C3%A1ch%20Khoa%20Aptech!5e0!3m2!1svi!2s!4v1698914299628!5m2!1svi!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.6585385736216!2d105.78092597500091!3d21.
+            04634448717487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab3b4220c2bd%3A0x1c9e359e2a4f618c!2sB%C3
+            %A1ch%20Khoa%20Aptech!5e0!3m2!1svi!2s!4v1698914299628!5m2!1svi!2s"
             height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         <div class="map-inside">
             <i class="icon_pin"></i>
             <div class="inside-widget">
-                <h4>Hà Nội</h4>
+                <h4>New York</h4>
                 <ul>
-                    <li>Điện thoại: +84-981-673-718</li>
-                    <li>Địa chỉ:Tòa Nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam</li>
+                    <li>Phone: +12-345-6789</li>
+                    <li>Add: 16 Creek Ave. Farmingdale, NY</li>
                 </ul>
             </div>
         </div>
@@ -79,7 +81,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact__form__title">
-                        <h2>Gửi lời nhắn đến chúng tôi</h2>
+                        <h2>Leave Message</h2>
                     </div>
                 </div>
             </div>
@@ -93,7 +95,7 @@
                     </div>
                     <div class="col-lg-12 text-center">
                         <textarea placeholder="Your message"></textarea>
-                        <button type="submit" class="site-btn">Gửi ngay</button>
+                        <button type="submit" class="site-btn">SEND MESSAGE</button>
                     </div>
                 </div>
             </form>
