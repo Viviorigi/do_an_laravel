@@ -1,15 +1,15 @@
 @extends('customer.masterviewCustomer')
 @section('main-content')
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{asset('customer-assets')}}/img/breadcrumb.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{{asset('Customer-assets')}}/img/banner.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Organi Shop</h2>
+                        <h2>Sản phẩm</h2>
                         <div class="breadcrumb__option">
-                            <a href="./index.html">Home</a>
-                            <span>Shop</span>
+                            <a href="{{ route('index') }}">Trang chủ</a>
+                            <span>Sản phẩm</span>
                         </div>
                     </div>
                 </div>

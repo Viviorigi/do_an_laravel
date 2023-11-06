@@ -1,15 +1,15 @@
 @extends('customer.masterviewCustomer')
 @section('main-content')
      <!-- Breadcrumb Section Begin -->
-     <section class="breadcrumb-section set-bg" data-setbg="{{asset('Customer-assets')}}/img/breadcrumb.jpg">
+     <section class="breadcrumb-section set-bg" data-setbg="{{asset('Customer-assets')}}/img/banner.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>Contact Us</h2>
+                        <h2>Liên hệ</h2>
                         <div class="breadcrumb__option">
-                            <a href="{{asset('Customer-assets')}}/img/index.html">Home</a>
-                            <span>Contact Us</span>
+                            <a href="{{ route('index') }}">Trang chủ</a>
+                            <span>Liên hệ chúng tôi</span>
                         </div>
                     </div>
                 </div>
@@ -86,13 +86,13 @@
             <form action="#">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your name">
+                        <input type="text" placeholder="Tên">
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <input type="text" placeholder="Your Email">
+                        <input type="text" placeholder="Email">
                     </div>
                     <div class="col-lg-12 text-center">
-                        <textarea placeholder="Your message"></textarea>
+                        <textarea placeholder="Lời nhắn"></textarea>
                         <button type="submit" class="site-btn">Gửi ngay</button>
                     </div>
                 </div>

@@ -26,6 +26,9 @@ class CustomerController extends Controller
     public function shoppingCart() {
         return view('customer.cart');   
     }
+    public function about() {
+        return view('customer.aboutUs');   
+    }
     public function products() {
         $product = Product::orderBy('created_at','DESC')->paginate(9);        
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();

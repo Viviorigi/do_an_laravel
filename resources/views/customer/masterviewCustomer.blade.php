@@ -50,11 +50,11 @@
             <ul>
                 @if (Auth::check() && Auth::user()->role == 0)
                 <li>
-                    <a href="">Hello {{Auth::user()->name}}<i class="fa fa-user"></i></a>
-                    <a href="{{route('logout')}}"><strong> | Logout</strong></a>
+                    <a href="">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                    <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                 </li>  
                 @else
-                <li><a href="{{route('login')}}"> <strong>Login</strong><i class="fa fa-user"></i></a></li>
+                <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong><i class="fa fa-user"></i></a></li>
                 @endif
                 
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -63,21 +63,20 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__language">
-                <img src="{{asset('Customer-assets')}}/img/language.png" alt="">
-                <div>English</div>
+                <div>Tiếng việt</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li><a href="#">English</a></li>
+                    <li><a href="#">Việt Nam</a></li>
                 </ul>
             </div>
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
+                <li class="active"><a href="{{ route('index') }}">Trang chủ</a></li>
+                <li><a href="{{ route('products') }}">Sản phẩm</a></li>
                 <li><a href="{{ route('blog') }}">Blog</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
-                <li><a href="{{ route('contact') }}">About Us</a></li>
+                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                <li><a href="{{ route('about') }}">Về chúng tôi</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -89,8 +88,8 @@
         </div>
         <div class="humberger__menu__contact">
             <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
+                <li><i class="fa fa-envelope"></i> mkccl1810@gmail.com</li>
+                <li><a href="{{ route('contact') }}">Free ship trong bán kính 10km</a></li>
             </ul>
         </div>
     </div>
@@ -104,8 +103,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="header__top__left">
                             <ul>
-                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                                <li>Free Shipping for all Order of $99</li>
+                                <li><i class="fa fa-envelope"></i> mkccl1810@gmail.com</li>
+                                <li><a href="{{ route('contact') }}">Free ship trong bán kính 10km</a></li>
                             </ul>
                         </div>
                     </div>
@@ -119,11 +118,11 @@
                             </div>
                             <div class="header__top__right__language">
                                 <img src="{{asset('Customer-assets')}}/img/language.png" alt="">
-                                <div>English</div>
-                                <span class="arrow_carrot-down"></span>
-                                <ul>    
-                                    <li><a href="#">English</a></li>
-                                </ul>
+                                <div>Tiếng việt</div>
+                                    <span class="arrow_carrot-down"></span>
+                                    <ul>
+                                        <li><a href="#">Việt Nam</a></li>
+                                    </ul>
                             </div>
                         </div>
                     </div>
@@ -139,12 +138,12 @@
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
-                        <ul class="w-100">
-                            <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                            <li><a href="{{ route('products') }}">Shop</a></li>
-                            <li><a href="{{ route('blog') }}">Blog</a></li>
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
-                            <li><a href="{{ route('contact') }}">About Us</a></li>
+                        <ul>
+                                <li class="active"><a href="{{ route('index') }}">Trang chủ</a></li>
+                                <li><a href="{{ route('products') }}">Sản phẩm</a></li>
+                                <li><a href="{{ route('blog') }}">Blog</a></li>
+                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
+                                <li><a href="{{ route('about') }}">Giới thiệu</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -154,12 +153,12 @@
                             @if (Auth::check() && Auth::user()->role == 0)
                                                           
                                     <li>
-                                        <a href="">Hello {{Auth::user()->name}}<i class="fa fa-user"></i></a>
-                                        <a href="{{route('logout')}}"><strong> | Logout</strong></a>
+                                        <a href="">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                                        <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                                     </li>                            
                                                  
                             @else
-                            <li><a href="{{route('login')}}"> <strong>Login</strong> <i class="fa fa-user"></i></a></li>
+                            <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong> <i class="fa fa-user"></i></a></li>
                             @endif                    
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                             <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
@@ -185,9 +184,9 @@
                             <a href="{{ route('index') }}"><img class="logo-img" src="{{asset('Customer-assets')}}/img/logo.png" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Địa chỉ: Tòa Nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam</li>
+                            <li>Điện Thoại: +84 981-673-718</li>
+                            <li>Email: <mkccl1810@gmail class="com"></mkccl1810@gmail>.com</li>
                         </ul>
                     </div>
                 </div>
@@ -233,7 +232,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p></div>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart" aria-hidden="true"></i> by <a href="{{ route('index') }}" target="_blank">Bigbite</a></p></div>
                         <div class="footer__copyright__payment"><img src="{{asset('Customer-assets')}}/img/payment-item.png" alt=""></div>
                     </div>
                 </div>

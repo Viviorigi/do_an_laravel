@@ -12,7 +12,7 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>Danh mục</span>
                     </div>
                     <ul>
                         <li><a href="#">Fresh Meat</a></li>
@@ -30,24 +30,21 @@
                 </div>
             </div>
             <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
+                <div class="hero__search w-100">
+                    <div class="hero__search__form w-75" style="position: relative;">
+                        <form action="{{ route('products') }}">
+                            <i class="fa fa-search" style="position: absolute;top:30%;left:3%;"></i>
+                            <input class="pl-5" type="text" placeholder="nhập tên sản phẩm">
+                            <button type="submit" class="site-btn">Tìm Kiếm</button>
                         </form>
                     </div>
-                    <div class="hero__search__phone">
+                    <div class="hero__search__phone w-25 pl-2">
                         <div class="hero__search__phone__icon">
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hero__search__phone__text">
-                            <h5>+65 11.188.888</h5>
-                            <span>support 24/7 time</span>
+                            <p>+84 981-673-718</p>
+                            <span>Hỗ trợ 24/7</span>
                         </div>
                     </div>
                 </div>
@@ -107,11 +104,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Featured Product</h2>
+                    <h2>Sản phẩm nổi bật</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="*">All</li>
+                        <li class="active" data-filter="*">Tất cả</li>
                         <li data-filter=".oranges">Oranges</li>
                         <li data-filter=".fresh-meat">Fresh Meat</li>
                         <li data-filter=".vegetables">Vegetables</li>
@@ -126,8 +123,7 @@
                     <div class="featured__item__pic set-bg" data-setbg="{{asset('Customer-assets')}}/img/featured/feature-1.jpg">
                         <ul class="featured__item__pic__hover">
                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="{{ route('products') }}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="featured__item__text">
