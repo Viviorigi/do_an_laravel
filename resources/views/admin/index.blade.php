@@ -43,8 +43,8 @@
                             <div class="card-body px-3 py-4">
                                 <div class="d-flex justify-content-between align-items-start">
                                     <div class="color-card">
-                                        <p class="mb-0 color-card-head">Margin</p>
-                                        <h2 class="text-white"> $5,300.<span class="h5">00</span>
+                                        <p class="mb-0 color-card-head">Blog</p>
+                                        <h2 class="text-white"> {{$blog_count}}
                                         </h2>
                                     </div>
                                     <i
