@@ -11,7 +11,7 @@
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
                     <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('category.find')}}">
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="">
                            
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search" name="keyword" value="{{Request::get('keyword')}}" />
@@ -40,7 +40,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>                          
+                            <th>CustomerName</th>                          
                             <th>Created</th>
                             <th>Status</th>
                             <th>Payment Method</th>
@@ -75,7 +75,7 @@
                             </td> 
                             <td >
                                 <a href="{{route('order.edit',$item->id)}}" class="btn btn-primary"> Edit</a>
-                                
+                                <a href="{{route('order.detail',$item->id)}}" class="btn btn-success">Detail</a>
                             </td>                         
                         </tr>
                         @endforeach
