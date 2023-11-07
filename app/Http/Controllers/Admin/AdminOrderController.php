@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Order_detail;
+use DB;
 class AdminOrderController extends Controller
 {
     public function index() {
@@ -12,7 +14,7 @@ class AdminOrderController extends Controller
         return view('admin.order.order-index',compact('order'));
     }
     public function edit($id)  {
-        $order=Order::find($id)->first();
+        $order=Order::find($id);
        
         return view('admin.order.edit-order',compact('order'));
     }
@@ -25,5 +27,9 @@ class AdminOrderController extends Controller
             dd($th);
             return redirect()->back()->with('error','Cập nhật thất bại');
         }
+    }
+    public function detail($id)  {
+        $detail=Order_detail::where('order_id',$id)->get();
+        return view('admin.order.order-detail',compact('detail'));
     }
 }
