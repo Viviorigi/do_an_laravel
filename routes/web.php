@@ -65,6 +65,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/order/{id}/edit',[AdminOrderController::class, 'edit'])->name('order.edit');
     Route::post('/order/{id}/update',[AdminOrderController::class, 'update'])->name('order.update');
     Route::get('/order/{id}/detail',[AdminOrderController::class, 'detail'])->name('order.detail');
+    Route::get('/order/find',[AdminOrderController::class, 'find'])->name('order.find');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);

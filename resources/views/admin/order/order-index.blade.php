@@ -8,22 +8,22 @@
         <br>
 
         <div class="card mt-5">
+            <h2 class="ml-3 mt-2"><strong>Đơn hàng mới</strong></h2>
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
-                    <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="">
+               
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('order.find')}}" class="form-inline">
                            
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="keyword" value="{{Request::get('keyword')}}" />
-                                <div class="input-group-append">
-                                    <button type="submit" class="input-group-text">
-
-                                        <i class="mdi mdi-magnify"></i>
-
-                                    </button>
-
-                                </div>
+                           <div class="d-flex">
+                            <div class="form-group">       
+                                <input type="date" class="form-control" name="date_from" id="">
                             </div>
+                            <div class="form-group">       
+                                <input type="date" class="form-control" name="date_to" id="">
+                            </div>
+                            <button class="btn btn-success">Tìm kiếm</button>
+                           </div>
+                           
                         </form>
                     </li>                 
                 </div>
