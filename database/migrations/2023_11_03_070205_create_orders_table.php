@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->tinyInteger('Status')->default(0);
+            $table->text('order_note')->nullable();
             $table->tinyInteger('methodPayment')->default(0);
             $table->timestamps();
         });

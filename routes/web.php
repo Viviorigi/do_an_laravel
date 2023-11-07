@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
@@ -60,6 +61,9 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/banner/find', [BannerController::class, 'find'])->name('banner.find');
     Route::get('/banner/{id}/restore', [BannerController::class,'restore'])->name('banner.restore');
     Route::get('/banner/{id}/forcedelete', [BannerController::class,'forcedelete'])->name('banner.forcedelete');
+    Route::get('/order.list',[AdminOrderController::class, 'index'])->name('order.index');
+    Route::get('/order/{id}/edit',[AdminOrderController::class, 'edit'])->name('order.edit');
+    Route::post('/order/{id}/update',[AdminOrderController::class, 'update'])->name('order.update');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);

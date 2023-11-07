@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable=['user_id','methodPayment','order_note'];
+    protected $fillable=['user_id','methodPayment','order_note','Status'];
+
     public function cus()
     {
-        return $this->hasOne(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

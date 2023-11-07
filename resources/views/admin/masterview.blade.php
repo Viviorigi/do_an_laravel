@@ -56,6 +56,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('order.index') }}">
+                        <i class=" mdi mdi-briefcase menu-icon"></i>
+                        <span class="menu-title">Order</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('category.index') }}">
                         <i class="mdi mdi-checkbox-multiple-blank menu-icon"></i>
                         <span class="menu-title">Category</span>
