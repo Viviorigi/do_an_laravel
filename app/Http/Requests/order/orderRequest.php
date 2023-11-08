@@ -33,6 +33,7 @@ class orderRequest extends FormRequest
     public function messages() {
         return [
             'name.required'=>'Tên của bạn không để trống',
+            'name.min'=>'Tên tối thiểu 2 ký tự',
             'email.required'=>'Email của bạn không để trống',
             'address.required'=>'Địa chỉ của bạn không để trống',
             'phone.required'=>'Số điện thoại của bạn không để trống',
