@@ -11,7 +11,7 @@ use Carbon;
 class AdminOrderController extends Controller
 {
     public function index() {
-        $order=Order::where('Status',0)->orderBy('updated_at', 'DESC')->paginate(5);
+        $order=Order::orderBy('updated_at', 'DESC')->orderby('Status','asc')->paginate(5);
         return view('admin.order.order-index',compact('order'));
     }
     public function edit($id)  {
@@ -30,10 +30,13 @@ class AdminOrderController extends Controller
         }
     }
     public function find(Request $request) {
+        if($request->date_from==''){
+            $request->date_from=Carbon\Carbon::now()->subday(15);
+        }
         if($request->date_to==''){
             $request->date_to= Carbon\Carbon::now();
         }
-        $order=Order::where('Status',0)->whereBetween('created_at',[$request->date_from,$request->date_to])->orderBy('updated_at', 'DESC')->paginate(5);
+        $order=Order::whereBetween('created_at',[$request->date_from,$request->date_to])->orderBy('updated_at', 'DESC')->paginate(5);
         return view('admin.order.order-index',compact('order'));
     }
     public function detail($id)  {

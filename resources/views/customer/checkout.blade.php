@@ -33,25 +33,54 @@
                                 <div class="col-lg-12">
                                     <div class="checkout__input">
                                         <p>Họ và Tên<span>*</span></p>
+                                        @if (Auth::check() && Auth::user()->role == 0)
+                                        <input type="text" name="name" placeholder="Điền họ và tên" value="{{ Auth::user()->name}}">
+                                        @else
                                         <input type="text" name="name" placeholder="Điền họ và tên">
+                                        @endif
+                                        @error('name')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror 
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>Địa chỉ<span>*</span></p>
+                                @if (Auth::check() && Auth::user()->role == 0)
+                                <input type="text" name="address" placeholder="Điền địa chỉ" class="checkout__input__add" value="{{ Auth::user()->address}}">
+                                @else
                                 <input type="text" name="address" placeholder="Điền địa chỉ" class="checkout__input__add">
+                                @endif
+                                    @error('address')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror 
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text" name="email" placeholder="Điền email">
+                                        @if (Auth::check() && Auth::user()->role == 0)
+                                        <input type="text" name="email" placeholder="Điền email" value="{{ Auth::user()->email}}">
+                                        @else
+                                        <input type="text" name="email" placeholder="Điền email" >
+                                        @endif
+                                        @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                         @enderror 
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Số điện thoại<span>*</span></p>
+                                        @if(Auth::check() && Auth::user()->role == 0)
+                                        <input type="text" name="phone" placeholder="Điền số điện thoại" value="{{ Auth::user()->phone}}">
+                                        @else
                                         <input type="text" name="phone" placeholder="Điền số điện thoại">
+                                        @endif
+
+                                        @error('phone')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                         @enderror 
                                     </div>
                                 </div>
                       
@@ -74,12 +103,14 @@
                                 <div class="checkout__order__subtotal">Phụ thu <span>0 Đ</span></div>
                                 <div class="checkout__order__total">Tổng số tiền <span>{{number_format($cart->getTotalPrice())}} Đ</span></div>
                                 <div class="form-group">
-                                  <label for=""></label>
                                   <select class="form-control text-center" name="methodPayment" id="">
-                                    <option>Phương thức thanh toán</option>
+                                    <option value="0">Phương thức thanh toán</option>
                                     <option value="1">Thẻ tín dụng</option>
                                     <option value="2">Thanh toán khi nhận hàng</option>
                                   </select>
+                                  @error('methodPayment')
+                                  <span class="text-danger mt-2"> <strong>{{ $message }}</strong></span>
+                                   @enderror 
                                 </div>
                                 <button type="submit" class="site-btn">Thanh toán</button>
                             </div>

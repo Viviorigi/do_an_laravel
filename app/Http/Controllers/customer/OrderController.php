@@ -8,24 +8,34 @@ use App\Helper\Cart;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Order_detail;
+use App\Http\Requests\order\orderRequest;
 use Auth;
 class OrderController extends Controller
 {
     public function checkout(Cart $cart) {
+        
+        if($cart->items==[]){
+            return redirect()->back()->with('error','Đơn hàng trống vui lòng thêm sản phẩm vào giỏ hàng ');
+        }
         return view('customer.checkout',compact('cart'));   
     }
     public function success() {
         return view('customer.checkout-success');
     }
-    public function postcheckout(Request $request,Cart $cart)  {
+    public function postcheckout(orderRequest $request,Cart $cart)  {
         
-       
-       $cus=User::create($request->all());
+       if(Auth::check() && Auth::user()->role == 0){
+        $cus_id= Auth::user()->id;
+        $user=User::find($cus_id)->update($request->all());
+       }else{
+        $cus=User::create($request->all());
+        $cus_id=$cus->id;
+       }
        
        try {
        if( 
         $order=Order::create([
-        'user_id'=>$cus->id,
+        'user_id'=>$cus_id,
         'methodPayment'=>$request->methodPayment,
         'order_note'=>$request->order_note,
         ])){
