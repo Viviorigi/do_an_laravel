@@ -11,7 +11,7 @@ use Carbon;
 class AdminOrderController extends Controller
 {
     public function index() {
-        $order=Order::orderBy('updated_at', 'DESC')->orderby('Status','asc')->paginate(5);
+        $order=Order::orderby('Status','asc')->orderBy('updated_at', 'DESC')->paginate(5);
         return view('admin.order.order-index',compact('order'));
     }
     public function edit($id)  {

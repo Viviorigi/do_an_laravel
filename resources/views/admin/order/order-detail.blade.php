@@ -21,6 +21,7 @@
                             <th>STT</th>
                             <th>OrderID</th>   
                             <th>Product Name</th>   
+                            <th>Product Image</th>
                             <th>Product Price</th>
                             <th>Quantity</th>   
                             <th>Subtotal</th>                
@@ -34,6 +35,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$item->order_id}}</td>
                             <td>{{$item->product->name}}</td>
+                            <td><img src="{{asset('storage')}}/images/{{$item->product->image}}" style="width:100px !important;height:120px !important"></td>
                             <td>{{number_format(($item->product->sale_price>0)
                             ?$item->product->sale_price:$item->product->price)}}Đ</td>   
                             <td>{{$item->quantity}}</td>         

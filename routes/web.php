@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
+use App\Http\Controllers\Admin\ManageCustomerController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
@@ -66,6 +67,8 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::post('/order/{id}/update',[AdminOrderController::class, 'update'])->name('order.update');
     Route::get('/order/{id}/detail',[AdminOrderController::class, 'detail'])->name('order.detail');
     Route::get('/order/find',[AdminOrderController::class, 'find'])->name('order.find');
+    Route::get('/customer',[ManageCustomerController::class,'index'])->name('admin.customer.index');
+    Route::get('/customer/find',[ManageCustomerController::class,'find'])->name('admin.customer.find');
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);

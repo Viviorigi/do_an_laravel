@@ -40,8 +40,10 @@
                         <select class="form-control js-example-basic-single" id="exampleSelectGender" name="Status">
                                 <option value="0" {{$order->Status==0?'selected':''}}>Chờ xác nhận</option>
                                 <option value="1" {{$order->Status==1?'selected':''}}>Đang chuẩn bị hàng</option>
-                                <option value="2" {{$order->Status==2?'selected':''}}>Đang giao hàng</option>
-                                <option value="3" {{$order->Status==3?'selected':''}}>Giao hàng thành công</option>
+                                <option value="2" {{$order->Status==1?'selected':''}}>Đang chờ đơn vị vận chuyển</option>
+                                <option value="3" {{$order->Status==2?'selected':''}}>Đang giao hàng</option>
+                                <option value="4" {{$order->Status==3?'selected':''}}>Giao hàng thành công</option>
+                                <option value="5" {{$order->Status==4?'selected':''}}>Đã hủy</option>
                         </select>
                     </div>
                     <div class="form-group">

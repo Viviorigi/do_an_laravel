@@ -8,7 +8,7 @@
         <br>
 
         <div class="card mt-5">
-            <h2 class="ml-3 mt-2"><strong>Đơn hàng mới</strong></h2>
+            <h2 class="ml-3 mt-2"><strong>Order news</strong></h2>
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
                
@@ -61,9 +61,13 @@
                                 @elseif($item->Status==1)
                                 <label class="badge">Đang chuẩn bị hàng</label>
                                 @elseif($item->Status==2)
-                                <label class="badge">Đang giao hàng</label>
+                                <label class="badge">Đang chờ đơn vị vận chuyển</label>
                                 @elseif($item->Status==3)
+                                <label class="badge">Đang giao hàng</label>
+                                @elseif($item->Status==4)
                                 <label class="badge">Giao hàng thành công</label>
+                                @elseif($item->Status==5)
+                                <label class="badge">Đã hủy</label>
                                 @endif
                                 
                             </td>

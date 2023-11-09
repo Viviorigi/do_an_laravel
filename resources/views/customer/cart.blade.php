@@ -43,35 +43,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cart->list() as $item)
-                                    <tr>
-                                        <td class="shoping__cart__item">
-                                            <img src="{{ asset('storage') }}/images/{{ $item['image'] }}" alt=""
-                                                width="200px">
-                                            <h5>{{ $item['name'] }}</h5>
-                                        </td>
-                                        <td class="shoping__cart__price">
-                                            <h5>{{ number_format($item['price']) }}Đ</h5>
-                                        </td>
-                                        <td class="shoping__cart__quantity">
-                                            <div class="quantity">
-                                                <div class="pro-qty1">
-                                                    <input type="number" name="quantity" class="qty"
-                                                        data-id="{{ $item['product_id'] }}" onchange="updateQuantity(this)"
-                                                        value="{{ $item['quantity'] }}">
-                                                </div>
+                                @forelse ($cart->list() as $item)
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="{{ asset('storage') }}/images/{{ $item['image'] }}" alt=""
+                                            width="200px">
+                                        <h5>{{ $item['name'] }}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        <h5>{{ number_format($item['price']) }}Đ</h5>
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty1">
+                                                <input type="number" name="quantity" class="qty"
+                                                    data-id="{{ $item['product_id'] }}" onchange="updateQuantity(this)"
+                                                    value="{{ $item['quantity'] }}">
                                             </div>
-                                        </td>
-                                        <td class="shoping__cart__total">
-                                            {{ number_format($item['price'] * $item['quantity']) }}Đ
-                                        </td>
-                                        <td class="shoping__cart__item__close">
-                                            <a href="{{ route('cart.remove', $item['product_id']) }}"><span
-                                                    class="icon_close"></span></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        {{ number_format($item['price'] * $item['quantity']) }}Đ
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <a href="{{ route('cart.remove', $item['product_id']) }}"><span
+                                                class="icon_close"></span></a>
+                                    </td>
+                                </tr>
+                                @empty
+                                <tr>
+                                    <td style="border-bottom:none !important">
+                                        <h4 >Giỏ hàng trống</h4>
+                                    </td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
