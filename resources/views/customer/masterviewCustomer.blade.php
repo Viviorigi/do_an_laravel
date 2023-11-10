@@ -50,7 +50,7 @@
             <ul>
                 @if (Auth::check() && Auth::user()->role == 0)
                 <li>
-                    <a href="">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                    <a href="{{route('userProfile',Auth::user()->id)}}">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
                     <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                 </li>  
                 @else
@@ -153,7 +153,7 @@
                             @if (Auth::check() && Auth::user()->role == 0)
                                                           
                                     <li>
-                                        <a href="">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                                        <a href="{{route('userProfile',Auth::user()->id)}}">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
                                         <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                                     </li>                            
                                                  
@@ -186,7 +186,7 @@
                         <ul>
                             <li>Địa chỉ: Tòa Nhà HTC, 250 Hoàng Quốc Việt, Cổ Nhuế, Cầu Giấy, Hà Nội, Việt Nam</li>
                             <li>Điện Thoại: +84 981-673-718</li>
-                            <li>Email: <mkccl1810@gmail class="com"></mkccl1810@gmail>.com</li>
+                            <li>Email: mkccl1810@gmail.com</li>
                         </ul>
                     </div>
                 </div>
