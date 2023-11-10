@@ -48,7 +48,7 @@
                             <td>{{$item->phone}}</td>
                             <td>{{$item->address}}</td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>    
-                            <td>{{$item->role==0?'Customer':''}}</td>                                             
+                            <td>{{$item->role==0?'Customer':'Admin'}}</td>                                             
                         </tr>
                         @endforeach
                         

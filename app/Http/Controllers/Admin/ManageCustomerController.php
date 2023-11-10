@@ -8,13 +8,13 @@ use App\Models\User;
 class ManageCustomerController extends Controller
 {
     public function index() {
-        $customer=User::where('role',0)->paginate(5);
+        $customer=User::paginate(5);
         return view('admin.customer.customer-index',compact('customer'));
     }
     public function find(Request $request){  
-            $customer= User::where('name','LIKE',"%$request->keyword%")
-            ->where('role','=',0 ,'AND','email','LIKE',"%$request->keyword%")
-            ->orwhere('address','LIKE',"%$request->keyword%")        
+            $customer= User::where('name','LIKE',"%$request->keyword%",'AND','role','=',0) 
+            ->orwhere('email','LIKE',"%$request->keyword%")
+            ->where('role',0)
             ->paginate(5);
             $customer->appends(['keyword' => $request->keyword]);
             return view('admin.customer.customer-index',compact('customer'));   
