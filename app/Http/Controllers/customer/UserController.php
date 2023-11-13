@@ -80,4 +80,8 @@ class UserController extends Controller
         }
  
     }
+
+    public function editprofile($id) {
+        return view('customer.edit-userProfile');
+    }
 }
