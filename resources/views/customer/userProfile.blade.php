@@ -32,8 +32,13 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                class="rounded-circle img-fluid mb-2" style="width: 150px;">
+            @if ($user->image !='')
+            <img src="{{asset('storage/images')}}/{{$user->image}}" alt="avatar"
+            class=" img-fluid mb-2" style="width: 150px;">
+            @else
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+            class=" img-fluid mb-2" style="width: 150px;">
+            @endif
                 <div class="mb-2 mt-2">
                   <label for="photo">Khách hàng</label>
                   <h4>{{$user->name}}</h4>
@@ -44,6 +49,15 @@
         <div class="col-lg-8">     
           <div class="card mb-4">
             <h4 class="text-center p-2">Thông tin khách hàng</h4>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+
+                <button type="button" class="close" data-dismiss="alert">×</button>
+
+                <strong>{{ $message }}</strong>
+
+            </div>
+        @endif
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-3">
@@ -121,31 +135,34 @@
                 <table class="table table-hover">
                 <thead class="thead-dark">
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên</th>
+                    <th scope="col">Phương thức thanh toán</th>
+                    <th scope="col">Trạng thái đơn hàng</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($user->order_list as $item)
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$user->name}}</td>
+                    <td>{{($item->methodPayment==1)?"Thẻ tín dụng":"Thanh toán khi nhận hàng"}}</td>
+                    @if ($item->Status==0)
+                                <td >Chờ xác nhận</td>
+                                @elseif($item->Status==1)
+                                <td >Đang chuẩn bị hàng</td>
+                                @elseif($item->Status==2)
+                                <td >Đang chờ đơn vị vận chuyển</td>
+                                @elseif($item->Status==3)
+                                <td >Đang giao hàng</td>
+                                @elseif($item->Status==4)
+                                <td >Giao hàng thành công</td>
+                                @elseif($item->Status==5)
+                                <td >Đã hủy</td>
+                                @endif
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
+                  @endforeach
+                  
                 </tbody>
               </table>
             </div>

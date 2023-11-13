@@ -43,11 +43,11 @@ class UserController extends Controller
     }
     public function logout() {
         Auth::logout();
-       return redirect()->back();
+        return redirect()->route('index');
     }
     public function userProfile($id) {
         $user=User::find($id);
-       
+        
         return view('customer.userProfile',compact('user'));   
     }
     public function changePasswordIndex($id) {
@@ -82,6 +82,22 @@ class UserController extends Controller
     }
 
     public function editprofile($id) {
-        return view('customer.edit-userProfile');
+        $user=User::find($id);
+        return view('customer.edit-userProfile',compact('user'));
+    }
+    
+    public function updateprofile($id,Request $request) {
+        if($request->photo!=''){
+            $file_name=$request->photo->getClientOriginalName();
+            $request->merge(['image'=>$file_name]);
+            $request->photo->storeAs('public/images',$file_name);
+        }  
+        $user=User::find($id)->update($request->all());
+        if($user){
+            
+            return redirect()->route('userProfile',['id'=>$id])->with('success','Cập nhật thành công');
+        }
+        return redirect()->back()->with('error','Cập nhật thất bại');
+        
     }
 }
