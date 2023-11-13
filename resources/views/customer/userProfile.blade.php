@@ -85,11 +85,9 @@
                 <a href="{{route('changePassword.index',$user->id)}}" class="btn btn-warning btn-lg">
                   Đổi mật khẩu
                 </a>
-                <button>
-                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modelId2">
+                  <a href="{{route('editProfile',$user->id)}}"  class="btn btn-success btn-lg" >
                     Cập nhật thông tin
-                  </button>
-                </button>
+                  </a>              
                 <!-- Modal -->    
                 <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                   <div class="modal-dialog" role="document">

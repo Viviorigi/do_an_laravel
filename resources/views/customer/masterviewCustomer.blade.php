@@ -34,6 +34,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/daterangepicker/daterangepicker.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/util.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/main.css">  
+        @yield('cus-css')
 </head>
 
 <body>
