@@ -5,11 +5,14 @@ namespace App\Http\Controllers\customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class CustomerController extends Controller
 {
     public function home() {
-        return view('customer.index');   
+        $cate = Category::all();
+        $latestProduct =  Product::orderBy('created_at','DESC')->take(8)->get();
+        return view('customer.index',compact('cate','latestProduct'));   
     }
     public function contact() {
         return view('customer.contact');   
@@ -27,9 +30,10 @@ class CustomerController extends Controller
         return view('customer.aboutUs');   
     }
     public function products() {
+        $cate = Category::all();
         $product = Product::orderBy('created_at','DESC')->paginate(9);        
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
-        return view('customer.products',compact('product','latestProduct'));   
+        return view('customer.products',compact('product','latestProduct','cate'));   
     }
     public function productDetail($slug) {
         $detail = Product::where('slug',$slug)->first();
