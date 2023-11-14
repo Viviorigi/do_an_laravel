@@ -132,6 +132,7 @@
                             </ul>
                         </nav>
                     </div>
+<<<<<<< HEAD
                     <div class="col-lg-3 d-lg-block d-none">
                         <div class="header__cart">
                             <ul>
@@ -154,6 +155,30 @@
                 <div class="humberger__open">
                     <i class="fa fa-bars"></i>
                 </div>
+=======
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            @if (Auth::check() && Auth::user()->role == 0)
+                                                          
+                                    <li>
+                                        <a href="{{route('userProfile',Auth::user()->id)}}">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
+                                        <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
+                                    </li>                            
+                                                     
+                            @else
+                            <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong> <i class="fa fa-user"></i></a></li>
+                            @endif                    
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+>>>>>>> 1d2746b7bab4edb4f4c859d2aa0606defcd0c872
         </div>
     </header>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Order_detail;
 use Hash;
 use Auth;
 use App\Http\Requests\customer\SignUp;
@@ -47,8 +49,8 @@ class UserController extends Controller
     }
     public function userProfile($id) {
         $user=User::find($id);
-        
-        return view('customer.userProfile',compact('user'));   
+        $order=Order::where('user_id',$id)->get();
+        return view('customer.userProfile',compact('user','order'));   
     }
     public function changePasswordIndex($id) {
         $user=User::find($id);
@@ -99,5 +101,17 @@ class UserController extends Controller
         }
         return redirect()->back()->with('error','Cập nhật thất bại');
         
+    }
+
+    public function orderDetail($id){
+        $order=Order::find($id);
+        $customer=User::find($order->user_id);
+        $detail=Order_detail::where('order_id',$id)->get();
+        $total_price=Order_detail::where('order_id',$id)->sum('total_price');
+        return view('customer.Order_detail-customer',compact('customer','detail','total_price','order'));
+    }
+    public function cancelorder($id) {
+        $cancelorder=Order::find($id)->update(['Status'=>5]);
+        return redirect()->back()->with('success','Hủy thành công');
     }
 }
