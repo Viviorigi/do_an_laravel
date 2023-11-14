@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.index') }}">
+                    <a class="nav-link" href="{{ route('admin.customer.index') }}">
                         <i class="mdi mdi mdi-account menu-icon"></i>
                         <span class="menu-title">Customer</span>
                     </a>

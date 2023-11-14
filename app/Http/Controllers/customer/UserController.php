@@ -18,9 +18,7 @@ class UserController extends Controller
     public function register() {
         return view('customer.signUp');   
     }
-    public function userProfile() {
-        return view('customer.userProfile');   
-    }
+
     public function create(SignUp $req) {
         
         $req->merge(['password'=>Hash::make($req->password)]);
@@ -41,13 +39,65 @@ class UserController extends Controller
             return redirect()->route('index');
         }else{
             return redirect()->back()->with('error','Sai thông tin đăng nhập');
-        }
-      
-       
+        }       
     }
     public function logout() {
         Auth::logout();
-       return redirect()->back();
-         
-      }
+        return redirect()->route('index');
+    }
+    public function userProfile($id) {
+        $user=User::find($id);
+        
+        return view('customer.userProfile',compact('user'));   
+    }
+    public function changePasswordIndex($id) {
+        $user=User::find($id);
+        return view('customer.changepassword',compact('user'));   
+    }
+    public function changePassword(Request $req,$id)  {
+        $user=User::find($id);
+        $validate=$req->validate([
+            'passwordOld'=>'required',
+            'password'=>'required|min:6|different:passwordOld',
+            'repassword'=>'min:6|same:password|required' 
+        ],[
+            'passwordOld.required'=>'Vui lòng nhập mật khẩu cũ',
+            'password.different'=>'Mật khẩu mới không được trùng mật khẩu cũ',
+            'password.required'=>'Vui lòng nhập mật khẩu mới',
+            'password.min'=>'Mật khẩu mới tối thiểu 6 ký tự',
+            'repassword.required'=>'Vui lòng nhập lại mật khẩu',
+            'repassword.same'=>'Nhập lại mật khẩu chưa chính xác',
+            'repassword.min'=>'Nhập lại mật khẩu  tối thiểu 6 ký tự',
+        ]);
+        if(Hash::check($req->passwordOld, $user->password)){
+            $user=User::find($id)->update(['password'=>$req->password]);
+            if($user){
+                Auth::logout();
+                return redirect()->route('login')->with('warning','Bạn vừa đổi mật khẩu vui lòng đăng nhập lại');
+            }
+        }{
+            return redirect()->back()->with('error','Sai mật khẩu cũ');
+        }
+ 
+    }
+
+    public function editprofile($id) {
+        $user=User::find($id);
+        return view('customer.edit-userProfile',compact('user'));
+    }
+    
+    public function updateprofile($id,Request $request) {
+        if($request->photo!=''){
+            $file_name=$request->photo->getClientOriginalName();
+            $request->merge(['image'=>$file_name]);
+            $request->photo->storeAs('public/images',$file_name);
+        }  
+        $user=User::find($id)->update($request->all());
+        if($user){
+            
+            return redirect()->route('userProfile',['id'=>$id])->with('success','Cập nhật thành công');
+        }
+        return redirect()->back()->with('error','Cập nhật thất bại');
+        
+    }
 }

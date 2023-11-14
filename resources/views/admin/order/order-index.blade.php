@@ -8,22 +8,22 @@
         <br>
 
         <div class="card mt-5">
+            <h2 class="ml-3 mt-2"><strong>Order news</strong></h2>
             <div class="table-responsive">
                 <div class="mt-1 d-flex">
-                    <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('category.find')}}">
+               
+                        <form class="nav-link form-inline mt-2 mt-md-0" method="GET" action="{{route('order.find')}}" class="form-inline">
                            
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="keyword" value="{{Request::get('keyword')}}" />
-                                <div class="input-group-append">
-                                    <button type="submit" class="input-group-text">
-
-                                        <i class="mdi mdi-magnify"></i>
-
-                                    </button>
-
-                                </div>
+                           <div class="d-flex">
+                            <div class="form-group">       
+                                <input type="date" class="form-control" name="date_from" id="">
                             </div>
+                            <div class="form-group">       
+                                <input type="date" class="form-control" name="date_to" id="">
+                            </div>
+                            <button class="btn btn-success">Tìm kiếm</button>
+                           </div>
+                           
                         </form>
                     </li>                 
                 </div>
@@ -40,7 +40,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Name</th>                          
+                            <th>CustomerName</th>                          
                             <th>Created</th>
                             <th>Status</th>
                             <th>Payment Method</th>
@@ -61,9 +61,13 @@
                                 @elseif($item->Status==1)
                                 <label class="badge">Đang chuẩn bị hàng</label>
                                 @elseif($item->Status==2)
-                                <label class="badge">Đang giao hàng</label>
+                                <label class="badge">Đang chờ đơn vị vận chuyển</label>
                                 @elseif($item->Status==3)
+                                <label class="badge">Đang giao hàng</label>
+                                @elseif($item->Status==4)
                                 <label class="badge">Giao hàng thành công</label>
+                                @elseif($item->Status==5)
+                                <label class="badge">Đã hủy</label>
                                 @endif
                                 
                             </td>
@@ -75,7 +79,7 @@
                             </td> 
                             <td >
                                 <a href="{{route('order.edit',$item->id)}}" class="btn btn-primary"> Edit</a>
-                                
+                                <a href="{{route('order.detail',$item->id)}}" class="btn btn-success">Detail</a>
                             </td>                         
                         </tr>
                         @endforeach

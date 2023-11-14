@@ -149,7 +149,7 @@
                                     <div class="product__discount__item">
                                         <div class="product__discount__item__pic set-bg"
                                             data-setbg="{{asset('storage/images')}}/{{$item->image}}">
-                                            <div class="product__discount__percent">-20%</div>
+                                            <div class="product__discount__percent">-{{ceil((1-($item->sale_price/$item->price))*100)}}%</div>
                                             <ul class="product__item__pic__hover">
                                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="{{ route('product-detail',$item->slug) }}"><i class="fa fa-shopping-cart"></i></a></li>
