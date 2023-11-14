@@ -132,30 +132,6 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="header__cart">
-                            <ul>
-                                @if (Auth::check() && Auth::user()->role == 0)
-                                        <span>hi {{Auth::user()->name}}</span>                    
-                                        <li>
-                                            <a href=""><i class="fa fa-user"></i></a>
-                                            <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
-                                        </li>                            
-                                                     
-                                @else
-                                <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong> <i class="fa fa-user"></i></a></li>
-                                @endif                    
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                                <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="humberger__open">
-                    <i class="fa fa-bars"></i>
-                </div>
-<<<<<<< HEAD
-=======
                 <div class="col-lg-3">
                     <div class="header__cart">
                         <ul>
@@ -165,7 +141,7 @@
                                         <a href="{{route('userProfile',Auth::user()->id)}}">Xin chào {{Auth::user()->name}}<i class="fa fa-user"></i></a>
                                         <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                                     </li>                            
-                                                 
+                                                     
                             @else
                             <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong> <i class="fa fa-user"></i></a></li>
                             @endif                    
@@ -177,7 +153,6 @@
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
->>>>>>> 9ab9fed4b614f161663ed20d4fb641844006f2d3
             </div>
         </div>
     </header>

@@ -139,9 +139,9 @@
                                         @elseif($item->Status == 3)
                                             <td>Đang giao hàng</td>
                                         @elseif($item->Status == 4)
-                                            <td>Giao hàng thành công</td>
+                                            <td class="text-warning"><strong>Giao hàng thành công</strong></td>
                                         @elseif($item->Status == 5)
-                                            <td>Đã hủy</td>
+                                            <td class="text-danger"><strong>Đã hủy</strong></td>
                                         @endif
                                         <td><a href="{{route('orderDetail',$item->id)}}" class="btn btn-success">Chi tiết</a></td>
                                     </tr>

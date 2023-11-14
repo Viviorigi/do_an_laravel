@@ -110,4 +110,8 @@ class UserController extends Controller
         $total_price=Order_detail::where('order_id',$id)->sum('total_price');
         return view('customer.Order_detail-customer',compact('customer','detail','total_price','order'));
     }
+    public function cancelorder($id) {
+        $cancelorder=Order::find($id)->update(['Status'=>5]);
+        return redirect()->back()->with('success','Hủy thành công');
+    }
 }

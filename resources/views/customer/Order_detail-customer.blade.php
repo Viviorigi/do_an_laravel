@@ -70,18 +70,18 @@
                                 @if ($order->Status == 0)
                                     <div>
                                     <h4 class="p-5">Trạng thái đơn hàng: Chờ xác nhận</h4>
-                                    <a href="" class="btn btn-danger m-5">Hủy đơn hàng</a>
+                                    <a href="{{route('cancelorder',$order->id)}}" class="btn btn-danger mr-5">Hủy đơn hàng</a>
                                     </div>
                                 @elseif($order->Status == 1)
-                                    <h4 class="p-5"> Trạng thái đơn hàng: Đang chuẩn bị hàng</h4>
+                                    <h4 class="p-5"> Trạng thái đơn hàng: <strong>Đang chuẩn bị hàng</strong></h4>
                                 @elseif($order->Status == 2)
-                                    <h4 class="p-5">Trạng thái đơn hàng: Đang chờ đơn vị vận chuyển</h4>
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong>Đang chờ đơn vị vận chuyển</strong></h4>
                                 @elseif($order->Status == 3)
-                                    <h4 class="p-5">Trạng thái đơn hàng: Đang giao hàng</h4>
-                                @elseif($item->Status == 4)
-                                    <h4 class="p-5">Trạng thái đơn hàng: Giao hàng thành công</h4>
-                                @elseif($item->Status == 5)
-                                    <h4 class="p-5">Trạng thái đơn hàng: Đã hủy</h4>
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong>Đang giao hàng</strong></h4>
+                                @elseif($order->Status == 4)
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-warning">Giao hàng thành công</strong></h4>
+                                @elseif($order->Status == 5)
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-danger">Đã hủy đơn hàng</strong></h4>
                                 @endif
                                 <h4 class="p-5"><strong>Tổng tiền: {{ number_format($total_price) }} VNĐ</strong></h4>
                             </div>
