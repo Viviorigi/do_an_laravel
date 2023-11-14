@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use  App\Models\blog;
 use App\Http\Requests\blog\StoreBlogRequest;
 use App\Http\Requests\blog\UpdateBlogRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 class blogController extends Controller
 {
     /**
@@ -91,23 +92,23 @@ class blogController extends Controller
         }   
     }
 
-    // public function trash(){
+    public function trash(){
        
-    //     $cate=blog::onlyTrashed()->get();
+        $blog=blog::onlyTrashed()->get();
         
-    //     return view('admin.blog.trash-blog',compact('cate'));
-    // }
+        return view('admin.blog.trash-blog',compact('blog'));
+    }
 
-    // public function restore($id){
-    //     blog::where('id',$id)->restore();
-    //     alert()->success('Khôi phục','thành công');
-    //     return redirect()->route('blog.index')->with('success','khôi phục thành công ');
-    // }
-    // public function forcedelete($id){
-    //     blog::where('id',$id)->forceDelete();
-    //     alert()->success('Xóa vĩnh viễn','thành công');
-    //     return redirect()->route('blog.trash')->with('success','xóa thành công ');
-    // }
+    public function restore($id){
+        blog::where('id',$id)->restore();
+        alert()->success('Khôi phục','thành công');
+        return redirect()->route('blog.index')->with('success','khôi phục thành công ');
+    }
+    public function forcedelete($id){
+        blog::where('id',$id)->forceDelete();
+        alert()->success('Xóa vĩnh viễn','thành công');
+        return redirect()->route('blog.trash')->with('success','xóa thành công ');
+    }
     public function find(Request $request) {
         
         $blog= blog::where('name','LIKE',"%$request->keyword%")->orwhere('id','LIKE',"%$request->keyword%")->paginate(5);

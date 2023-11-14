@@ -1054,14 +1054,14 @@ ol {
 
 .breadcrumb__text h2 {
 	font-size: 46px;
-	color: 	rgb(73, 73, 199);
+	color: 	rgb(251, 80, 134);
 	font-weight: 700;
 }
 
 .breadcrumb__option a {
 	display: inline-block;
-	font-size: 20px;
-	color: yellow;
+	font-size: 24px;
+	color: red;
 	font-weight: 700;
 	margin-right: 20px;
 	position: relative;
@@ -1074,15 +1074,15 @@ ol {
 	top: 20px;
 	height: 1px;
 	width: 10px;
-	background: yellow;
+	background: red;
 	content: "";
 }
 
 .breadcrumb__option span {
 	display: inline-block;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bolder;
-	color: yellow;
+	color: red;
 }
 
 /*---------------------
