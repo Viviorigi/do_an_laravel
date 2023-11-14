@@ -30,7 +30,8 @@
 /* Template default CSS
 /*----------------------------------------*/
 .logo-img{
-	width: 80px !important;
+	width: 119px !important;
+    height: 55px;
 }
 html,
 body {
@@ -2653,9 +2654,9 @@ ol {
 }
 
 .footer__about ul li {
-	font-size: 16px;
+	font-size: 15px;
 	color: #1c1c1c;
-	line-height: 36px;
+	line-height: 25px;
 	list-style: none;
 }
 

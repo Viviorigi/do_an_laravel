@@ -1,7 +1,7 @@
 @extends('customer.masterviewCustomer')
 @section('main-content')
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{asset('Customer-assets')}}/img/banner.jpg">
+    <section class="blog-details-hero set-bg" data-setbg="{{asset('customer-assets')}}/img/banner.png">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

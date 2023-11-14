@@ -79,6 +79,12 @@
                         <span class="menu-title">Banner</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('blog.index') }}">
+                        <i class="mdi mdi mdi-bing menu-icon"></i>
+                        <span class="menu-title">Banner</span>
+                    </a>
+                </li>
                 <li class="nav-item sidebar-actions">
                     <div class="nav-link">
                         <div class="mt-4">

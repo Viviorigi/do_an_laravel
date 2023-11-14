@@ -11,6 +11,7 @@ use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
 use App\Http\Controllers\customer\OrderController;
+use App\Http\Controllers\Admin\blogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);
+    Route::resource('blog', blogController::class);
    
 });
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');

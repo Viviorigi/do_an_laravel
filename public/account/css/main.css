@@ -38,7 +38,7 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Ubuntu-Regular;
+	font-family: inherit;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
