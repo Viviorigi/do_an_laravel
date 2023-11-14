@@ -21,7 +21,8 @@
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('userProfile', $customer->id) }}">Customer</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('userProfile', $customer->id) }}">Customer</a>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Order Detail</li>
                         </ol>
                     </nav>
@@ -69,8 +70,10 @@
                             <div class="d-flex justify-content-between">
                                 @if ($order->Status == 0)
                                     <div>
-                                    <h4 class="p-5">Trạng thái đơn hàng: Chờ xác nhận</h4>
-                                    <a href="{{route('cancelorder',$order->id)}}" class="btn btn-danger mr-5">Hủy đơn hàng</a>
+                                        <h4 class="p-5">Trạng thái đơn hàng: Chờ xác nhận</h4>                 
+                                            <button type="button" class="btn btn-danger ml-5 mb-5" data-toggle="modal" data-target="#exampleModal">
+                                                Hủy đơn hàng
+                                            </button>
                                     </div>
                                 @elseif($order->Status == 1)
                                     <h4 class="p-5"> Trạng thái đơn hàng: <strong>Đang chuẩn bị hàng</strong></h4>
@@ -79,15 +82,36 @@
                                 @elseif($order->Status == 3)
                                     <h4 class="p-5">Trạng thái đơn hàng: <strong>Đang giao hàng</strong></h4>
                                 @elseif($order->Status == 4)
-                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-warning">Giao hàng thành công</strong></h4>
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-warning">Giao hàng thành
+                                            công</strong></h4>
                                 @elseif($order->Status == 5)
-                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-danger">Đã hủy đơn hàng</strong></h4>
+                                    <h4 class="p-5">Trạng thái đơn hàng: <strong class="text-danger">Đã hủy đơn
+                                            hàng</strong></h4>
                                 @endif
                                 <h4 class="p-5"><strong>Tổng tiền: {{ number_format($total_price) }} VNĐ</strong></h4>
                             </div>
 
                         </div>
-
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Hủy đơn hàng</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       Bạn có chắc chắn muốn hủy đơn hàng?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                                        <a href="{{ route('cancelorder', $order->id) }}"class="btn btn-danger">Có</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
