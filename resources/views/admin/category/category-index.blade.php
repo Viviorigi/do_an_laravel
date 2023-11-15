@@ -32,7 +32,7 @@
                     <a href="{{route('category.create')}}" class="btn btn-success">ADD new Category</a>
                     <a href="{{route('category.trash')}}" class="btn btn-primary mr-5">Trash <i class="mdi mdi-delete"></i></a>
                 </div>
-                <table class="table">
+                <table class="table text-center">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 

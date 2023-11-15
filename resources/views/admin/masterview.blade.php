@@ -82,7 +82,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog.index') }}">
                         <i class="mdi mdi mdi-bing menu-icon"></i>
-                        <span class="menu-title">Banner</span>
+                        <span class="menu-title">Blog</span>
                     </a>
                 </li>
                 <li class="nav-item sidebar-actions">

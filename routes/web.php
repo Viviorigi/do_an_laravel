@@ -12,7 +12,7 @@ use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
 use App\Http\Controllers\customer\OrderController;
-use App\Http\Controllers\Admin\blogController;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +74,10 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/banner/find', [BannerController::class, 'find'])->name('banner.find');
     Route::get('/banner/{id}/restore', [BannerController::class,'restore'])->name('banner.restore');
     Route::get('/banner/{id}/forcedelete', [BannerController::class,'forcedelete'])->name('banner.forcedelete');
+    Route::get('/blog/find', [CategoryController::class, 'find'])->name('blog.find');
+    Route::get('/blog/trash', [CategoryController::class,'trash'])->name('blog.trash');
+    Route::get('/blog/{id}/restore', [CategoryController::class,'restore'])->name('blog.restore');
+    Route::get('/blog/{id}/forcedelete', [CategoryController::class,'forcedelete'])->name('blog.forcedelete');
     Route::get('/order.list',[AdminOrderController::class, 'index'])->name('order.index');
     Route::get('/order/{id}/edit',[AdminOrderController::class, 'edit'])->name('order.edit');
     Route::post('/order/{id}/update',[AdminOrderController::class, 'update'])->name('order.update');
@@ -84,7 +88,7 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
     Route::resource('banner', BannerController::class);
-    Route::resource('blog', blogController::class);
+    Route::resource('blog', BlogController::class);
    
 });
 Route::get('/logon', [AdminController::class, 'logon'])->name('logon');
