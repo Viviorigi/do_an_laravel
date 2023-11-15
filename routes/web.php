@@ -38,14 +38,16 @@ Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'create']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/userProfile/{id}', [UserController::class, 'userProfile'])->name('userProfile');
-Route::get('/change-password/{id}', [UserController::class, 'changePasswordIndex'])->name('changePassword.index');
-Route::post('/change-password/{id}',[UserController::class, 'changePassword'])->name('changePassword');
-Route::get('/edit-userProfile/{id}',[UserController::class, 'editprofile'])->name('editProfile');
-Route::post('/update-userProfile/{id}',[UserController::class, 'updateprofile'])->name('updateProfile');
-Route::get('/order-detail/{id}',[UserController::class, 'orderDetail'])->name('orderDetail');
-Route::get('/cancel-order/{id}}',[UserController::class, 'cancelorder'])->name('cancelorder');
 
+Route::prefix('customer')->middleware('cus')->group(function () {
+    Route::get('/userProfile/{id}', [UserController::class, 'userProfile'])->name('userProfile');
+    Route::get('/change-password/{id}', [UserController::class, 'changePasswordIndex'])->name('changePassword.index');
+    Route::post('/change-password/{id}',[UserController::class, 'changePassword'])->name('changePassword');
+    Route::get('/edit-userProfile/{id}',[UserController::class, 'editprofile'])->name('editProfile');
+    Route::post('/update-userProfile/{id}',[UserController::class, 'updateprofile'])->name('updateProfile');
+    Route::get('/order-detail/{id}',[UserController::class, 'orderDetail'])->name('orderDetail');
+    Route::get('/cancel-order/{id}}',[UserController::class, 'cancelorder'])->name('cancelorder');
+});
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');
 Route::get('cart', [CartController::class, 'index'])->name('cart.index');

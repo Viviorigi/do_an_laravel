@@ -60,20 +60,29 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Tên:</label>
                         <div class="col-lg-10">
-                            <input name="name" class="form-control" type="text" value="{{ $user->name }}">
+                            <input name="name" class="form-control" type="text" value="{{ old('name')?old('name'):$user->name }}">
                         </div>
+                        @error('name')
+                        <span class="text-danger ml-3"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Số điện thoại</label>
                         <div class="col-lg-10">
-                            <input name="phone" class="form-control" type="text" value="{{ $user->phone }}">
+                            <input name="phone" class="form-control" type="text" value="{{ old('phone')?old('phone'):$user->phone }}">
                         </div>
+                        @error('phone')
+                        <span class="text-danger ml-3"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Địa chỉ</label>
                         <div class="col-lg-10">
-                            <input name="address" class="form-control" type="text" value="{{ $user->address }}">
+                            <input name="address" class="form-control" type="text" value="{{ old('address')?old('address'):$user->address }}">
                         </div>
+                        @error('address')
+                        <span class="text-danger ml-3"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-success m-3">Cập nhật thông tin</button>
 
