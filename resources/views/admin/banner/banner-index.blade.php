@@ -31,7 +31,7 @@
                     <a href="{{route('banner.create')}}" class="btn btn-success">ADD new Banner</a>
                     <a href="{{route('banner.trash')}}" class="btn btn-primary mr-5">Trash <i class="mdi mdi-delete"></i></a>
                 </div>
-                <table class="table">
+                <table class="table text-center">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 

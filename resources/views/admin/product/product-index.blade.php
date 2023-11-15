@@ -30,7 +30,7 @@
                     <a href="{{route('product.trash')}}" class="btn btn-primary mr-3 ">Trash <i class="mdi mdi-delete"></i></a>
                     
                 </div>
-                <table class="table-responsive "  id="myTable">
+                <table class="table-responsive text-center"  id="myTable">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 

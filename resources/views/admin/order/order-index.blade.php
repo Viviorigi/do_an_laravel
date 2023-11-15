@@ -28,7 +28,7 @@
                     </form>
                     </li>
                 </div>
-                <table class="table">
+                <table class="table text-center">
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
 

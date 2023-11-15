@@ -15,7 +15,7 @@
                 <div class="m-2 d-flex justify-content-lg-between justify-content-md-around ">
                     <a href="{{route('order.index')}}" class="btn btn-primary ml-3">Back</a>
                 </div>
-                <table class="table">
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <th>STT</th>
