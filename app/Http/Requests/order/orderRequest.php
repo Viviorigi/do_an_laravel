@@ -25,7 +25,7 @@ class orderRequest extends FormRequest
             'name'=>'required|min:2',
             'address'=>'required',
             'email'=>'required',
-            'phone'=>'required,regex:/(84|0[3|5|7|8|9])+([0-9]{8})/',
+            'phone'=>['required','regex:/(84|0[3|5|7|8|9])+([0-9]{8})/'],
             'methodPayment'=>'required|in:1,2'
         ];
        

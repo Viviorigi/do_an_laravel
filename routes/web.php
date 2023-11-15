@@ -31,6 +31,7 @@ Route::get('/about',[CustomerController::class, 'about'])->name('about');
 Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
 Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
 Route::get('/products', [CustomerController::class, 'products'])->name('products');
+Route::post('/products/filter', [CustomerController::class, 'productsfilterbyprice'])->name('productsfilterbyprice');
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -38,6 +39,7 @@ Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'create']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
 
 Route::prefix('customer')->middleware('cus')->group(function () {
     Route::get('/userProfile/{id}', [UserController::class, 'userProfile'])->name('userProfile');

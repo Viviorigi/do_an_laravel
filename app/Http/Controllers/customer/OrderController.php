@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Order_detail;
 use App\Http\Requests\order\orderRequest;
 use Auth;
+use Mail;
 class OrderController extends Controller
 {
     public function checkout(Cart $cart) {
@@ -27,6 +28,7 @@ class OrderController extends Controller
        if(Auth::check() && Auth::user()->role == 0){
         $cus_id= Auth::user()->id;
         $user=User::find($cus_id)->update($request->all());
+        $cus=User::find($cus_id);
        }else{
         $cus=User::create($request->all());
         $cus_id=$cus->id;
@@ -52,7 +54,15 @@ class OrderController extends Controller
                 ]);
             }
          };
+         //mail xac nhan  
+            $name='test email';
+            Mail::send('email.order',compact('order','cus'),function ($email) use($cus){
+                $email->subject('BigBite- Đặt hàng thành công');
+                $email->to($cus->email,$cus->name);
+            });
+    
         session(['cart'=>'']);
+        
         return redirect()->route('checkout.success')->with('success','Đặt hàng thành công');
        } catch (\Throwable $th) {
         dd($th);
