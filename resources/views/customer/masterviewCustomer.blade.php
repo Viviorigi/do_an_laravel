@@ -135,16 +135,9 @@
                     <div class="col-lg-3 d-lg-block d-none">
                         <div class="header__cart">
                             <ul>
-<<<<<<< HEAD
-                                @if (Auth::check() && Auth::user()->role == 0)
-                                        <span>{{Auth::user()->name}}</span>                    
-                                        <li>gi
-                                            <a href="{{route('userProfile',Auth::user()->id)}}"><i class="fa fa-user"></i></a>
-=======
                                 @if (Auth::check() && Auth::user()->role == 0)                   
                                         <li>
                                             <a href="{{route('userProfile',Auth::user()->id)}}">{{Auth::user()->name}}<i class="fa fa-user"></i></a>
->>>>>>> 2ec7708e921b63d694fee5b3216aab9ebab280b6
                                             <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
                                         </li>                                                   
                                 @else
