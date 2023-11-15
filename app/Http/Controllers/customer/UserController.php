@@ -49,7 +49,7 @@ class UserController extends Controller
     }
     public function userProfile($id) {
         $user=User::find($id);
-        $order=Order::where('user_id',$id)->get();
+        $order=Order::where('user_id',$id)->orderBy('updated_at', 'DESC')->paginate(10);
         return view('customer.userProfile',compact('user','order'));   
     }
     public function changePasswordIndex($id) {
@@ -89,6 +89,18 @@ class UserController extends Controller
     }
     
     public function updateprofile($id,Request $request) {
+        $validate= $validate=$request->validate([
+            'name'=>'required|min:2',
+            'phone'=>['required','regex: /(84|0[3|5|7|8|9])+([0-9]{8})/'],
+            'address'=>'required' 
+        ],[
+            'name.required'=>'Vui lòng nhập Tên',
+            'name.min'=>'Tên tối thiểu 2 ký tự',
+            'phone.required'=>'Vui lòng nhập Số điện thoại',
+            'phone.regex'=>'Nhập đúng dạng số điện thoại Việt Nam',
+            'address.required'=>'Vui lòng nhập Địa chỉ',
+            
+        ]);
         if($request->photo!=''){
             $file_name=$request->photo->getClientOriginalName();
             $request->merge(['image'=>$file_name]);

@@ -135,16 +135,16 @@
                     <div class="col-lg-3 d-lg-block d-none">
                         <div class="header__cart">
                             <ul>
-                                @if (Auth::check() && Auth::user()->role == 0)
-                                        <span>{{Auth::user()->name}}</span>                    
+                                @if (Auth::check() && Auth::user()->role == 0)                   
                                         <li>
-                                            <a href="{{route('userProfile',Auth::user()->id)}}"><i class="fa fa-user"></i></a>
+                                            <a href="{{route('userProfile',Auth::user()->id)}}">{{Auth::user()->name}}<i class="fa fa-user"></i></a>
                                             <a href="{{route('logout')}}"><strong> | Đăng xuất</strong></a>
-                                        </li>                            
-                                                     
+                                        </li>                                                   
                                 @else
                                 <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong> <i class="fa fa-user"></i></a></li>
                                 @endif                    
+                            </ul>
+                            <ul>
                                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                                 <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
                             </ul>
