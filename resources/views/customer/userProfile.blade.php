@@ -149,6 +149,9 @@
 
                             </tbody>
                         </table>
+                        <div class="mt-3 m-4"> 
+                            {{ $order->links() }}
+                        </div>
                     </div>
 
                 </div>

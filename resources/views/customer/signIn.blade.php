@@ -39,6 +39,17 @@
                 </div>
                 
                 @endif
+                @if($message = Session::get('alert'))
+
+                <div class="alert alert-warning alert-block">
+                
+                    <button type="button" class="close" data-dismiss="alert">×</button>	
+                
+                        <strong>{{ $message }}</strong>
+                
+                </div>
+                
+                @endif
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
                         <input class="input100" type="email" name="email" value="{{old('email')}}" placeholder="Email"  >
                         <span class="focus-input100"></span>
