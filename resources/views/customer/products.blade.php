@@ -113,6 +113,7 @@
                                 <div class="filter__sort">
                                     <span>Sort By</span>
                                     <select onchange="location = this.value;">
+                                        <option >Sắp xếp</option>
                                         <option value="{{URL::current()}}?sort=name_asc" {{(Request::get('sort')=='name_asc')?'selected':''}}>A-Z </option>
                                         <option value="{{URL::current()}}?sort=name_desc" {{(Request::get('sort')=='name_desc')?'selected':''}} > Z-a</option>
                                         <option value="{{URL::current()}}?sort=price_asc" {{(Request::get('sort')=='price_asc')?'selected':''}} >Giá tăng dần </option>
