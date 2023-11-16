@@ -37,6 +37,7 @@ class orderRequest extends FormRequest
             'email.required'=>'Email của bạn không để trống',
             'address.required'=>'Địa chỉ của bạn không để trống',
             'phone.required'=>'Số điện thoại của bạn không để trống',
+            'phone.regex'=>'Số điện thoại của bạn không không đúng định dạng',
             'methodPayment'=>'* Vui lòng chọn phương thức thanh toán' 
         ];
     }
