@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Blog;
 
 class CustomerController extends Controller
 {
@@ -18,10 +19,14 @@ class CustomerController extends Controller
         return view('customer.contact');   
     }
     public function blog() {
-        return view('customer.blog');   
+        $blog = Blog::all();
+        $latestBlog =  Blog::orderBy('created_at','DESC')->take(6)->get();
+        return view('customer.blog',compact('blog','latestBlog'));   
     }
-    public function blogDetails() {
-        return view('customer.blog-details');   
+    public function blogDetails($slug) {
+        $blogdetail = Blog::where('slug',$slug)->first();
+        $latestBlog =  Blog::orderBy('created_at','DESC')->take(6)->get();
+        return view('customer.blog-details',compact('blogdetail','latestBlog'));   
     }
     public function shoppingCart() {
         return view('customer.cart');   
