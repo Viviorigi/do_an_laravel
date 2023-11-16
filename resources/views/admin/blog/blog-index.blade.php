@@ -65,13 +65,13 @@
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td >
                                 <a href="{{route('blog.edit',$item)}}" class="btn btn-primary"> Edit</a>
-                                <a href="">
-                                    <form action="{{route('blog.destroy',$item)}}" method="POST">
-                                        @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
-                                    </form>
-                                </a>
                                 
+                            </td>
+                            <td>
+                                <form action="{{route('blog.destroy',$item)}}" method="POST">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">DELETE</button>
+                                </form>
                             </td>                          
                         </tr>
                         @endforeach

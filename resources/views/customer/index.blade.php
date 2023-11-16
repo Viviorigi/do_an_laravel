@@ -51,7 +51,7 @@
                                 <form action="{{ route('productseach') }}" class="form-search" method="POST">
                                     @csrf
                                     <i class="fa fa-search" style="position: absolute;top:30%;left:3%;"></i>
-                                    <input class="pl-5 input-search-ajax" type="text" placeholder="nhập tên sản phẩm" name="keyword">
+                                    <input class="pl-5 input-search-ajax" type="text" placeholder="nhập tên sản phẩm" name="keyword" autocomplete="off">
                                     <button type="submit" class="site-btn">Tìm Kiếm</button>
                                 </form>
                             </div>

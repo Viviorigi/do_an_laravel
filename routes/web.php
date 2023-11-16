@@ -8,11 +8,12 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\Admin\ManageCustomerController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
 use App\Http\Controllers\customer\OrderController;
-use App\Http\Controllers\Admin\BlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -76,10 +77,10 @@ Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/banner/find', [BannerController::class, 'find'])->name('banner.find');
     Route::get('/banner/{id}/restore', [BannerController::class,'restore'])->name('banner.restore');
     Route::get('/banner/{id}/forcedelete', [BannerController::class,'forcedelete'])->name('banner.forcedelete');
-    Route::get('/blog/find', [CategoryController::class, 'find'])->name('blog.find');
-    Route::get('/blog/trash', [CategoryController::class,'trash'])->name('blog.trash');
-    Route::get('/blog/{id}/restore', [CategoryController::class,'restore'])->name('blog.restore');
-    Route::get('/blog/{id}/forcedelete', [CategoryController::class,'forcedelete'])->name('blog.forcedelete');
+    Route::get('/blog/find', [BlogController::class, 'find'])->name('blog.find');
+    Route::get('/blog/trash', [BlogController::class,'trash'])->name('blog.trash');
+    Route::get('/blog/{id}/restore', [BlogController::class,'restore'])->name('blog.restore');
+    Route::get('/blog/{id}/forcedelete', [BlogController::class,'forcedelete'])->name('blog.forcedelete');
     Route::get('/order.list',[AdminOrderController::class, 'index'])->name('order.index');
     Route::get('/order/{id}/edit',[AdminOrderController::class, 'edit'])->name('order.edit');
     Route::post('/order/{id}/update',[AdminOrderController::class, 'update'])->name('order.update');

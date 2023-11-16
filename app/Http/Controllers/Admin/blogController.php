@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  App\Models\Blog;
-use App\Http\Requests\Blog\StoreBlogRequest;
-use App\Http\Requests\Blog\UpdateBlogRequest;
+use App\Models\Blog;
 use RealRashid\SweetAlert\Facades\Alert;
 class BlogController extends Controller
 {
@@ -30,8 +28,24 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBlogRequest $request)
+    public function store(Request $request)
     {   
+        $validate=$request->validate([
+            'name'=>'required|unique:blogs',
+            'slug'=>'required',
+            'photo'=>'required|image',
+            'content'=>'required'
+        ],
+        [
+            'name.required'=>'Tên không để trống',
+            'name.unique'=>"Tên $request->name đã tồn tại ",
+            'slug.required'=>'slug không để trống',
+            'photo.required'=>'ảnh không để trống',
+            'photo.image'=>'yêu cầu đúng định dạng ảnh',
+            'content.required'=>'vui lòng nhập nội dung'
+        ]
+    );
+      
         if(!$request->photo==''){
             $file_name=$request->photo->getClientOriginalName();
             $request->photo->storeAs('public/images',$file_name);
@@ -42,6 +56,7 @@ class BlogController extends Controller
             alert()->success('Thêm mới','thành công');
             return redirect()->route('blog.index')->with('success','Thêm mới Thành công');
         } catch (\Throwable $th) {
+            dd($th);
             alert()->error('Thêm mới','thêm mới thất bại');
             return redirect()->back()->with('error','Thêm mới không thành công');
         }     
@@ -57,8 +72,22 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update(Request $request, Blog $blog)
     {
+        $validate=$request->validate([
+            'name'=>'required|unique:blogs,name,'.$blog->id,
+            'slug'=>'required',
+            'photo'=>'image',
+            'content'=>'required'
+        ],
+        [
+            'name.required'=>'Tên không để trống',
+            'name.unique'=>"Tên $request->name đã tồn tại ",
+            'slug.required'=>'slug không để trống',
+            'photo.image'=>'yêu cầu đúng định dạng ảnh',
+            'content.required'=>'vui lòng nhập nội dung'
+        ]
+    );
         if(!$request->photo==''){
             $file_name=$request->photo->getClientOriginalName();
             $request->photo->storeAs('public/images',$file_name);
@@ -92,7 +121,6 @@ class BlogController extends Controller
     public function trash(){
        
         $blog=Blog::onlyTrashed()->get();
-        
         return view('admin.blog.trash-blog',compact('blog'));
     }
 

@@ -1,12 +1,12 @@
 @extends('admin.masterview')
 @section('title')
-    ADD Product
+    ADD Blog
 @endsection
 
 @section('main-content')
     <div class="col-lg-12 mt-5  grid-margin stretch-card">
         <div class="col-lg-10 m-auto">
-            <h2 class="mt-5">Add Product</h2>
+            <h2 class="mt-5">Add BLog</h2>
             <div class="mt-5">
                 <form class="forms-sample" method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
                   @csrf
@@ -51,17 +51,9 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="exampleTextarea1">Description</label>
-                              <textarea name="description" id="editor1"  rows="10" cols="80">
-                              </textarea>
-                              @error('description')
-                              <div class="alert alert-danger">{{ $message }}</div>
-                              @enderror
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleTextarea1">content</label>
                                 <textarea name="content" id="editor1"  rows="10" cols="50"></textarea>
-                              @error('description')
+                              @error('content')
                               <div class="alert alert-danger">{{ $message }}</div>
                               @enderror
                             </div>
@@ -124,21 +116,6 @@
             img.src = reader.result;
         }
     }
-
-    function preview(elem, output = '') {
-        const i = 0;
-        Array.from(elem.files).map((file) => {
-            const blobUrl = window.URL.createObjectURL(file)
-            output +=
-                `<div class="col-md-3" id="img-add">
-                    
-                    <div class="card "> 
-                        <img class="card-img-bottom" src=${blobUrl} alt="" width="100%" >
-                    </div>
-                </div>`
-            })
-            document.getElementById('imgs').innerHTML += output
-        }
 
 
 

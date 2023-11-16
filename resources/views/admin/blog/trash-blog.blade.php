@@ -27,11 +27,9 @@
                             <th>STT</th>
                             <th>Name</th>
                             <th>image</th>
-                            <th>description</th>
                             <th>content</th>
                             <th>created at</th>
-                            <th>Action</th>
-                            
+                            <th>Action</th>                 
                         </tr>
                     </thead>
                     <tbody>
@@ -42,15 +40,16 @@
                             <td>
                                 <img src="{{asset('storage/images')}}/{{$item->image}}" width="400px"    alt="">
                             </td>
-                            <td>{{$item->description}}</td>
-                            <td>{{$item->content}}</td>
+                            <td>{{$item->Content}}</td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
-                            <td class="d-flex">
-                                <a href="{{route('category.restore',$item->id)}}" class="btn btn-primary"> RESTORE</a>
-                                <a href="{{route('category.forcedelete',$item->id)}}" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">
-                                   DELETE
-                                </a>
-                            </td>                           
+                            <td >
+                                <a href="{{route('blog.restore',$item->id)}}" class="btn btn-primary"> RESTORE</a>
+                            </td>          
+                            <td>
+                                <a href="{{route('blog.forcedelete',$item->id)}}" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">
+                                    DELETE
+                                 </a>
+                            </td>                 
                         </tr>
                         @endforeach
                         
