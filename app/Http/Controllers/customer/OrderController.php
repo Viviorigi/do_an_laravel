@@ -36,6 +36,9 @@ class OrderController extends Controller
         $cus_id= Auth::user()->id;
         $user=User::find($cus_id)->update($request->all());
         $cus=User::find($cus_id);
+       }elseif($user=User::where('email',$request->email)->get()){
+        $cus=User::where('email',$request->email)->first();
+        $cus_id=$cus->id;
        }else{
         $cus=User::create($request->all());
         $cus_id=$cus->id;
