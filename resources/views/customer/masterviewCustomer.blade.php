@@ -33,7 +33,8 @@
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/select2/select2.min.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/vendor/daterangepicker/daterangepicker.css">
         <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/util.css">
-        <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/main.css">  
+        <link rel="stylesheet" type="text/css" href="{{asset('account')}}/css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         @yield('cus-css')
 </head>
 
@@ -224,7 +225,7 @@
     <!-- Footer Section End -->
     
     <!-- Js Plugins -->
-    <script src="{{asset('Customer-assets')}}/js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="{{asset('Customer-assets')}}/js/bootstrap.min.js"></script>
     <script src="{{asset('Customer-assets')}}/js/jquery.nice-select.min.js"></script>
     <script src="{{asset('Customer-assets')}}/js/jquery-ui.min.js"></script>
@@ -243,6 +244,7 @@
 	<script src="{{asset('account')}}/vendor/daterangepicker/daterangepicker.js"></script>
 	<script src="{{asset('account')}}/vendor/countdowntime/countdowntime.js"></script>
 	<script src="{{asset('account')}}/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @yield('custom-js')
    
 </body>

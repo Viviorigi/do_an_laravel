@@ -76,6 +76,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-3 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input name="email" class="form-control" type="text" value="{{ old('email')?old('email'):$user->email }}">
+                        </div>
+                        @error('email')
+                        <span class="text-danger ml-3"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label class="col-lg-3 control-label">Địa chỉ</label>
                         <div class="col-lg-10">
                             <input name="address" class="form-control" type="text" value="{{ old('address')?old('address'):$user->address }}">

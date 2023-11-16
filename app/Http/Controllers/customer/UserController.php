@@ -38,14 +38,14 @@ class UserController extends Controller
         
     //    dd($req->all());
         if(Auth::attempt(['email' => $req->email, 'password' => $req->password])){
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success','Đăng nhập thành công');
         }else{
             return redirect()->back()->with('error','Sai thông tin đăng nhập');
         }       
     }
     public function logout() {
         Auth::logout();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('success','Đăng xuất thành công');
     }
     public function userProfile($id) {
         $user=User::find($id);
@@ -92,6 +92,7 @@ class UserController extends Controller
         $validate= $validate=$request->validate([
             'name'=>'required|min:2',
             'phone'=>['required','regex: /(84|0[3|5|7|8|9])+([0-9]{8})/'],
+            'email'=>'required',
             'address'=>'required' 
         ],[
             'name.required'=>'Vui lòng nhập Tên',
@@ -99,7 +100,7 @@ class UserController extends Controller
             'phone.required'=>'Vui lòng nhập Số điện thoại',
             'phone.regex'=>'Nhập đúng dạng số điện thoại Việt Nam',
             'address.required'=>'Vui lòng nhập Địa chỉ',
-            
+            'email.required'=>'Vui lòng nhập email',
         ]);
         if($request->photo!=''){
             $file_name=$request->photo->getClientOriginalName();
