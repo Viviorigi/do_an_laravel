@@ -250,4 +250,9 @@
             }       
         })
     </script>
+    @if ($message = Session::get('success'))
+    <script>
+        toastr.success("{{ Session::get('success') }}");
+    </script>
+    @endif
 @endsection

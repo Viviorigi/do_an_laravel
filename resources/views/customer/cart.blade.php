@@ -139,4 +139,9 @@
             $('#updateCartQty').submit();
         }
     </script>
+    @if ($message = Session::get('success'))
+    <script>
+        toastr.success("{{ $message }}");
+    </script>
+    @endif
 @endsection

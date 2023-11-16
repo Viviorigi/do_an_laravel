@@ -8,7 +8,7 @@
                     <div class="breadcrumb__text">
                         <h2>Đặt hàng</h2>
                         <div class="breadcrumb__option">
-                            <span>Liên hệ chúng tôi</span>
+                            <span>Đặt hàng thành công</span>
                         </div>
                     </div>
                 </div>
@@ -17,12 +17,17 @@
     </section>
     <div class="jumbotron">
         <h1 class="display-3">Đơn hàng của bạn đã được đặt</h1>
-        <p class="lead">Đặt hàng thành công</p>
-        <hr class="my-2">
-        <p>More info</p>
+        <p class="lead">Đặt hàng thành công vui lòng check email {{$cus->email}}</p>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
         </p>
     </div>
 
+@endsection
+@section('custom-js')
+@if ($message = Session::get('success'))
+<script>
+    toastr.success("{{ Session::get('success') }}");
+</script>
+@endif
 @endsection

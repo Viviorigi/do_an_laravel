@@ -21,7 +21,14 @@ class OrderController extends Controller
         return view('customer.checkout',compact('cart'));   
     }
     public function success() {
-        return view('customer.checkout-success');
+        if(Auth::check() && Auth::user()->role == 0){
+            $cus_id= Auth::user()->id;
+            $cus=User::find($cus_id);
+           }else{
+            $order=Order::orderby('created_at','DESC')->first();
+            $cus=User::find($order->user_id);
+           }
+        return view('customer.checkout-success',compact('cus'));
     }
     public function postcheckout(orderRequest $request,Cart $cart)  {
         
@@ -55,7 +62,6 @@ class OrderController extends Controller
             }
          };
          //mail xac nhan  
-            $name='test email';
             Mail::send('email.order',compact('order','cus'),function ($email) use($cus){
                 $email->subject('BigBite- Đặt hàng thành công');
                 $email->to($cus->email,$cus->name);

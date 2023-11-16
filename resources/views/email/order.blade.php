@@ -1,9 +1,7 @@
 <div style="width: 600px;margin: 0 auto">
     <div style="text-align: center">
         <h2>Xin chào {{ $cus->name }}</h2>
-        <p>Bạn đã đặt đơn hàng này tại cửa hàng chúng tôi,vui lòng kiểm tra thông tin đơn hàng </p>
-
-        <p><a href="">Xác nhận đơn hàng</a></p>
+        <p>Cảm ơn bạn đã đặt đơn hàng này tại cửa hàng chúng tôi,vui lòng kiểm tra thông tin đơn hàng </p>
 
     </div>
             <h3>Người đặt hàng: {{ $cus->name }}</h3>
@@ -33,4 +31,5 @@
                     
                 </tbody>
             </table>
+            <h3>Vui lòng để ý điện thoại chúng tôi sẽ liên hệ xác nhận đơn hàng và khi giao hàng</h3>
 </div>

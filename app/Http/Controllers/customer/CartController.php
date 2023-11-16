@@ -16,19 +16,19 @@ class CartController extends Controller
         $product=Product::find($request->id);
         $quantity=$request->quantity;
         $cart->add($product,$quantity);
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->with('success','Đã thêm sản phẩm vào giỏ hàng');
     }
     public function remove(Cart $cart,$id)  {
         $cart->remove($id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Đã xóa sản phẩm khỏi giỏ hàng');
     }
     public function update(Cart $cart,Request $request)  {
       
         $cart->update($request->id,$request->quantity);
-        return redirect()->back();
+        return redirect()->back()->with('success','Cập nhật giỏ hàng thành công');
     }
     public function clear(Cart $cart){
         $cart->clear();
-        return redirect()->back();
+        return redirect()->back()->with('success','Đã xóa hết sản phẩm khỏi giỏ hàng');
     }
 }
