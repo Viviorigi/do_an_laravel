@@ -81,52 +81,8 @@
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>Đang giảm giá</h2>
+                            <h2>Có {{$productcount}}  kết quả tìm được</h2>
                         </div>
-                        <div class="row">
-                            <div class="product__discount__slider owl-carousel">
-                                @foreach ($product as $item)
-                                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{asset('storage/images')}}/{{$item->image}}">
-                                            <div class="product__discount__percent">-{{ceil((1-($item->sale_price/$item->price))*100)}}%</div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="{{ route('product-detail',$item->slug) }}"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            
-                                            <a href="{{ route('product-detail',$item->slug) }}"><h5>{{$item->name}}</h5></a>
-                                            <div class="product__item__price">{{number_format($item->sale_price)}} VNĐ <span>{{number_format($item->price)}} VNĐ</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
-                                    <span>Sắp xếp</span>
-                                    <select onchange="location = this.value;">
-                                        <option >Sắp xếp</option>
-                                        <option value="{{URL::current()}}?sort=name_asc" {{(Request::get('sort')=='name_asc')?'selected':''}}>A-Z </option>
-                                        <option value="{{URL::current()}}?sort=name_desc" {{(Request::get('sort')=='name_desc')?'selected':''}} > Z-a</option>
-                                        <option value="{{URL::current()}}?sort=price_asc" {{(Request::get('sort')=='price_asc')?'selected':''}} >Giá tăng dần </option>
-                                        <option value="{{URL::current()}}?sort=price_desc" {{(Request::get('sort')=='price_desc')?'selected':''}}>Giá Giảm dần </option>
-                                    </select>
-                                </div>
-                            </div>
-                            {{-- <div class="col-lg-4 col-md-4">
-                                <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                     <div class="row">
                         @foreach ($product as $item)
@@ -150,7 +106,6 @@
                     <div class="">
                         {{ $product->links() }}
                     </div>
-                </div>
             </div>
         </div>
     </section>

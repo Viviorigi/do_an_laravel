@@ -20,4 +20,11 @@ class Product extends Model
     {
         return $this->hasMany(ImgProducts::class);
     }
+    public function scopeSearch($query){
+        if(request('keyword')){
+            $key=request('keyword');
+            $query=$query->where('name','LIKE','%'.$key.'%');
+        }
+        return $query;
+    }
 }
