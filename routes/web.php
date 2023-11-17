@@ -31,7 +31,7 @@ Route::get('/',[CustomerController::class, 'home'])->name('index');
 Route::get('/contact',[CustomerController::class, 'contact'])->name('contact');
 Route::get('/about',[CustomerController::class, 'about'])->name('about');
 Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
-Route::get('/blog-details', [CustomerController::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog-detail/{slug}', [CustomerController::class, 'blogDetails'])->name('blog-detail');
 Route::get('/products', [CustomerController::class, 'products'])->name('products');
 Route::post('/products', [CustomerController::class, 'products']);
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
