@@ -187,50 +187,23 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($latestBlog as $item)
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic">
-                            <img src="{{ asset('Customer-assets') }}/img/blog/blog-1.jpg" alt="">
+                            <img src="{{ asset('storage/images') }}/{{ $item->image }}" alt="">
                         </div>
                         <div class="blog__item__text">
                             <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
+                                <li><i class="fa fa-calendar-o"></i>{{date("d/m/Y", strtotime($item->created_at))}}</li>
                             </ul>
-                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                            <h5><a href="{{ route('blog-detail',$item->slug) }}">{{$item->name}}</a></h5>
+                            <p>{!!$item->content!!}</p>
+                            <a href="{{ route('blog-detail',$item->slug) }}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{ asset('Customer-assets') }}/img/blog/blog-2.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                                <li><i class="fa fa-comment-o"></i> 5</li>
-                            </ul>
-                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{ asset('Customer-assets') }}/img/blog/blog-3.jpg" alt="">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            </ul>
-                            <h5><a href="#">Visit the clean farm in the US</a></h5>
-                            <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
