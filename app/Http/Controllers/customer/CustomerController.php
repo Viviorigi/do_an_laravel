@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-
+use App\Models\wishlist;
+use Auth;
 class CustomerController extends Controller
 {
     public function home() {
         $cate = Category::all();
         $latestProduct =  Product::orderBy('created_at','DESC')->where('status',1)->take(8)->get();
+        if(Auth::check() && Auth::user()->role == 0){
+            $wishlistcount= wishlist::where('user_id',Auth::user()->id)->count();
+        }
         return view('customer.index',compact('cate','latestProduct'));   
     }
     public function contact() {

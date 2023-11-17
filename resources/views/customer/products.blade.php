@@ -62,7 +62,7 @@
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
                                         @foreach ($latestProduct as $item)
-                                        <a href="#" class="latest-product__item">
+                                        <a href="{{ route('product-detail',$item->slug) }}" class="latest-product__item">
                                             <div class="latest-product__item__pic">
                                                 <img class="latest-img" src="{{asset('storage/images')}}/{{$item->image}}" alt="">
                                             </div>
@@ -92,7 +92,7 @@
                                             data-setbg="{{asset('storage/images')}}/{{$item->image}}">
                                             <div class="product__discount__percent">-{{ceil((1-($item->sale_price/$item->price))*100)}}%</div>
                                             <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="javascript:void(0)" onclick="addProductToWishList({{$item->id}})"><i class="fa fa-heart"></i></a></li>
                                                 <li><a href="{{ route('product-detail',$item->slug) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
@@ -135,7 +135,12 @@
                                 <div class="product__item__pic set-bg" data-setbg="{{asset('storage/images')}}/{{$item->image}}">
                                     <div style="height: 45px;width: 45px;background: #dd2222;border-radius: 50%;font-size: 14px;color: #ffffff;line-height: 45px;text-align: center;position: absolute;left: 15px;top: 15px;">-{{ceil((1-($item->sale_price/$item->price))*100)}}%</div>
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        @if (Auth::check() && Auth::user()->role == 0)
+                                        <li><a href="javascript:void(0)" onclick="addProductToWishList({{$item->id}})"><i class="fa fa-heart"></i></a></li>
+                                        @else 
+                                        <li><a href="{{route('login')}}" onclick="login()"><i class="fa fa-heart"></i></a></li>
+                                        @endif
+                                        
                                         <li><a href="{{ route('product-detail',$item->slug) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -155,4 +160,26 @@
         </div>
     </section>
     <!-- Product Section End -->
+@endsection
+@section('custom-js')
+    <script>
+        function addProductToWishList(id){
+            $.ajax({
+                type:'POST',
+                url:"{{route('WishList.store')}}",
+                data:{
+                    "_token":"{{csrf_token()}}",
+                    product_id:id
+                },
+                success:function (data) {
+                    if(data.status==200){
+                        toastr.success(data.message);
+                    }   
+                }
+            })
+        }
+        function login(){
+            toastr.success('Vui lòng đăng nhập để tiếp tục');
+        }
+    </script>
 @endsection

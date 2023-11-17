@@ -20,10 +20,10 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('userProfile', $customer->id) }}">Customer</a>
+                            <li class="breadcrumb-item"><a href="{{ route('index') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('userProfile', $customer->id) }}">Khách hàng</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Order Detail</li>
+                            <li class="breadcrumb-item active" aria-current="page">Chi tiết đơn hàng</li>
                         </ol>
                     </nav>
                 </div>
