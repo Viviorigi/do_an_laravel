@@ -54,6 +54,8 @@ Route::prefix('customer')->middleware('cus')->group(function () {
     Route::get('/order-detail/{id}',[UserController::class, 'orderDetail'])->name('orderDetail');
     Route::get('/cancel-order/{id}}',[UserController::class, 'cancelorder'])->name('cancelorder');
     Route::post('/wishlist/add',[WishlistController::class, 'addProductToWishList'])->name('WishList.store');
+    Route::get('/wishlist-count',[WishlistController::class, 'getWishListCount'])->name('WishList.count');
+    Route::get('/wishlist-product',[WishlistController::class, 'WishList'])->name('WishList.index');
 });
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');

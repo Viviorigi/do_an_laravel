@@ -53,6 +53,15 @@ class CustomerController extends Controller
         }
         if($request->minprice){
             $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->where('status',1)->paginate(9); 
+            if($request->sort=="name_asc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->where('status',1)->paginate(9);  
+            }elseif($request->sort=="name_desc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->where('status',1)->paginate(9);  
+            }elseif($request->sort=="price_asc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->where('status',1)->paginate(9);  
+            }elseif($request->sort=="price_desc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->where('status',1)->paginate(9);  
+            }
         }     
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
         return view('customer.products',compact('product','latestProduct','cate'));   

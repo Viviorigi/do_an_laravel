@@ -51,7 +51,8 @@
                                 <form action="{{ route('productseach') }}" class="form-search" method="POST">
                                     @csrf
                                     <i class="fa fa-search" style="position: absolute;top:30%;left:3%;"></i>
-                                    <input class="pl-5 input-search-ajax" type="text" placeholder="nhập tên sản phẩm" name="keyword" autocomplete="off">
+                                    <input class="pl-5 input-search-ajax" type="text" placeholder="nhập tên sản phẩm"
+                                        name="keyword" autocomplete="off">
                                     <button type="submit" class="site-btn">Tìm Kiếm</button>
                                 </form>
                             </div>
@@ -127,7 +128,14 @@
                             <div class="featured__item__pic set-bg"
                                 data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
                                 <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    @if (Auth::check() && Auth::user()->role == 0)
+                                        <li><a href="javascript:void(0)"
+                                                onclick="addProductToWishList({{ $item->id }})"><i
+                                                    class="fa fa-heart"></i></a></li>
+                                    @else
+                                        <li><a href="{{ route('login') }}" onclick="login()"><i
+                                                    class="fa fa-heart"></i></a></li>
+                                    @endif
                                     <li><a href="{{ route('product-detail', $item->slug) }}"><i
                                                 class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
@@ -230,29 +238,61 @@
 
 @section('custom-js')
     <script>
-         $('.search-ajax').hide();
+        $('.search-ajax').hide();
         $('.input-search-ajax').keyup(function() {
             var _text = $(this).val();
-            
-            var _url="{{url('storage/images')}}"
-            if(_text !=''){
+
+            var _url = "{{ url('storage/images') }}"
+            if (_text != '') {
                 $.ajax({
-                url: "{{route('ajaxSearchProduct')}}?keyword=" + _text,
-                type: 'GET',
-                success: function(res) {
-                    $('.search-ajax').show();
-                    $('.search-ajax').html(res);
-                }
-            });
-            }else{
+                    url: "{{ route('ajaxSearchProduct') }}?keyword=" + _text,
+                    type: 'GET',
+                    success: function(res) {
+                        $('.search-ajax').show();
+                        $('.search-ajax').html(res);
+                    }
+                });
+            } else {
                 $('.search-ajax').html('');
                 $('.search-ajax').hide();
-            }       
+            }
         })
     </script>
     @if ($message = Session::get('success'))
-    <script>
-        toastr.success("{{ Session::get('success') }}");
-    </script>
+        <script>
+            toastr.success("{{ Session::get('success') }}");
+        </script>
     @endif
+    <script>
+        function addProductToWishList(id) {
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('WishList.store') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    product_id: id
+                },
+                success: function(data) {
+                    if (data.status == 200) {
+                        getWishlistCount();
+                        toastr.success(data.message);
+                    }
+                }
+            })
+        }
+
+        function login() {
+            toastr.success('Vui lòng đăng nhập để tiếp tục');
+        }
+
+        function getWishlistCount() {
+            $.ajax({
+                type: "GET",
+                url: "{{ route('WishList.count') }}",
+                success: function(data) {
+                    $('.wishlist-count').html(data.wishlistCount)
+                }
+            })
+        }
+    </script>
 @endsection
