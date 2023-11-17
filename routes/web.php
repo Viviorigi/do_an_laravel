@@ -13,6 +13,7 @@ use App\Http\Controllers\customer\CustomerController;
 use App\Http\Controllers\customer\UserController;
 use App\Http\Controllers\customer\CartController;
 use App\Http\Controllers\customer\OrderController;
+use App\Http\Controllers\customer\WishlistController;
 
 
 /*
@@ -52,6 +53,7 @@ Route::prefix('customer')->middleware('cus')->group(function () {
     Route::post('/update-userProfile/{id}',[UserController::class, 'updateprofile'])->name('updateProfile');
     Route::get('/order-detail/{id}',[UserController::class, 'orderDetail'])->name('orderDetail');
     Route::get('/cancel-order/{id}}',[UserController::class, 'cancelorder'])->name('cancelorder');
+    Route::post('/wishlist/add',[WishlistController::class, 'addProductToWishList'])->name('WishList.store');
 });
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');

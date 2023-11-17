@@ -26,7 +26,12 @@ class UserController extends Controller
         $req->merge(['password'=>Hash::make($req->password)]);
        
         try {
-            User::create($req->all());
+            if($user=User::where('email',$req->email)->get()){
+                $user=User::where('email',$req->email)->first();
+                $updateuser=User::find($user->id)->update($req->all());
+            }else{
+                User::create($req->all());
+            }
             return redirect()->route('login')->with('success','Đăng ký thành công');
         } catch (\Throwable $th) {
             //throw $th;

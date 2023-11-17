@@ -20,8 +20,8 @@
                 <div class="col">
                     <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
                         <ol class="breadcrumb mb-0">
-                            <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('userProfile',$user->id)}}">Customer</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('index') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('userProfile',$user->id)}}">Khách hàng</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ Auth::user()->name }}</li>
                         </ol>
                     </nav>

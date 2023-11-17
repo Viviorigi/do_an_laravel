@@ -57,9 +57,12 @@
                 </li>  
                 @else
                 <li><a href="{{route('login')}}"> <strong>Đăng nhập</strong><i class="fa fa-user"></i></a></li>
-                @endif
-                
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                @endif   
+                @if (Auth::check() && Auth::user()->role == 0)     
+                <li><a href="#"><i class="fa fa-heart"></i> <span>{{Auth::user()->wishlist->count()}}</span></a></li>
+                @else
+                <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+                @endif 
                 <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
             </ul>
         </div>
@@ -146,7 +149,11 @@
                                 @endif                    
                             </ul>
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                                @if (Auth::check() && Auth::user()->role == 0)     
+                                <li><a href="#"><i class="fa fa-heart"></i> <span>{{Auth::user()->wishlist->count()}}</span></a></li>
+                                @else
+                                <li><a href="#"><i class="fa fa-heart"></i> <span>0</span></a></li>
+                                @endif     
                                 <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-bag"></i> <span>{{$cart->getTotalQuantity()}}</span></a></li>
                             </ul>
                         </div>
