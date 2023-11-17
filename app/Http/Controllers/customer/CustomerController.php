@@ -14,10 +14,11 @@ class CustomerController extends Controller
     public function home() {
         $cate = Category::all();
         $latestProduct =  Product::orderBy('created_at','DESC')->where('status',1)->take(8)->get();
+        $latestBlog =  Blog::orderBy('created_at','DESC')->take(4)->get();
         if(Auth::check() && Auth::user()->role == 0){
             $wishlistcount= wishlist::where('user_id',Auth::user()->id)->count();
         }
-        return view('customer.index',compact('cate','latestProduct'));   
+        return view('customer.index',compact('cate','latestProduct','latestBlog'));   
     }
     public function contact() {
         return view('customer.contact');   
