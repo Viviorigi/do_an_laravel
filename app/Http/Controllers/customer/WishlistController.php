@@ -11,7 +11,7 @@ use Auth;
 class WishlistController extends Controller
 {
     public function addProductToWishList(Request $request)  {
-            if(Wishlist::where('product_id',$request->product_id)->exists()){
+            if(Wishlist::where('product_id',$request->product_id)->where('user_id',Auth::user()->id)->exists()){
                 return response()->json(['status'=>200,'message'=>'sản phẩm đã có tồn tại danh sách yêu thích']); 
             }else{
                 Wishlist::create(['product_id'=>$request->product_id,'user_id'=>Auth::user()->id]);
@@ -32,5 +32,9 @@ class WishlistController extends Controller
         }
         
         return view('customer.wishlist-product',compact('cate','wishlist','list_products'));
+    }
+    public function wishlistdelete($id) {
+        $delete=WishList::where('user_id',Auth::user()->id)->where('product_id',$id)->delete();
+       return redirect()->route('WishList.index')->with('success','Hủy yêu thích thành công');
     }
 }
