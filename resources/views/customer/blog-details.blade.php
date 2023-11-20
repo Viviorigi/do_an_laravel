@@ -27,7 +27,7 @@
                         <div class="w-100 d-flex justify-content-center mb-4" style="height: 500px">
                             <img src="{{ asset('storage/images') }}/{{ $blogdetail->image }}" class="w-75"  alt="">
                         </div>
-                        <p>{!!$blogdetail->content!!}</p>
+                        {!!$blogdetail->content!!}
                     </div>
                 </div>
     </section>
