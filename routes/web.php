@@ -56,6 +56,7 @@ Route::prefix('customer')->middleware('cus')->group(function () {
     Route::post('/wishlist/add',[WishlistController::class, 'addProductToWishList'])->name('WishList.store');
     Route::get('/wishlist-count',[WishlistController::class, 'getWishListCount'])->name('WishList.count');
     Route::get('/wishlist-product',[WishlistController::class, 'WishList'])->name('WishList.index');
+    Route::get('/wishlist-delete/{id}',[WishlistController::class, 'wishlistdelete'])->name('WishList.delete');
 });
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');

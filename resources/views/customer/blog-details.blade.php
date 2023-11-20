@@ -27,7 +27,7 @@
                         <div class="w-100 d-flex justify-content-center mb-4" style="height: 500px">
                             <img src="{{ asset('storage/images') }}/{{ $blogdetail->image }}" class="w-75"  alt="">
                         </div>
-                        <p>{!!$blogdetail->content!!}</p>
+                        {!!$blogdetail->content!!}
                     </div>
                 </div>
     </section>
@@ -55,7 +55,7 @@
                                         <li><i class="fa fa-calendar-o"></i> {{date("d/m/Y", strtotime($item->created_at))}}</li>
                                     </ul>
                                     <h5><a href="{{ route('blog-detail',$item->slug) }}">{{$item->name}}</a></h5>
-                                    <p>{!!$item->content!!}</p>
+                                    <p>{!! Str::limit($item->content,50) !!}</p>
                                 </div>
                             </div>
                         </div>

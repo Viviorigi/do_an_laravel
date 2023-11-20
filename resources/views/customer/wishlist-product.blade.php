@@ -46,7 +46,7 @@
                                     </a>
                                     <h5>{{ number_format($item->sale_price) }}VNĐ <del
                                             style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
-                                        <a href="" class="btn btn-danger m-2" >Xóa Yêu thích</a>
+                                        <a href="{{route('WishList.delete',$item->id)}}"  class="btn btn-danger m-2" >Xóa Yêu thích</a>
                                 </div>
                             </div>
                         </div>
@@ -61,27 +61,6 @@
 @endsection
 @section('custom-js')
     <script>
-        function addProductToWishList(id) {
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('WishList.store') }}",
-                data: {
-                    "_token": "{{ csrf_token() }}",
-                    product_id: id
-                },
-                success: function(data) {
-                    if (data.status == 200) {
-                        getWishlistCount();
-                        toastr.success(data.message);
-                    }
-                }
-            })
-        }
-
-        function login() {
-            toastr.success('Vui lòng đăng nhập để tiếp tục');
-        }
-
         function getWishlistCount() {
             $.ajax({
                 type: "GET",
@@ -92,4 +71,9 @@
             })
         }
     </script>
+       @if ($message = Session::get('success'))
+       <script>
+           toastr.success("{{ Session::get('success') }}");
+       </script>
+       @endif
 @endsection
