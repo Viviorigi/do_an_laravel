@@ -44,6 +44,10 @@ Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'create']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/forget-password',[UserController::class, 'forgetpassword'])->name('forgetpassword');
+Route::post('/forget-password',[UserController::class, 'postforgetpassword']);
+Route::get('/get-newpassword/{id}/{remember_token}',[UserController::class, 'getnewpass'])->name('getnewpass');
+Route::post('/get-newpassword/{id}/{remember_token}',[UserController::class, 'postgetnewpass']);
 
 
 Route::prefix('customer')->middleware('cus')->group(function () {
