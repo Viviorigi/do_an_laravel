@@ -64,12 +64,15 @@ Blog
                                         <li><i class="fa fa-calendar-o"></i>{{date("d/m/Y", strtotime($item->created_at))}}</li>
                                     </ul>
                                     <h5><a href="{{ route('blog-detail',$item->slug) }}">{{$item->name}}</a></h5>
-                                    <p>{!!$item->content!!}</p>
+                                    {!! Str::limit($item->content,50) !!}
                                     <a href="{{ route('blog-detail',$item->slug) }}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
                         @endforeach
+                        <div class="">
+                            {{ $blog->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
