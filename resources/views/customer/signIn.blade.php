@@ -59,8 +59,8 @@
                     </div>
 
                     <div class="text-right p-t-13 p-b-23">
-                        <a href="#" class="txt2">
-                            quên mật khẩu
+                        <a href="{{route('forgetpassword')}}" class="txt2">
+                            <strong>quên mật khẩu ?</strong>
                         </a>
                     </div>
 
@@ -72,11 +72,11 @@
 
                     <div class="flex-col-c p-t-100 p-b-40">
                         <span class="txt1 p-b-9">
-                            Bạn chưa có tài khoản
+                            <strong>Bạn chưa có tài khoản</strong>
                         </span>
 
                         <a href="{{ route('register') }}" class="txt3">
-                            Tạo tài khoản mới ngay bây giờ!
+                            <strong>Tạo tài khoản mới ngay bây giờ!</strong>
                         </a>
                     </div>
                 </form>
@@ -101,7 +101,7 @@
         toastr.warning("{{ $message }}");
     </script>
     @endif
-     @if ($message = Session::get('warning'))
+     @if ($message = Session::get('alert'))
     <script>
         toastr.warning("{{ $message }}");
     </script>

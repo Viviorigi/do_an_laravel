@@ -9,6 +9,8 @@ use App\Models\Order;
 use App\Models\Order_detail;
 use Hash;
 use Auth;
+use Str;
+use Mail;
 use App\Http\Requests\customer\SignUp;
 
 class UserController extends Controller
@@ -87,7 +89,46 @@ class UserController extends Controller
         }
  
     }
+    public function forgetpassword()  {
+        return view('customer.forgetpass');
+    }
+    public function postforgetpassword(Request $request) {
+        $request->validate([
+            'email'=>'required|exists:users'
+        ],[
+            'email.required'=>'Vui lòng nhập đúng email hợp lệ',
+            'email.exists'=>'Email không tồn tại trong hệ thống'
+        ]);
+        $token=strtoupper(Str::random(10));
+        $customer= User::where('email',$request->email)->first();
+        $customer->update(['remember_token'=>$token]);
+        Mail::send('email.check_email_forget',compact('customer'),function ($email) use($customer){
+            $email->subject('BigBite- Lấy lại mật khẩu tài khoản');
+            $email->to($customer->email,$customer->name);
+        });
+        return redirect()->back()->with('warning','Vui lòng check email để thực hiện thay đổi mật khẩu');
+    }
+    public function getnewpass($id,$remember_token)  {
+        $customer=User::find($id);
+        if($customer->remember_token==$remember_token){
+            return view('customer.getpass');
+        }
+        return abort(404);
+    }
+    public function postgetnewpass(Request $request,$id,$remember_token) {
+        $request->validate([
+            'password'=>'required|min:6',
+            'repassword'=>'required|same:password'
+        ],[
+            'password.required'=>'Vui lòng nhập mật khẩu',
+            'password.min'=>'Mật khẩu tối thiểu 6 ký tự',
+            'repassword.required'=>'Vui lòng nhập lại mật khẩu',
+            'repassword.same'=>'Nhập lại mật khẩu không trùng khớp'
+        ]);
+        $user=User::find($id)->update(['password'=>$request->password,'remember_token'=>null]);
+        return redirect()->route('login')->with('success','Đặt lại mật khẩu thành công vui lòng đăng nhập lại');
 
+    }
     public function editprofile($id) {
         $user=User::find($id);
         return view('customer.edit-userProfile',compact('user'));
