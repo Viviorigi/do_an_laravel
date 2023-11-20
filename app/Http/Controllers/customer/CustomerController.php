@@ -14,7 +14,7 @@ class CustomerController extends Controller
     public function home() {
         $cate = Category::all();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(8)->get();
-        $latestBlog =  Blog::orderBy('created_at','DESC')->take(4)->get();
+        $latestBlog =  Blog::orderBy('created_at','DESC')->take(3)->get();
         if(Auth::check() && Auth::user()->role == 0){
             $wishlistcount= wishlist::where('user_id',Auth::user()->id)->count();
         }
@@ -24,7 +24,7 @@ class CustomerController extends Controller
         return view('customer.contact');   
     }
     public function blog() {
-        $blog = Blog::all();
+        $blog = Blog::orderBy('created_at','DESC')->paginate(6);
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(6)->get();
         return view('customer.blog',compact('blog','latestBlog'));   
     }
