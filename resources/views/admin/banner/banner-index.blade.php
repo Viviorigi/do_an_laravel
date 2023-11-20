@@ -62,7 +62,7 @@
                                 <label class="badge {{$item->status?"badge-success":"badge-danger"}} ">{{$item->status?"HIện":"Ẩn"}}</label>
                             </td>
                             <td>
-                                <img src="{{asset('storage/images')}}/{{$item->image}}" width="400px"    alt="">
+                                <img src="{{asset('storage/images')}}/{{$item->image}}" style="width: 400px !important;"    alt="">
                             </td>
                             <td >
                                 <a href="{{route('banner.edit',$item)}}" class="btn btn-primary"> Edit</a>

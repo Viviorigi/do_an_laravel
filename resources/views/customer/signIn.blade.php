@@ -1,4 +1,7 @@
 @extends('customer.masterviewCustomer')
+@section('title')
+Đăng nhập
+@endsection
 @section('main-content')
     <div class="limiter">
         <div class="container-login100">
@@ -6,7 +9,7 @@
                 <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" action="">
                     @csrf
                     <span class="login100-form-title">
-                        Sign In
+                        Đăng nhập
                     </span>
                     @if ($message = Session::get('error'))
                         <div class="alert alert-danger alert-block">
@@ -57,23 +60,23 @@
 
                     <div class="text-right p-t-13 p-b-23">
                         <a href="#" class="txt2">
-                            Forgot Password?
+                            quên mật khẩu
                         </a>
                     </div>
 
                     <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">
-                            Sign in
+                            Đăng nhập
                         </button>
                     </div>
 
                     <div class="flex-col-c p-t-100 p-b-40">
                         <span class="txt1 p-b-9">
-                            Don’t have an account?
+                            Bạn chưa có tài khoản
                         </span>
 
                         <a href="{{ route('register') }}" class="txt3">
-                            Sign up now
+                            Tạo tài khoản mới ngay bây giờ!
                         </a>
                     </div>
                 </form>

@@ -1,4 +1,7 @@
 @extends('customer.masterviewCustomer')
+@section('title')
+Đăng ký tài khoản
+@endsection
 @section('main-content')
     <div class="limiter">
         <div class="container-login100">
@@ -6,7 +9,7 @@
                 <form class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="POST" action="">
                     @csrf
                     <span class="login100-form-title">
-                        Sign Up
+                        Đăng ký tài khoản
                     </span>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
                         <input class="input100" type="text" name="name" placeholder="Name" value="{{ old('name') }}">
@@ -40,15 +43,9 @@
                     @error('repassword')
                         <span class="text-danger p-2">{{ $message }}</span>
                     @enderror
-                    <div class="text-right p-t-13 p-b-23">
-                        <a href="#" class="txt2">
-                            Forgot Password?
-                        </a>
-                    </div>
-
                     <div class="container-login100-form-btn mb-5">
                         <button type="submit" class="login100-form-btn">
-                            Sign up
+                            Đăng ký 
                         </button>
                     </div>
             </div>

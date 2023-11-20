@@ -1,3 +1,6 @@
+@section('title')
+Cập nhật thông tin khách hàng
+@endsection
 @extends('customer.masterviewCustomer')
 @section('cus-css')
     <style>

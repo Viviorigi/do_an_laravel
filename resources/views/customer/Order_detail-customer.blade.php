@@ -1,3 +1,6 @@
+@section('title')
+Chi tiết đơn hàng
+@endsection
 @extends('customer.masterviewCustomer')
 @section('main-content')
     <!-- Breadcrumb Section Begin -->

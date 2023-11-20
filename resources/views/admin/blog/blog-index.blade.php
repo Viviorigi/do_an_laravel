@@ -60,7 +60,7 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->slug}}</td>
                             <td>
-                                <img src="{{asset('storage/images')}}/{{$item->image}}" width="200px"    alt="">
+                                <img src="{{asset('storage/images')}}/{{$item->image}}" style="width:350px !important"   alt="">
                             </td>
                             <td>{{date("d/m/Y", strtotime($item->created_at))}}</td>
                             <td >

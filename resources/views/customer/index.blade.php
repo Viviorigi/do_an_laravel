@@ -1,3 +1,6 @@
+@section('title')
+Trang chủ
+@endsection
 @extends('customer.masterviewCustomer')
 @section('load')
     {{-- <div id="preloder">
