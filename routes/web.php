@@ -36,6 +36,7 @@ Route::get('/products', [CustomerController::class, 'products'])->name('products
 Route::post('/products', [CustomerController::class, 'products']);
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/ajax-search-product',[CustomerController::class,'ajaxSearch'])->name('ajaxSearchProduct');
+Route::get('/productsearch', [CustomerController::class, 'productsearch']);
 Route::post('/productsearch', [CustomerController::class, 'productsearch'])->name('productseach');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
