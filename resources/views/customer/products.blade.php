@@ -1,4 +1,7 @@
 @extends('customer.masterviewCustomer')
+@section('title')
+Sản phẩm
+@endsection
 @section('main-content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="{{ asset('Customer-assets') }}/img/banner.png">

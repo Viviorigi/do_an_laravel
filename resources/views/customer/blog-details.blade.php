@@ -1,3 +1,6 @@
+@section('title')
+Chi tiết Blog
+@endsection
 @extends('customer.masterviewCustomer')
 @section('main-content')
     <!-- Blog Details Hero Begin -->
