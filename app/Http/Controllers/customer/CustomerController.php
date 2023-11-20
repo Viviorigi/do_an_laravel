@@ -13,7 +13,7 @@ class CustomerController extends Controller
 {
     public function home() {
         $cate = Category::all();
-        $latestProduct =  Product::orderBy('created_at','DESC')->where('status',1)->take(8)->get();
+        $latestProduct =  Product::orderBy('created_at','DESC')->take(8)->get();
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(4)->get();
         if(Auth::check() && Auth::user()->role == 0){
             $wishlistcount= wishlist::where('user_id',Auth::user()->id)->count();
@@ -42,26 +42,26 @@ class CustomerController extends Controller
     public function products(Request $request) {
         $cate = Category::all();
         
-        $product = Product::orderBy('created_at','DESC')->where('status',1)->paginate(9);        
+        $product = Product::orderBy('created_at','DESC')->paginate(9);        
         if($request->sort=="name_asc"){
-            $product = Product::orderBy('name','ASC')->where('status',1)->paginate(9);  
+            $product = Product::orderBy('name','ASC')->paginate(9);  
         }elseif($request->sort=="name_desc"){
-            $product = Product::orderBy('name','DESC')->where('status',1)->paginate(9);  
+            $product = Product::orderBy('name','DESC')->paginate(9);  
         }elseif($request->sort=="price_asc"){
-            $product = Product::orderBy('sale_price','ASC')->where('status',1)->paginate(9);  
+            $product = Product::orderBy('sale_price','ASC')->paginate(9);  
         }elseif($request->sort=="price_desc"){
-            $product = Product::orderBy('sale_price','DESC')->where('status',1)->paginate(9);  
+            $product = Product::orderBy('sale_price','DESC')->paginate(9);  
         }
         if($request->minprice){
-            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->where('status',1)->paginate(9); 
+            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
             if($request->sort=="name_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->where('status',1)->paginate(9);  
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
             }elseif($request->sort=="name_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->where('status',1)->paginate(9);  
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
             }elseif($request->sort=="price_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->where('status',1)->paginate(9);  
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
             }elseif($request->sort=="price_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->where('status',1)->paginate(9);  
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
             }
         }     
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
@@ -79,12 +79,30 @@ class CustomerController extends Controller
     }
     public function productsearch(Request $request) {
         $cate = Category::all();
-        $product=Product::where('name','LIKE',"%$request->keyword%")->where('status',1)->paginate(6);
-        $productcount=Product::where('name','LIKE',"%$request->keyword%")->where('status',1)->count();
+        $product=Product::where('name','LIKE',"%$request->keyword%")->paginate(6);
+        $productcount=Product::where('name','LIKE',"%$request->keyword%")->count();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
+        if($request->sort=="name_asc"){
+            $product = Product::orderBy('name','ASC')->paginate(9);  
+        }elseif($request->sort=="name_desc"){
+            $product = Product::orderBy('name','DESC')->paginate(9);  
+        }elseif($request->sort=="price_asc"){
+            $product = Product::orderBy('sale_price','ASC')->paginate(9);  
+        }elseif($request->sort=="price_desc"){
+            $product = Product::orderBy('sale_price','DESC')->paginate(9);  
+        }
         if($request->minprice){
-            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->where('status',1)->paginate(6); 
-            $productcount=Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->where('status',1)->count();
+            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $productcount=Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->count();
+            if($request->sort=="name_asc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+            }elseif($request->sort=="name_desc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
+            }elseif($request->sort=="price_asc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
+            }elseif($request->sort=="price_desc"){
+                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
+            }
         } 
         return view('customer.productsearch',compact('cate','product','productcount','latestProduct'));
     }
