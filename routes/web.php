@@ -36,7 +36,7 @@ Route::get('/products', [CustomerController::class, 'products'])->name('products
 Route::post('/products', [CustomerController::class, 'products']);
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/ajax-search-product',[CustomerController::class,'ajaxSearch'])->name('ajaxSearchProduct');
-Route::get('/productsearch', [CustomerController::class, 'productsearch']);
+Route::get('/productsearch', [CustomerController::class, 'productsearch'])->name('productseach1');
 Route::post('/productsearch', [CustomerController::class, 'productsearch'])->name('productseach');
 
 Route::get('/login', [UserController::class, 'login'])->name('login');
@@ -62,6 +62,7 @@ Route::prefix('customer')->middleware('cus')->group(function () {
     Route::get('/wishlist-count',[WishlistController::class, 'getWishListCount'])->name('WishList.count');
     Route::get('/wishlist-product',[WishlistController::class, 'WishList'])->name('WishList.index');
     Route::get('/wishlist-delete/{id}',[WishlistController::class, 'wishlistdelete'])->name('WishList.delete');
+    Route::post('/rating', [CustomerController::class, 'rating'])->name('rating');
 });
 
 Route::post('add-cart', [CartController::class, 'add'])->name('cart.add');

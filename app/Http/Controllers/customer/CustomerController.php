@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\wishlist;
 use Auth;
 use App\Models\Blog;
+use App\Models\rating;
+
 class CustomerController extends Controller
 {
     public function home() {
@@ -70,8 +72,9 @@ class CustomerController extends Controller
     public function productDetail($slug) {
         $detail = Product::where('slug',$slug)->first();
         $related = Product::where('category_id',$detail->category_id)->where('id','!=',$detail->id)->get();
-
-        return view('customer.product-detail',compact('detail','related'));   
+        $ratingAvg=rating::where('product_id',$detail->id)->avg('rating_star');
+        $ratingcount=rating::where('product_id',$detail->id)->count();
+        return view('customer.product-detail',compact('detail','related','ratingAvg','ratingcount'));   
     }
     public function ajaxsearch() {
         $data=Product::search()->get();
@@ -80,6 +83,7 @@ class CustomerController extends Controller
     public function productsearch(Request $request) {
         $cate = Category::all();
         $product=Product::where('name','LIKE',"%$request->keyword%")->paginate(6);
+        $product->appends(['keyword' => $request->keyword]);
         $productcount=Product::where('name','LIKE',"%$request->keyword%")->count();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
         if($request->sort=="name_asc"){
@@ -92,18 +96,27 @@ class CustomerController extends Controller
             $product = Product::orderBy('sale_price','DESC')->paginate(9);  
         }
         if($request->minprice){
-            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $product = Product::where('name','LIKE',"%$request->keyword%")->whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
             $productcount=Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->count();
             if($request->sort=="name_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
             }elseif($request->sort=="name_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
             }elseif($request->sort=="price_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
             }elseif($request->sort=="price_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
             }
         } 
         return view('customer.productsearch',compact('cate','product','productcount','latestProduct'));
+    }
+    public function rating(Request $request)  {
+        $rating=rating::where(['user_id'=>$request->user_id,'product_id'=>$request->product_id])->first();
+        if($rating){
+            $rating->update($request->all());
+        }else{
+            rating::create($request->all());
+        }
+        return redirect()->back()->with('success','Đánh giá thành công');
     }
 }
