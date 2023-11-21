@@ -1,5 +1,5 @@
 @section('title')
-Chi tiết sản phẩm
+    Chi tiết sản phẩm
 @endsection
 @extends('customer.masterviewCustomer')
 @section('main-content')
@@ -73,6 +73,26 @@ Chi tiết sản phẩm
                                         class="icon_heart_alt"></span></a>
                             @endif
                         </div>
+                        @if (Auth::check() && Auth::user()->role == 0)
+                        <div class="d-flex mt-4">
+                            <div id="rateYo" ></div>
+                            <div><h4 class="mt-1 ml-2">Đánh giá {{round($ratingAvg)}}/5 <i class="fa fa-star" style="color: #ffff00"></i></h4>
+                                 <p class="ml-2">Lượt đánh giá: {{$ratingcount}}</p>      
+                            </div>
+                        </div>                       
+                        @else
+                            <div id="rateYo1" class="mt-3"></div>
+                        @endif
+                        @if (Auth::check() && Auth::user()->role == 0)
+                        <form action="{{route('rating')}}" method="POST" id="formRating" >
+                            @csrf
+                            <div class="d-flex">
+                                <input type="hidden" name="rating_star" id="rating_star">
+                                <input type="hidden" name="product_id" value="{{ $detail->id }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            </div>            
+                        </form>
+                        @endif
                         <ul>
                             <li><label
                                     class="badge {{ $detail->status ? 'badge-success' : 'badge-danger' }} ">{{ $detail->status ? 'Còn hàng' : 'Hết hàng' }}</label>
@@ -157,7 +177,12 @@ Chi tiết sản phẩm
     </section>
     <!-- Related Product Section End -->
 @endsection
+@section('cus-css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+@endsection
 @section('custom-js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
     <script>
         function addProductToWishList(id) {
             $.ajax({
@@ -189,5 +214,37 @@ Chi tiết sản phẩm
                 }
             })
         }
+
+        $(function() {
+
+            $("#rateYo").rateYo({
+                rating: {{$ratingAvg}},
+                normalFill: "#A0A0A0",
+                ratedFill: "#ffff00"
+            }).on("rateyo.set", function(e, data) {
+                $('#rating_star').val(data.rating);
+                $('#formRating').submit();
+            });;
+
+        });
+        $(function() {
+
+            $("#rateYo1").rateYo({
+                rating: {{$ratingAvg}},
+                normalFill: "#A0A0A0",
+                ratedFill: "#ffff00"
+            }).on("rateyo.set", function(e, data) {
+                toastr.error("Bạn chưa đăng nhập vui lòng đăng nhập để đánh giá");
+                setTimeout(() => {
+                    window.location="{{route('login')}}" 
+                }, 1200);
+            });;
+
+        });
     </script>
+       @if ($message = Session::get('success'))
+       <script>
+           toastr.success("{{ Session::get('success') }}");
+       </script>
+   @endif
 @endsection
