@@ -33,36 +33,12 @@
                             </ul>
                         </div>
                         <div class="sidebar__item">
-                            <h4>Price</h4>
-                            <div class="price-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                    data-min="10" data-max="540">
-                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                </div>
-                                <div class="range-slider">
-                                    <div class="price-input">
-                                        <form action="" method="GET">
-                                            
-                                            <div class="d-flex">
-                                                <input type="text" id="minamount" name="minprice">
-                                                <input type="text" id="maxamount" name="maxprice">
-                                            </div>
-                                            <button type="submit" class="btn btn-success mt-2 ">Lọc giá sản phẩm</button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidebar__item">
                             <div class="latest-product__text">
                                 <h4>Sản phẩm mới nhất</h4>
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
                                         @foreach ($latestProduct as $item)
-                                            <a href="#" class="latest-product__item">
+                                            <a href="{{ route('product-detail', $item->slug) }}" class="latest-product__item">
                                                 <div class="latest-product__item__pic">
                                                     <img class="latest-img"
                                                         src="{{ asset('storage/images') }}/{{ $item->image }}"
@@ -93,13 +69,13 @@
                                     <span>Sắp xếp</span>
                                     <select onchange="location = this.value;">
                                         <option>Sắp xếp</option>
-                                        <option value="{{ Route('productseach1',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_asc']) }}"
+                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'name_asc']) }}"
                                             {{ Request::get('sort') == 'name_asc' ? 'selected' : '' }}>A-Z </option>
-                                        <option value="{{ Route('productseach1',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_desc']) }}"
+                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'name_desc']) }}"
                                             {{ Request::get('sort') == 'name_desc' ? 'selected' : '' }}> Z-a</option>
-                                        <option value="{{ Route('productseach1',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_asc']) }}"
+                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'price_asc']) }}"
                                             {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần </option>
-                                        <option value="{{ Route('productseach1',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_desc']) }}"
+                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'price_desc']) }}"
                                             {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần </option>
                                     </select>
                                 </div>
