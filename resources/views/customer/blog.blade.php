@@ -64,7 +64,7 @@ Blog
                                         <li><i class="fa fa-calendar-o"></i>{{date("d/m/Y", strtotime($item->created_at))}}</li>
                                     </ul>
                                     <h5><a href="{{ route('blog-detail',$item->slug) }}">{{$item->name}}</a></h5>
-                                    {!! Str::limit($item->content,50) !!}
+                                    <p>{!! Str::limit($item->content,50) !!}</p>
                                     <a href="{{ route('blog-detail',$item->slug) }}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>

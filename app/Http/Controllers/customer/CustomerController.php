@@ -9,18 +9,21 @@ use App\Models\Category;
 use App\Models\wishlist;
 use Auth;
 use App\Models\Blog;
+use App\Models\banner;
 use App\Models\rating;
 use Illuminate\Support\Facades\Http;
 class CustomerController extends Controller
 {
     public function home() {
+        
         $cate = Category::all();
+        $banner = banner::all();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(8)->get();
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(3)->get();
         if(Auth::check() && Auth::user()->role == 0){
             $wishlistcount= wishlist::where('user_id',Auth::user()->id)->count();
         }
-        return view('customer.index',compact('cate','latestProduct','latestBlog'));   
+        return view('customer.index',compact('cate','latestProduct','latestBlog','banner'));   
     }
     public function contact() {
         return view('customer.contact');   

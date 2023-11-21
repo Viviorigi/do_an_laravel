@@ -73,12 +73,15 @@ Trang chủ
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="{{ asset('Customer-assets') }}/img/hero/banner.jpg">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="{{ route('products') }}" class="primary-btn">SHOP NOW</a>
+                    <div class="hero__item p-4 set-bg">
+                        <div class="banner__slider owl-carousel">
+                            @foreach ($banner as $item)
+                                <div class="w-100">
+                                    <div class="categories__item_banner set-bg"
+                                        data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -163,15 +166,15 @@ Trang chủ
     <!-- Banner Begin -->
     <div class="banner">
         <div class="container">
-            <div class="row">
+            <div class="row w-100">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="{{ asset('Customer-assets') }}/img/banner/banner-1.jpg" alt="">
+                        <img src="{{ asset('Customer-assets') }}/img/banner/banner-1.png" class="w-100" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="banner__pic">
-                        <img src="{{ asset('Customer-assets') }}/img/banner/banner-2.jpg" alt="">
+                        <img src="{{ asset('Customer-assets') }}/img/banner/banner-2.jpg" class="w-100" alt="">
                     </div>
                 </div>
             </div>

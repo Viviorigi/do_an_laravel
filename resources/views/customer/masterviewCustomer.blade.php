@@ -167,6 +167,13 @@
 
     @yield('main-content')
 
+    <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg z-50"
+        id="btn-back-to-top"
+        >
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
     <!-- Footer Section Begin -->
     <footer class="footer spad">
         <div class="container">
