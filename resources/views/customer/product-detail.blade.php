@@ -218,7 +218,7 @@
         $(function() {
 
             $("#rateYo").rateYo({
-                rating: {{$ratingAvg}},
+                rating: {{$ratingAvg?$ratingAvg:0}},
                 normalFill: "#A0A0A0",
                 ratedFill: "#ffff00"
             }).on("rateyo.set", function(e, data) {
@@ -230,7 +230,7 @@
         $(function() {
 
             $("#rateYo1").rateYo({
-                rating: {{$ratingAvg}},
+                rating: {{$ratingAvg?$ratingAvg:0}},
                 normalFill: "#A0A0A0",
                 ratedFill: "#ffff00"
             }).on("rateyo.set", function(e, data) {
