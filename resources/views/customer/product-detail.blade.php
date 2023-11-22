@@ -75,7 +75,7 @@
                         @if (Auth::check() && Auth::user()->role == 0)
                         <div class="d-flex mt-4">
                             <div id="rateYo" ></div>
-                            <div><h4 class="mt-1 ml-2">Đánh giá {{round($ratingAvg)}}/5 <i class="fa fa-star" style="color: #ffff00"></i></h4>
+                            <div><h4 class="mt-1 ml-2">Đánh giá {{round($ratingAvg,1)}}/5 <i class="fa fa-star" style="color: #ffff00"></i></h4>
                                  <p class="ml-2">Lượt đánh giá: {{$ratingcount}}</p>      
                             </div>
                         </div>                       

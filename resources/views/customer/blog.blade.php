@@ -28,8 +28,8 @@ Blog
                 <div class="col-lg-4 col-md-5">
                     <div class="blog__sidebar">
                         <div class="blog__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
+                            <form action="">
+                                <input type="text" placeholder="Search..." name="keyword">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
                         </div>

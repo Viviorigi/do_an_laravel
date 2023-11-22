@@ -74,7 +74,7 @@
                                 </td>
                                 <td>
                                     <label
-                                        class="badge badge-success">{{ $item->methodPayment == 1 ? 'Thẻ tín dụng' : 'Thanh toán khi nhận hàng' }}</label>
+                                        class="badge badge-success">{{ $item->methodPayment == 1 ? 'Chuyển khoản' : 'Thanh toán khi nhận hàng' }}</label>
                                 </td>
                                 <td>
                                     <label class="badge">{{ $item->order_note }}</label>

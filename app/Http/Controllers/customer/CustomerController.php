@@ -28,9 +28,12 @@ class CustomerController extends Controller
     public function contact() {
         return view('customer.contact');   
     }
-    public function blog() {
+    public function blog(Request $request) {
         $blog = Blog::orderBy('created_at','DESC')->paginate(6);
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(6)->get();
+        if($request->keyword != ''){
+            $blog = Blog::where('name','LIKE',"%$request->keyword%")->orderBy('created_at','DESC')->paginate(6);
+        }
         return view('customer.blog',compact('blog','latestBlog'));   
     }
     public function blogDetails($slug) {
