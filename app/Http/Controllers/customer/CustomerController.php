@@ -17,7 +17,7 @@ class CustomerController extends Controller
     public function home() {
         
         $cate = Category::all();
-        $banner = banner::all();
+        $banner = banner::where('status',1)->take(4)->get();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(12)->get();
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(3)->get();
         if(Auth::check() && Auth::user()->role == 0){
@@ -105,6 +105,7 @@ class CustomerController extends Controller
     }
     public function productDetail($slug) {
         $detail = Product::where('slug',$slug)->first();
+        $wish='';
         if(Auth::check() && Auth::user()->role == 0){
             $wish=wishlist::where('product_id',$detail->id)->where('user_id',Auth::user()->id)->first();
         }

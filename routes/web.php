@@ -40,6 +40,7 @@ Route::get('/ajax-search-product',[CustomerController::class,'ajaxSearch'])->nam
 Route::get('/productsearch', [CustomerController::class, 'productsearch'])->name('productseach1');
 Route::post('/productsearch', [CustomerController::class, 'productsearch'])->name('productseach');
 
+//customer
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'postlogin']);
 Route::get('/register', [UserController::class, 'register'])->name('register');
@@ -75,6 +76,7 @@ Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
 Route::post('/postcheckout', [OrderController::class, 'postcheckout'])->name('post.checkout');
 Route::get('/checkout-success',[OrderController::class, 'success'])->name('checkout.success');
 
+//admin
 Route::prefix('admin')->middleware('adminAuth')->group(function () {
     Route::get('/', [Dashboard::class, 'index'])->name('admin.index');
     Route::get('/category/find', [CategoryController::class, 'find'])->name('category.find');
