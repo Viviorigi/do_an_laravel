@@ -28,8 +28,8 @@
                             <h4>Danh mục</h4>
                             <ul>
                                 @foreach ($cate as $item)
-                                <h2><a href="{{route('productsByCate',$item->slug)}}">{{ $item->name }}</a></h2>
-                            @endforeach
+                                    <h2><a href="{{ route('productsByCate', $item->slug) }}">{{ $item->name }}</a></h2>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar__item">
@@ -38,7 +38,8 @@
                                 <div class="latest-product__slider owl-carousel">
                                     <div class="latest-prdouct__slider__item">
                                         @foreach ($latestProduct as $item)
-                                            <a href="{{ route('product-detail', $item->slug) }}" class="latest-product__item">
+                                            <a href="{{ route('product-detail', $item->slug) }}"
+                                                class="latest-product__item">
                                                 <div class="latest-product__item__pic">
                                                     <img class="latest-img"
                                                         src="{{ asset('storage/images') }}/{{ $item->image }}"
@@ -69,14 +70,20 @@
                                     <span>Sắp xếp</span>
                                     <select onchange="location = this.value;">
                                         <option>Sắp xếp</option>
-                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'name_asc']) }}"
+                                        <option
+                                            value="{{ Route('productseach1', ['keyword' => Request::get('keyword'), 'sort' => 'name_asc']) }}"
                                             {{ Request::get('sort') == 'name_asc' ? 'selected' : '' }}>A-Z </option>
-                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'name_desc']) }}"
+                                        <option
+                                            value="{{ Route('productseach1', ['keyword' => Request::get('keyword'), 'sort' => 'name_desc']) }}"
                                             {{ Request::get('sort') == 'name_desc' ? 'selected' : '' }}> Z-a</option>
-                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'price_asc']) }}"
-                                            {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần </option>
-                                        <option value="{{ Route('productseach1',['keyword'=>Request::get('keyword'),'sort'=>'price_desc']) }}"
-                                            {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần </option>
+                                        <option
+                                            value="{{ Route('productseach1', ['keyword' => Request::get('keyword'), 'sort' => 'price_asc']) }}"
+                                            {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần
+                                        </option>
+                                        <option
+                                            value="{{ Route('productseach1', ['keyword' => Request::get('keyword'), 'sort' => 'price_desc']) }}"
+                                            {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -108,8 +115,13 @@
                                         <a href="{{ route('product-detail', $item->slug) }}">
                                             <h4>{{ $item->name }}</h4>
                                         </a>
-                                        <h5>{{ number_format($item->sale_price) }}VNĐ <del
-                                                style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
+                                        @if ($item->sale_price > 0)
+                                            <h5>{{ number_format($item->sale_price) }}VNĐ <del
+                                                    style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del>
+                                            </h5>
+                                        @else
+                                            <h5>{{ number_format($item->price) }}VNĐ</h5>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
