@@ -97,13 +97,13 @@ Sản phẩm
                                     <span>Sắp xếp</span>
                                     <select onchange="location = this.value;">
                                         <option>Sắp xếp</option>
-                                        <option value="{{ Route('products',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_asc']) }}"
+                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_asc']) }}"
                                             {{ Request::get('sort') == 'name_asc' ? 'selected' : '' }}>A-Z </option>
-                                        <option value="{{ Route('products',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_desc']) }}"
+                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_desc']) }}"
                                             {{ Request::get('sort') == 'name_desc' ? 'selected' : '' }}> Z-a</option>
-                                        <option value="{{ Route('products',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_asc']) }}"
+                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_asc']) }}"
                                             {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần </option>
-                                        <option value="{{ Route('products',['minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_desc']) }}"
+                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_desc']) }}"
                                             {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần </option>
                                     </select>
                                 </div>
