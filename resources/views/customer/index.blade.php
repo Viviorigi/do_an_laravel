@@ -42,7 +42,7 @@ Trang chủ
                         </div>
                         <ul>
                             @foreach ($cate as $item)
-                                <li><a href="{{ route('products') }}">{{ $item->name }}</a></li>
+                                <li><a href="{{ route('productsByCate', $item->slug) }}">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -99,7 +99,7 @@ Trang chủ
                         <div class="col-lg-3">
                             <div class="categories__item set-bg"
                                 data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
-                                <h5><a href="#">{{ $item->name }}</a></h5>
+                                <h5><a class="bg-light" href="{{ route('productsByCate', $item->slug) }}">{{ $item->name }}</a></h5>
                             </div>
                         </div>
                     @endforeach

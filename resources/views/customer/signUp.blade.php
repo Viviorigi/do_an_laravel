@@ -12,7 +12,7 @@
                         Đăng ký tài khoản
                     </span>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
-                        <input class="input100" type="text" name="name" placeholder="Name" value="{{ old('name') }}">
+                        <input class="input100" type="text" name="name" placeholder="Tên tài khoản" value="{{ old('name') }}">
                         <span class="focus-input100"></span>
 
                     </div>
@@ -20,7 +20,7 @@
                         <span class="text-danger p-2">{{ $message }}</span>
                     @enderror
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
-                        <input class="input100" type="email" name="email" placeholder="Email"
+                        <input class="input100" type="email" name="email" placeholder="Nhập Email"
                             value="{{ old('email') }}">
                         <span class="focus-input100"></span>
                     </div>
@@ -28,7 +28,7 @@
                         <span class="text-danger pb-3">{{ $message }}</span>
                     @enderror
                     <div class="wrap-input100 validate-input" data-validate = "Mật khẩu không để trống">
-                        <input class="input100" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu" value="{{ old('password') }}">
                         <span class="focus-input100"></span>
 
                     </div>
@@ -36,7 +36,7 @@
                         <span class="text-danger p-2">{{ $message }}</span>
                     @enderror
                     <div class="wrap-input100 validate-input mt-3 " data-validate = "Nhập lại mật khẩu">
-                        <input class="input100" type="password" name="repassword" placeholder="Repeat ur Password">
+                        <input class="input100" type="password" name="repassword" placeholder="Nhập lại mật khẩu">
                         <span class="focus-input100"></span>
 
                     </div>

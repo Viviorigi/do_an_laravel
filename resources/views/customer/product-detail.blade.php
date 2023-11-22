@@ -30,14 +30,14 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="{{ asset('storage/images') }}/{{ $detail->image }}" alt="">
+                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 500px !important;" alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="{{ asset('storage/images') }}/{{ $detail->image }}"
-                                src="{{ asset('storage/images') }}/{{ $detail->image }}" alt="">
+                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 150px !important;" alt="">
                             @foreach ($detail->images as $item)
                                 <img data-imgbigurl="{{ asset('storage/images') }}/{{ $item->image }}"
-                                    src="{{ asset('storage/images') }}/{{ $item->image }}" alt="">
+                                    src="{{ asset('storage/images') }}/{{ $item->image }}" style="height: 150px !important;" alt="">
                             @endforeach
 
                         </div>
@@ -46,11 +46,10 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h2>{{ $detail->name }}</h2>
-                        <div class="d-flex ">
+                        <div class="d-flex mb-5">
                             <h4 class="mt-2 pr-2"><del>{{ number_format($detail->price) }}VNĐ </h4> </del>
                             <h2 class="text-danger mt-1 "> {{ number_format($detail->sale_price) }} VNĐ</h2>
                         </div>
-                        <div>{!! $detail->description !!}</div>
                         <div class="d-flex">
                             <form action="{{ route('cart.add') }}" method="POST">
                                 @csrf

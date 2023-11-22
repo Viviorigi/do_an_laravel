@@ -86,43 +86,8 @@ Sản phẩm
                 </div>
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Đang giảm giá</h2>
-                        </div>
-                        <div class="row">
-                            <div class="product__discount__slider owl-carousel">
-                                @foreach ($sale_product as $item)
-                                    <div class="col-lg-4">
-                                        <div class="product__discount__item">
-                                            <div class="product__discount__item__pic set-bg"
-                                                data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
-                                                <div class="product__discount__percent">
-                                                    -{{ ceil((1 - $item->sale_price / $item->price) * 100) }}%</div>
-                                                <ul class="product__item__pic__hover">
-                                                    @if (Auth::check() && Auth::user()->role == 0)
-                                                        <li><a href="javascript:void(0)"
-                                                                onclick="addProductToWishList({{ $item->id }})"><i
-                                                                    class="fa fa-heart"></i></a></li>
-                                                    @else
-                                                        <li><a href="{{ route('login') }}" onclick="login()"><i
-                                                                    class="fa fa-heart"></i></a></li>
-                                                    @endif
-                                                    <li><a href="{{ route('product-detail', $item->slug) }}"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="product__discount__item__text">
-
-                                                <a href="{{ route('product-detail', $item->slug) }}">
-                                                    <h5>{{ $item->name }}</h5>
-                                                </a>
-                                                <div class="product__item__price">{{ number_format($item->sale_price) }}
-                                                    VNĐ <span>{{ number_format($item->price) }} VNĐ</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
+                        <div class="section-title">
+                            <h2>{{$cate_slug->name}}</h2>
                         </div>
                     </div>
                     <div class="filter__item">
@@ -171,15 +136,8 @@ Sản phẩm
                                             <a href="{{ route('product-detail', $item->slug) }}">
                                                 <h4>{{ $item->name }}</h4>
                                             </a>
-                                            {{-- @if ($item->sale_price == 0)
-                                                <h5>{{ number_format($item->price) }}VNĐ</h5>
-                                            @else
-                                                <h5>{{ number_format($item->sale_price) }}VNĐ <del
-                                                    style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
-                                            @endif --}}
                                             <h5>{{ number_format($item->sale_price) }}VNĐ <del
-                                                style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
-                                            
+                                                    style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
                                         </div>
                                     </div>
                                 </div>

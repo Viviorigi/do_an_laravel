@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug',255);
             $table->float('price');
             $table->tinyInteger('status');
-            $table->float('sale_price');
+            $table->float('sale_price')->default(0);
             $table->text('description')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');

@@ -33,6 +33,7 @@ Route::get('/about',[CustomerController::class, 'about'])->name('about');
 Route::get('/blog', [CustomerController::class, 'blog'])->name('blog');
 Route::get('/blog-detail/{slug}', [CustomerController::class, 'blogDetails'])->name('blog-detail');
 Route::get('/products', [CustomerController::class, 'products'])->name('products');
+Route::get('/products/{slug}', [CustomerController::class, 'ProductsByCate'])->name('productsByCate');
 Route::post('/products', [CustomerController::class, 'products']);
 Route::get('/product-detail/{slug}', [CustomerController::class, 'productDetail'])->name('product-detail');
 Route::get('/ajax-search-product',[CustomerController::class,'ajaxSearch'])->name('ajaxSearchProduct');
