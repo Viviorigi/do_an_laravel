@@ -25,7 +25,7 @@ class orderRequest extends FormRequest
             'name'=>'required|min:2',
             'address'=>'required',
             'email'=>'required',
-            'phone'=>['required','regex:/(84|0[3|5|7|8|9])+([0-9]{8})/'],
+            'phone'=>['required','regex:/(84|0[3|5|7|8|9])+([0-9]{8})/','max:10'],
             'methodPayment'=>'required|in:1,2'
         ];
        
@@ -37,7 +37,8 @@ class orderRequest extends FormRequest
             'email.required'=>'Email của bạn không để trống',
             'address.required'=>'Địa chỉ của bạn không để trống',
             'phone.required'=>'Số điện thoại của bạn không để trống',
-            'phone.regex'=>'Số điện thoại của bạn không không đúng định dạng',
+            'phone.regex'=>'Số điện thoại của bạn không đúng định dạng',
+            'phone.max'=>'Số điện thoại của bạn không được vượt quá 10 số',
             'methodPayment'=>'* Vui lòng chọn phương thức thanh toán' 
         ];
     }

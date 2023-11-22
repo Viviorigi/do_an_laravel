@@ -24,7 +24,7 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$item->product->name}}</td>
                         <td>{{$item->quantity}}</td>
-                        <td>{{number_format($item->product->price)}}VNĐ</td>
+                        <td>{{number_format($item->product->sale_price?$item->product->sale_price:$item->product->price)}}VNĐ</td>
                         <td>{{number_format($item->total_price)}}VNĐ</td>
                     </tr>
                     @endforeach
