@@ -105,10 +105,13 @@ class CustomerController extends Controller
     }
     public function productDetail($slug) {
         $detail = Product::where('slug',$slug)->first();
+        if(Auth::check() && Auth::user()->role == 0){
+            $wish=wishlist::where('product_id',$detail->id)->where('user_id',Auth::user()->id)->first();
+        }
         $related = Product::where('category_id',$detail->category_id)->where('id','!=',$detail->id)->get();
         $ratingAvg=rating::where('product_id',$detail->id)->avg('rating_star');
         $ratingcount=rating::where('product_id',$detail->id)->count();
-        return view('customer.product-detail',compact('detail','related','ratingAvg','ratingcount'));   
+        return view('customer.product-detail',compact('detail','related','ratingAvg','ratingcount','wish'));   
     }
     public function ajaxsearch() {
         $data=Product::search()->get();

@@ -48,7 +48,7 @@
                         </div>
                     @endif
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Vui lòng nhập email">
-                        <input class="input100" type="email" name="Nhập email" value="{{ old('email') }}"
+                        <input class="input100" type="email" name="email" value="{{ old('email') }}"
                             placeholder="Email">
                         <span class="focus-input100"></span>
                     </div>

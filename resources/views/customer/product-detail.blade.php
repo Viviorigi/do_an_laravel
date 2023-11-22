@@ -50,7 +50,7 @@
                             <h4 class="mt-2 pr-2"><del>{{ number_format($detail->price) }}VNĐ </h4> </del>
                             <h2 class="text-danger mt-1 "> {{ number_format($detail->sale_price) }} VNĐ</h2>
                         </div>
-                        <div class="d-flex">
+                        <div class="d-lg-flex">
                             <form action="{{ route('cart.add') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $detail->id }}">
@@ -65,8 +65,8 @@
                             </form>
                             @if (Auth::check() && Auth::user()->role == 0)
                                 <a href="javascript:void(0)" class="heart-icon"
-                                    onclick="addProductToWishList({{ $detail->id }})"><span
-                                        class="icon_heart_alt"></span></a>
+                                    onclick="addProductToWishList({{ $detail->id }})" {{$wish!=null?"style=background-color:#7fad39;color:#fff":''}}><span
+                                        class="icon_heart_alt" ></span></a>
                             @else
                                 <a href="{{ route('login') }}" class="heart-icon" onclick="login()"><span
                                         class="icon_heart_alt"></span></a>
@@ -126,6 +126,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -195,6 +196,7 @@
                     if (data.status == 200) {
                         getWishlistCount();
                         toastr.success(data.message);
+                        location.reload();
                     }
                 }
             })
