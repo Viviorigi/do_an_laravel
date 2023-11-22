@@ -95,6 +95,16 @@
                         </div>
                     </div>
                 </li>
+                <li class="nav-item sidebar-actions">
+                    <div class="nav-link">
+                        <div class="mt-4">
+                            <div class="border-none">
+                                <a href="{{route('admin.logout')}}"><p class="text-black">Logout</p></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="container-fluid page-body-wrapper">
