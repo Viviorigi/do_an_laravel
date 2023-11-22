@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="exampleSelectGender">Payment Method</label>
                         <select class="form-control js-example-basic-single" id="exampleSelectGender" name="methodPayment">   
-                                <option value="1" {{$order->methodPayment==1?'selected':''}}>Thẻ tín dụng</option>
+                                <option value="1" {{$order->methodPayment==1?'selected':''}}>Chuyển khoản</option>
                                 <option value="2" {{$order->methodPayment==2?'selected':''}}> Thanh toán khi nhận hàng</option>                             
                         </select>
                     </div>
