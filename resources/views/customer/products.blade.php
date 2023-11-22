@@ -31,7 +31,7 @@ Sản phẩm
                             <h4>Danh mục</h4>
                             <ul>
                                 @foreach ($cate as $item)
-                                    <h2><a href="#">{{ $item->name }}</a></h2>
+                                    <h2><a href="{{route('productsByCate',$item->slug)}}">{{ $item->name }}</a></h2>
                                 @endforeach
                             </ul>
                         </div>
