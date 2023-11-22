@@ -64,9 +64,9 @@
                                 <button type="submit" class="primary-btn">ADD TO CARD</button>
                             </form>
                             @if (Auth::check() && Auth::user()->role == 0)
-                                <a href="javascript:void(0)" class="heart-icon"
+                                <a href="javascript:void(0)" class="heart-icon" id="wishlistadded"
                                     onclick="addProductToWishList({{ $detail->id }})" {{$wish!=null?"style=background-color:#7fad39;color:#fff":''}}><span
-                                        class="icon_heart_alt" ></span></a>
+                                        class="icon_heart_alt"  ></span></a>
                             @else
                                 <a href="{{ route('login') }}" class="heart-icon" onclick="login()"><span
                                         class="icon_heart_alt"></span></a>
@@ -196,7 +196,7 @@
                     if (data.status == 200) {
                         getWishlistCount();
                         toastr.success(data.message);
-                        location.reload();
+                        $('#wishlistadded').css({"background-color":"#7fad39","color":"#fff"});
                     }
                 }
             })
