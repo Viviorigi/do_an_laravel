@@ -1,6 +1,6 @@
 @extends('customer.masterviewCustomer')
 @section('title')
-Sản phẩm
+    Sản phẩm
 @endsection
 @section('main-content')
     <!-- Breadcrumb Section Begin -->
@@ -31,7 +31,7 @@ Sản phẩm
                             <h4>Danh mục</h4>
                             <ul>
                                 @foreach ($cate as $item)
-                                    <h2><a href="{{route('productsByCate',$item->slug)}}">{{ $item->name }}</a></h2>
+                                    <h2><a href="{{ route('productsByCate', $item->slug) }}">{{ $item->name }}</a></h2>
                                 @endforeach
                             </ul>
                         </div>
@@ -47,7 +47,7 @@ Sản phẩm
                                 <div class="range-slider">
                                     <div class="price-input">
                                         <form action="" method="GET">
-                                            
+
                                             <div class="d-flex">
                                                 <input type="text" id="minamount" name="minprice">
                                                 <input type="text" id="maxamount" name="maxprice">
@@ -87,7 +87,7 @@ Sản phẩm
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title">
-                            <h2>{{$cate_slug->name}}</h2>
+                            <h2>{{ $cate_slug->name }}</h2>
                         </div>
                     </div>
                     <div class="filter__item">
@@ -97,14 +97,20 @@ Sản phẩm
                                     <span>Sắp xếp</span>
                                     <select onchange="location = this.value;">
                                         <option>Sắp xếp</option>
-                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_asc']) }}"
+                                        <option
+                                            value="{{ Route('productsByCate', ['slug' => $slug, 'minprice' => Request::get('minprice'), 'maxprice' => Request::get('maxprice'), 'sort' => 'name_asc']) }}"
                                             {{ Request::get('sort') == 'name_asc' ? 'selected' : '' }}>A-Z </option>
-                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'name_desc']) }}"
+                                        <option
+                                            value="{{ Route('productsByCate', ['slug' => $slug, 'minprice' => Request::get('minprice'), 'maxprice' => Request::get('maxprice'), 'sort' => 'name_desc']) }}"
                                             {{ Request::get('sort') == 'name_desc' ? 'selected' : '' }}> Z-a</option>
-                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_asc']) }}"
-                                            {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần </option>
-                                        <option value="{{ Route('productsByCate',['slug'=>$slug,'minprice'=>Request::get('minprice'),'maxprice'=>Request::get('maxprice'),'sort'=>'price_desc']) }}"
-                                            {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần </option>
+                                        <option
+                                            value="{{ Route('productsByCate', ['slug' => $slug, 'minprice' => Request::get('minprice'), 'maxprice' => Request::get('maxprice'), 'sort' => 'price_asc']) }}"
+                                            {{ Request::get('sort') == 'price_asc' ? 'selected' : '' }}>Giá tăng dần
+                                        </option>
+                                        <option
+                                            value="{{ Route('productsByCate', ['slug' => $slug, 'minprice' => Request::get('minprice'), 'maxprice' => Request::get('maxprice'), 'sort' => 'price_desc']) }}"
+                                            {{ Request::get('sort') == 'price_desc' ? 'selected' : '' }}>Giá Giảm dần
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -136,8 +142,13 @@ Sản phẩm
                                             <a href="{{ route('product-detail', $item->slug) }}">
                                                 <h4>{{ $item->name }}</h4>
                                             </a>
-                                            <h5>{{ number_format($item->sale_price) }}VNĐ <del
-                                                    style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
+                                            @if ($item->sale_price > 0)
+                                                <h5>{{ number_format($item->sale_price) }}VNĐ <del
+                                                        style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del>
+                                                </h5>
+                                            @else
+                                                <h5>{{ number_format($item->price) }}VNĐ</h5>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -174,9 +185,10 @@ Sản phẩm
         function login() {
             toastr.success('Vui lòng đăng nhập để tiếp tục');
         }
-        function getWishlistCount(){
+
+        function getWishlistCount() {
             $.ajax({
-                type:"GET",
+                type: "GET",
                 url: "{{ route('WishList.count') }}",
                 success: function(data) {
                     $('.wishlist-count').html(data.wishlistCount)
