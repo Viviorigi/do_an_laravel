@@ -131,7 +131,7 @@ Thông tin khách hàng
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <th scope="row">{{ $item->id }}</th>
                                         <td>{{ $user->name }}</td>
-                                        <td>{{ $item->methodPayment == 1 ? 'Thẻ tín dụng' : 'Thanh toán khi nhận hàng' }}
+                                        <td>{{ $item->methodPayment == 1 ? 'Chuyển khoản' : 'Thanh toán khi nhận hàng' }}
                                         </td>
                                         @if ($item->Status == 0)
                                             <td>Chờ xác nhận</td>

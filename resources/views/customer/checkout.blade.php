@@ -108,7 +108,7 @@ Thanh toán
                                 <div class="form-group">
                                   <select class="form-control text-center" name="methodPayment" id="">
                                     <option value="0">Phương thức thanh toán</option>
-                                    <option value="1">Thẻ tín dụng</option>
+                                    <option value="1">Chuyển khoản</option>
                                     <option value="2">Thanh toán khi nhận hàng</option>
                                   </select>
                                   @error('methodPayment')

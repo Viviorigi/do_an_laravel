@@ -28,7 +28,7 @@ class UserController extends Controller
         $req->merge(['password'=>Hash::make($req->password)]);
        
         try {
-            if($user=User::where('email',$req->email)->get()){
+            if($user=User::where('email',$req->email)->exists()){
                 $user=User::where('email',$req->email)->first();
                 $updateuser=User::find($user->id)->update($req->all());
             }else{

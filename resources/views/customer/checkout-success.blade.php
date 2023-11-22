@@ -18,12 +18,13 @@
             </div>
         </div>
     </section>
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1 class="display-3">Đơn hàng của bạn đã được đặt</h1>
         <p class="lead">Đặt hàng thành công vui lòng check email {{$cus->email}}</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-        </p>
+        <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất vui lòng kiểm tra điện thoại</p>
+        <h1>
+            <i class="fa fa-check " style="font-size: 150px"></i>
+        </h1>
     </div>
 
 @endsection
