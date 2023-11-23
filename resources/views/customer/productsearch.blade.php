@@ -39,15 +39,19 @@
                                     <div class="latest-prdouct__slider__item">
                                         @foreach ($latestProduct as $item)
                                             <a href="{{ route('product-detail', $item->slug) }}"
-                                                class="latest-product__item">
-                                                <div class="latest-product__item__pic">
+                                                class="latest-product__item row">
+                                                <div class="latest-product__item__pic col-6">
                                                     <img class="latest-img"
                                                         src="{{ asset('storage/images') }}/{{ $item->image }}"
                                                         alt="">
                                                 </div>
-                                                <div class="latest-product__item__text">
+                                                <div class="latest-product__item__text col-6">
                                                     <h6>{{ $item->name }}</h6>
-                                                    <span>{{ number_format($item->sale_price) }}VNĐ</span>
+                                                    @if ($item->sale_price > 0)
+                                                        <span>{{ number_format($item->sale_price) }}VNĐ</span>
+                                                    @else
+                                                        <span>{{ number_format($item->price) }}VNĐ</span>
+                                                    @endif
                                                 </div>
                                             </a>
                                         @endforeach

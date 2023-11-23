@@ -47,8 +47,13 @@ Danh sách sản phẩm yêu thích
                                     <a href="{{ route('product-detail', $item->slug) }}">
                                         <h4>{{ $item->name }}</h4>
                                     </a>
-                                    <h5>{{ number_format($item->sale_price) }}VNĐ <del
-                                            style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del></h5>
+                                    @if ($item->sale_price > 0)
+                                        <h5>{{ number_format($item->sale_price) }}VNĐ <del
+                                                style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del>
+                                        </h5>
+                                    @else
+                                        <h5>{{ number_format($item->price) }}VNĐ</h5>
+                                    @endif
                                         <a href="{{route('WishList.delete',$item->id)}}"  class="btn btn-danger m-2" >Xóa Yêu thích</a>
                                 </div>
                             </div>

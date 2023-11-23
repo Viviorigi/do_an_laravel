@@ -169,7 +169,7 @@
 
     <button
         type="button"
-        class="btn btn-danger btn-floating btn-lg z-50"
+        class="btn btn-danger btn-floating btn-lg btn-up"
         id="btn-back-to-top"
         >
         <i class="fa fa-arrow-up" aria-hidden="true"></i>

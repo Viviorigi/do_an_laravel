@@ -12,7 +12,7 @@
                         <h2>{{ $detail->name }}</h2>
                         <div class="breadcrumb__option">
                             <a href="{{ route('index') }}">Trang chủ</a>
-                            <a href="">{{ $detail->category->name }}</a>
+                            <a href="{{ route('productsByCate', $detail->slug) }}">{{ $detail->category->name }}</a>
                             <span>{{ $detail->name }}</span>
                         </div>
                     </div>
@@ -47,8 +47,12 @@
                     <div class="product__details__text">
                         <h2>{{ $detail->name }}</h2>
                         <div class="d-flex mb-5">
-                            <h4 class="mt-2 pr-2"><del>{{ number_format($detail->price) }}VNĐ </h4> </del>
-                            <h2 class="text-danger mt-1 "> {{ number_format($detail->sale_price) }} VNĐ</h2>
+                            @if ($detail->sale_price > 0)
+                                <h4 class="mt-2 pr-2"><del>{{ number_format($detail->price) }}VNĐ </h4> </del>
+                                <h2 class="text-danger mt-1 "> {{ number_format($detail->sale_price) }} VNĐ</h2>
+                            @else
+                                <h2 class="text-danger mt-1 "> {{ number_format($detail->price) }} VNĐ</h2>
+                            @endif                                
                         </div>
                         <div class="d-lg-flex">
                             <form action="{{ route('cart.add') }}" method="POST">

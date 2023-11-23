@@ -149,8 +149,13 @@ Trang chủ
                             <div class="featured__item__text">
                                 <h6><a href="{{ route('product-detail', $item->slug) }}">{{ $item->name }}</a></h6>
                                 <div class="d-flex justify-content-around">
-                                    <h6 style="line-height: 1.25rem"><del>{{ number_format($item->price) }}VNĐ</del> </h6>
-                                    <h5> {{ number_format($item->sale_price) }}VNĐ</h5>
+                                    @if ($item->sale_price > 0)
+                                        <h5>{{ number_format($item->sale_price) }}VNĐ <del
+                                                style="font-size: 14px">{{ number_format($item->price) }}VNĐ</del>
+                                        </h5>
+                                    @else
+                                        <h5>{{ number_format($item->price) }}VNĐ</h5>
+                                    @endif
                                 </div>
 
                             </div>

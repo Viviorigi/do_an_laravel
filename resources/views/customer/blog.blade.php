@@ -34,7 +34,7 @@ Blog
                             </form>
                         </div>
                         <div class="blog__sidebar__item">
-                            <h4>Recent News</h4>
+                            <h4>Bài viết mới</h4>
                             <div class="blog__sidebar__recent">
                                 @foreach ($latestBlog as $item)
                                 <a href="{{ route('blog-detail',$item->slug) }}" class="blog__sidebar__recent__item">
@@ -64,7 +64,7 @@ Blog
                                         <li><i class="fa fa-calendar-o"></i>{{date("d/m/Y", strtotime($item->created_at))}}</li>
                                     </ul>
                                     <h5><a href="{{ route('blog-detail',$item->slug) }}">{{$item->name}}</a></h5>
-                                    <p>{!! Str::limit($item->content,50) !!}</p>
+                                    <p class="w-100">{!! Str::limit($item->content,50) !!}</p>
                                     <a href="{{ route('blog-detail',$item->slug) }}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
                                 </div>
                             </div>

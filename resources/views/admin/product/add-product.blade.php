@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Sale Price</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name='sale_price' value="{{old('sale_price')}}" />
+                        <input type="text" class="form-control" id="exampleInputName1" name='sale_price' value="0" />
                         @error('sale_price')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

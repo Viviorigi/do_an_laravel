@@ -66,15 +66,20 @@
                                     <div class="latest-prdouct__slider__item">
                                         @foreach ($latestProduct as $item)
                                             <a href="{{ route('product-detail', $item->slug) }}"
-                                                class="latest-product__item">
-                                                <div class="latest-product__item__pic">
+                                                class="latest-product__item row">
+                                                <div class="latest-product__item__pic col-6">
                                                     <img class="latest-img"
                                                         src="{{ asset('storage/images') }}/{{ $item->image }}"
                                                         alt="">
                                                 </div>
-                                                <div class="latest-product__item__text">
+                                                <div class="latest-product__item__text col-6">
                                                     <h6>{{ $item->name }}</h6>
-                                                    <span>{{ number_format($item->sale_price) }}VNĐ</span>
+                                                    @if ($item->sale_price > 0)
+                                                        <span>{{ number_format($item->sale_price) }}VNĐ</span>
+                                                    @else
+                                                        <span>{{ number_format($item->price) }}VNĐ</span>
+                                                    @endif
+                                                    
                                                 </div>
                                             </a>
                                         @endforeach
@@ -96,8 +101,7 @@
                                         <div class="product__discount__item">
                                             <div class="product__discount__item__pic set-bg"
                                                 data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
-                                                <div class="product__discount__percent">
-                                                    -{{ ceil((1 - $item->sale_price / $item->price) * 100) }}%</div>
+                                                <div class="product__discount__percent">-{{ ceil((1 - $item->sale_price / $item->price) * 100) }}%</div>
                                                 <ul class="product__item__pic__hover">
                                                     @if (Auth::check() && Auth::user()->role == 0)
                                                         <li><a href="javascript:void(0)"
@@ -156,7 +160,11 @@
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg"
                                             data-setbg="{{ asset('storage/images') }}/{{ $item->image }}">
-                                            <div
+                                            <div class="@if ($item->sale_price >0)
+                                                d-block
+                                            @else
+                                                d-none
+                                            @endif"
                                                 style="height: 45px;width: 45px;background: #dd2222;border-radius: 50%;font-size: 14px;color: #ffffff;line-height: 45px;text-align: center;position: absolute;left: 15px;top: 15px;">
                                                 -{{ ceil((1 - $item->sale_price / $item->price) * 100) }}%</div>
                                             <ul class="product__item__pic__hover">

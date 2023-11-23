@@ -16,7 +16,7 @@ class CustomerController extends Controller
 {
     public function home() {
         
-        $cate = Category::all();
+        $cate = Category::where('status',1)->get();
         $banner = banner::where('status',1)->take(4)->get();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(12)->get();
         $latestBlog =  Blog::orderBy('created_at','DESC')->take(3)->get();
@@ -48,7 +48,7 @@ class CustomerController extends Controller
         return view('customer.aboutUs');   
     }
     public function products(Request $request) {
-        $cate = Category::all();
+        $cate = Category::where('status',1)->get();
         $sale_product = Product::where('sale_price', '>', 0)->get();   
         $product = Product::orderBy('created_at','DESC')->paginate(9);        
         if($request->sort=="name_asc"){
@@ -76,7 +76,7 @@ class CustomerController extends Controller
         return view('customer.products',compact('product','latestProduct','cate','sale_product'));   
     }
     public function ProductsByCate(Request $request,$slug){
-        $cate = Category::all();
+        $cate = Category::where('status',1)->get();
         $cate_slug = Category::where('slug',$slug)->first();
         $product = Product::where('category_id',$cate_slug->id)->paginate(9);
         if($request->sort=="name_asc"){
@@ -119,7 +119,7 @@ class CustomerController extends Controller
         return view('customer.ajaxSearch',compact('data'));
     }
     public function productsearch(Request $request) {
-        $cate = Category::all();
+        $cate = Category::where('status',1)->get();
         $product=Product::where('name','LIKE',"%$request->keyword%")->paginate(6);
         $product->appends(['keyword' => $request->keyword]);
         $productcount=Product::where('name','LIKE',"%$request->keyword%")->count();
