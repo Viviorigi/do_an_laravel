@@ -125,13 +125,21 @@ class CustomerController extends Controller
         $productcount=Product::where('name','LIKE',"%$request->keyword%")->count();
         $latestProduct =  Product::orderBy('created_at','DESC')->take(6)->get();
             if($request->sort=="name_asc"){
-                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('name','ASC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('name','ASC')->paginate(9); 
+                $product->appends(['keyword' => $request->keyword]);
+                $product->appends(['sort' => "name_asc"]);  
             }elseif($request->sort=="name_desc"){
                 $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('name','DESC')->paginate(9);  
+                $product->appends(['keyword' => $request->keyword]);
+                $product->appends(['sort' => "name_desc"]);  
             }elseif($request->sort=="price_asc"){
-                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('sale_price','ASC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('price','ASC')->paginate(9);  
+                $product->appends(['keyword' => $request->keyword]);
+                $product->appends(['sort' => "price_asc"]); 
             }elseif($request->sort=="price_desc"){
-                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('sale_price','DESC')->paginate(9);  
+                $product = Product::where('name','LIKE',"%$request->keyword%")->orderBy('price','DESC')->paginate(9); 
+                $product->appends(['keyword' => $request->keyword]); 
+                $product->appends(['sort' => "price_desc"]); 
             }
         
         return view('customer.productsearch',compact('cate','product','productcount','latestProduct'));
