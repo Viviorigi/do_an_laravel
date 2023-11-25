@@ -53,23 +53,36 @@ class CustomerController extends Controller
         $product = Product::orderBy('created_at','DESC')->paginate(9);        
         if($request->sort=="name_asc"){
             $product = Product::orderBy('name','ASC')->paginate(9);  
+            $product->appends(['sort' => "name_asc"]);  
         }elseif($request->sort=="name_desc"){
             $product = Product::orderBy('name','DESC')->paginate(9);  
+            $product->appends(['sort' => "name_desc"]);  
         }elseif($request->sort=="price_asc"){
             $product = Product::orderBy('sale_price','ASC')->paginate(9);  
+            $product->appends(['sort' => "price_asc"]);  
         }elseif($request->sort=="price_desc"){
             $product = Product::orderBy('sale_price','DESC')->paginate(9);  
+            $product->appends(['sort' => "price_desc"]); 
         }
         if($request->minprice){
-            $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $product = Product::whereBetween('price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]); 
             if($request->sort=="name_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+                $product = Product::whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]);  
+                $product->appends(['sort' => "name_asc"]);            
             }elseif($request->sort=="name_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
+                $product = Product::whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]);  
+                $product->appends(['sort' => "name_desc"]);  
             }elseif($request->sort=="price_asc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
+                $product = Product::whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('price','ASC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]);  
+                $product->appends(['sort' => "price_asc"]);  
             }elseif($request->sort=="price_desc"){
-                $product = Product::whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
+                $product = Product::whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('price','DESC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]);  
+                $product->appends(['sort' => "price_desc"]); 
             }
         }     
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
@@ -81,23 +94,36 @@ class CustomerController extends Controller
         $product = Product::where('category_id',$cate_slug->id)->paginate(9);
         if($request->sort=="name_asc"){
             $product = Product::where('category_id',$cate_slug->id)->orderBy('name','ASC')->paginate(9);  
+            $product->appends(['sort' => "name_asc"]);  
         }elseif($request->sort=="name_desc"){
             $product = Product::where('category_id',$cate_slug->id)->orderBy('name','DESC')->paginate(9);  
+            $product->appends(['sort' => "name_desc"]);  
         }elseif($request->sort=="price_asc"){
-            $product = Product::where('category_id',$cate_slug->id)->orderBy('sale_price','ASC')->paginate(9);  
+            $product = Product::where('category_id',$cate_slug->id)->orderBy('price','ASC')->paginate(9);  
+            $product->appends(['sort' => "price_asc"]);  
         }elseif($request->sort=="price_desc"){
-            $product = Product::where('category_id',$cate_slug->id)->orderBy('sale_price','DESC')->paginate(9);  
+            $product = Product::where('category_id',$cate_slug->id)->orderBy('price','DESC')->paginate(9);  
+            $product->appends(['sort' => "price_desc"]); 
         }
         if($request->minprice){
-            $product = Product::where('category_id',$cate_slug->id)->whereBetween('sale_price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $product = Product::where('category_id',$cate_slug->id)->whereBetween('price', [$request->minprice, $request->maxprice])->paginate(9); 
+            $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]); 
             if($request->sort=="name_asc"){
-                $product = Product::where('category_id',$cate_slug->id)->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+                $product = Product::where('category_id',$cate_slug->id)->whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('name','ASC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]); 
+                $product->appends(['sort' => "name_asc"]);  
             }elseif($request->sort=="name_desc"){
-                $product = Product::where('category_id',$cate_slug->id)->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9);  
+                $product = Product::where('category_id',$cate_slug->id)->whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('name','DESC')->paginate(9); 
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]);  
+                $product->appends(['sort' => "name_desc"]);  
             }elseif($request->sort=="price_asc"){
-                $product = Product::where('category_id',$cate_slug->id)->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','ASC')->paginate(9);  
+                $product = Product::where('category_id',$cate_slug->id)->whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('price','ASC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]); 
+                $product->appends(['sort' => "price_asc"]);  
             }elseif($request->sort=="price_desc"){
-                $product = Product::where('category_id',$cate_slug->id)->whereBetween('sale_price', [$request->minprice, $request->maxprice])->orderBy('sale_price','DESC')->paginate(9);  
+                $product = Product::where('category_id',$cate_slug->id)->whereBetween('price', [$request->minprice, $request->maxprice])->orderBy('price','DESC')->paginate(9);  
+                $product->appends(['minprice' => $request->minprice,'maxprice'=> $request->maxprice]); 
+                $product->appends(['sort' => "price_desc"]);  
             }
         }     
         $latestProduct =  Product::orderBy('created_at','DESC')->take(4)->get();
