@@ -109,6 +109,7 @@ class CategoryController extends Controller
             alert()->success('Xóa vĩnh viễn','thành công');
             return redirect()->route('category.trash')->with('success','xóa thành công ');
         }else{
+            alert()->error('Xóa thất bại','Không thể xóa do danh mục đã tổn tại sản phẩm');
             return redirect()->back()->with('success','Không thể xóa do danh mục đã tổn tại sản phẩm');
         }
         
