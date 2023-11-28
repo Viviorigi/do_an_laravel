@@ -25,7 +25,10 @@
         </h1>
         <p class="lead">Đặt hàng thành công vui lòng check email {{$cus->email}}</p>
         <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất vui lòng kiểm tra điện thoại</p>
-       
+        @if ($order_success->methodPayment ==1)
+            <h2 class="p-2 ">Vui lòng chuyển khoản vào</h2>
+            <img src="https://cdn.hips.com/assets/frontend20/hips-qr-sticker-b3cbe4a0d917987fcd9c48ab4b9ea1611a82d74c758a02c1baf297642c4ca9ca.png" alt="">
+        @endif
     </div>
 
 @endsection

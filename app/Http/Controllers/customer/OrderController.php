@@ -28,7 +28,8 @@ class OrderController extends Controller
             $order=Order::orderby('created_at','DESC')->first();
             $cus=User::find($order->user_id);
            }
-        return view('customer.checkout-success',compact('cus'));
+           $order_success=Order::orderby('created_at','DESC')->first();
+        return view('customer.checkout-success',compact('cus','order_success'));
     }
     public function postcheckout(orderRequest $request,Cart $cart)  {
         
