@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use  App\Models\Category;
+use  App\Models\Product;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -102,9 +103,15 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('success','khôi phục thành công ');
     }
     public function forcedelete($id){
-        Category::where('id',$id)->forceDelete();
-        alert()->success('Xóa vĩnh viễn','thành công');
-        return redirect()->route('category.trash')->with('success','xóa thành công ');
+        $product=Product::where('category_id',$id)->exists();
+        if(!$product){
+            $cate=Category::where('id',$id)->forceDelete();
+            alert()->success('Xóa vĩnh viễn','thành công');
+            return redirect()->route('category.trash')->with('success','xóa thành công ');
+        }else{
+            return redirect()->back()->with('success','Không thể xóa do danh mục đã tổn tại sản phẩm');
+        }
+        
     }
 
     public function find(Request $request) {

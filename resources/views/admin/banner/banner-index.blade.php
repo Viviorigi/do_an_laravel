@@ -72,7 +72,7 @@
                                 <a href="">
                                     <form action="{{route('banner.destroy',$item)}}" method="POST">
                                         @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa')">DELETE</button>
+                                        <button type="submit" class="btn btn-danger" >DELETE</button>
                                     </form>
                                 </a>
                             </td>                         
