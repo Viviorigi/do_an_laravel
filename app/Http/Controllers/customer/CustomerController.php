@@ -58,10 +58,10 @@ class CustomerController extends Controller
             $product = Product::orderBy('name','DESC')->paginate(9);  
             $product->appends(['sort' => "name_desc"]);  
         }elseif($request->sort=="price_asc"){
-            $product = Product::orderBy('sale_price','ASC')->paginate(9);  
+            $product = Product::orderBy('price','ASC')->paginate(9);  
             $product->appends(['sort' => "price_asc"]);  
         }elseif($request->sort=="price_desc"){
-            $product = Product::orderBy('sale_price','DESC')->paginate(9);  
+            $product = Product::orderBy('price','DESC')->paginate(9);  
             $product->appends(['sort' => "price_desc"]); 
         }
         if($request->minprice){
