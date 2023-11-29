@@ -263,6 +263,30 @@ function scrollFunction() {
 mybutton.addEventListener("click", backToTop);
 
 function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+    const startingY = window.pageYOffset;
+    const targetY = 0;
+    const duration = 1000; // Adjust the duration of the scroll animation (in milliseconds)
+  
+    const startTime = performance.now();
+  
+    function scrollStep() {
+      const currentTime = performance.now();
+      const elapsed = currentTime - startTime;
+  
+      window.scrollTo(0, easeInOutCubic(elapsed, startingY, targetY - startingY, duration));
+  
+      if (elapsed < duration) {
+        window.requestAnimationFrame(scrollStep);
+      }
+    }
+  
+    function easeInOutCubic(t, b, c, d) {
+      // Cubic easing in/out
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t * t + b;
+      t -= 2;
+      return c / 2 * (t * t * t + 2) + b;
+    }
+  
+    window.requestAnimationFrame(scrollStep);
+  }

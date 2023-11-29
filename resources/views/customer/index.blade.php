@@ -139,7 +139,7 @@ Trang chủ
                                                 onclick="addProductToWishList({{ $item->id }})"><i
                                                     class="fa fa-heart"></i></a></li>
                                     @else
-                                        <li><a href="{{ route('login') }}" onclick="login()"><i
+                                        <li><a href="javascript:void(0)" onclick="login()"><i
                                                     class="fa fa-heart"></i></a></li>
                                     @endif
                                     <li><a href="{{ route('product-detail', $item->slug) }}"><i
@@ -266,7 +266,10 @@ Trang chủ
         }
 
         function login() {
-            toastr.success('Vui lòng đăng nhập để tiếp tục');
+            toastr.warning('Vui lòng đăng nhập để tiếp tục');
+            setTimeout(() => {    
+                window.location="{{route('login')}}" 
+            }, 1200);
         }
 
         function getWishlistCount() {
