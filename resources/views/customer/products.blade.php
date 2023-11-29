@@ -108,7 +108,7 @@
                                                                 onclick="addProductToWishList({{ $item->id }})"><i
                                                                     class="fa fa-heart"></i></a></li>
                                                     @else
-                                                        <li><a href="{{ route('login') }}" onclick="login()"><i
+                                                        <li><a href="javascript:void(0)" onclick="login()"><i
                                                                     class="fa fa-heart"></i></a></li>
                                                     @endif
                                                     <li><a href="{{ route('product-detail', $item->slug) }}"><i
@@ -135,7 +135,7 @@
                                 <div class="filter__sort">
                                     <span>Sắp xếp</span>
                                     <select onchange="location = this.value;">
-                                        <option>Sắp xếp</option>
+                                        <option value="{{route('products')}}">Mới nhất</option>
                                         <option
                                             value="{{ Route('products', ['minprice' => Request::get('minprice'), 'maxprice' => Request::get('maxprice'), 'sort' => 'name_asc']) }}"
                                             {{ Request::get('sort') == 'name_asc' ? 'selected' : '' }}>A-Z </option>
@@ -173,7 +173,7 @@
                                                             onclick="addProductToWishList({{ $item->id }})"><i
                                                                 class="fa fa-heart"></i></a></li>
                                                 @else
-                                                    <li><a href="{{ route('login') }}" onclick="login()"><i
+                                                    <li><a href="javascript:void(0)" onclick="login()"><i
                                                                 class="fa fa-heart"></i></a></li>
                                                 @endif
 
@@ -226,7 +226,10 @@
         }
 
         function login() {
-            toastr.success('Vui lòng đăng nhập để tiếp tục');
+            toastr.warning('Vui lòng đăng nhập để tiếp tục');
+            setTimeout(() => {    
+                window.location="{{route('login')}}" 
+            }, 1200);
         }
 
         function getWishlistCount() {
