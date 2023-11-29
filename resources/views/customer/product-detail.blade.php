@@ -30,14 +30,17 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 500px !important;" alt="">
+                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 500px !important;"
+                                alt="">
                         </div>
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-imgbigurl="{{ asset('storage/images') }}/{{ $detail->image }}"
-                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 150px !important;" alt="">
+                                src="{{ asset('storage/images') }}/{{ $detail->image }}" style="height: 150px !important;"
+                                alt="">
                             @foreach ($detail->images as $item)
                                 <img data-imgbigurl="{{ asset('storage/images') }}/{{ $item->image }}"
-                                    src="{{ asset('storage/images') }}/{{ $item->image }}" style="height: 150px !important;" alt="">
+                                    src="{{ asset('storage/images') }}/{{ $item->image }}"
+                                    style="height: 150px !important;" alt="">
                             @endforeach
 
                         </div>
@@ -52,7 +55,7 @@
                                 <h2 class="text-danger mt-1 "> {{ number_format($detail->sale_price) }} VNĐ</h2>
                             @else
                                 <h2 class="text-danger mt-1 "> {{ number_format($detail->price) }} VNĐ</h2>
-                            @endif                                
+                            @endif
                         </div>
                         <div class="d-lg-flex">
                             <form action="{{ route('cart.add') }}" method="POST">
@@ -69,32 +72,42 @@
                             </form>
                             @if (Auth::check() && Auth::user()->role == 0)
                                 <a href="javascript:void(0)" class="heart-icon" id="wishlistadded"
-                                    onclick="addProductToWishList({{ $detail->id }})" {{$wish!=null?"style=background-color:#7fad39;color:#fff":''}}><span
-                                        class="icon_heart_alt"  ></span></a>
+                                    onclick="addProductToWishList({{ $detail->id }})"
+                                    {{ $wish != null ? 'style=background-color:#7fad39;color:#fff' : '' }}><span
+                                        class="icon_heart_alt"></span></a>
                             @else
                                 <a href="{{ route('login') }}" class="heart-icon" onclick="login()"><span
                                         class="icon_heart_alt"></span></a>
                             @endif
                         </div>
                         @if (Auth::check() && Auth::user()->role == 0)
-                        <div class="d-flex mt-4">
-                            <div id="rateYo" ></div>
-                            <div><h4 class="mt-1 ml-2">Đánh giá {{round($ratingAvg,1)}}/5 <i class="fa fa-star" style="color: #ffff00"></i></h4>
-                                 <p class="ml-2">Lượt đánh giá: {{$ratingcount}}</p>      
+                            <div class="d-flex mt-4">
+                                <div id="rateYo"></div>
+                                <div>
+                                    <h4 class="mt-1 ml-2">Đánh giá {{ round($ratingAvg, 1) }}/5 <i class="fa fa-star"
+                                            style="color: #ffff00"></i></h4>
+                                    <p class="ml-2">Lượt đánh giá: {{ $ratingcount }}</p>
+                                </div>
                             </div>
-                        </div>                       
                         @else
-                            <div id="rateYo1" class="mt-3"></div>
+                            <div class="d-flex mt-4">
+                                <div id="rateYo1"></div>
+                                <div>
+                                    <h4 class="mt-1 ml-2">Đánh giá {{ round($ratingAvg, 1) }}/5 <i class="fa fa-star"
+                                            style="color: #ffff00"></i></h4>
+                                    <p class="ml-2">Lượt đánh giá: {{ $ratingcount }}</p>
+                                </div>
+                            </div>
                         @endif
                         @if (Auth::check() && Auth::user()->role == 0)
-                        <form action="{{route('rating')}}" method="POST" id="formRating" >
-                            @csrf
-                            <div class="d-flex">
-                                <input type="hidden" name="rating_star" id="rating_star">
-                                <input type="hidden" name="product_id" value="{{ $detail->id }}">
-                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            </div>            
-                        </form>
+                            <form action="{{ route('rating') }}" method="POST" id="formRating">
+                                @csrf
+                                <div class="d-flex">
+                                    <input type="hidden" name="rating_star" id="rating_star">
+                                    <input type="hidden" name="product_id" value="{{ $detail->id }}">
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                </div>
+                            </form>
                         @endif
                         <ul>
                             <li><label
@@ -130,7 +143,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -200,7 +213,10 @@
                     if (data.status == 200) {
                         getWishlistCount();
                         toastr.success(data.message);
-                        $('#wishlistadded').css({"background-color":"#7fad39","color":"#fff"});
+                        $('#wishlistadded').css({
+                            "background-color": "#7fad39",
+                            "color": "#fff"
+                        });
                     }
                 }
             })
@@ -223,7 +239,7 @@
         $(function() {
 
             $("#rateYo").rateYo({
-                rating: {{$ratingAvg?$ratingAvg:0}},
+                rating: {{ $ratingAvg ? $ratingAvg : 0 }},
                 normalFill: "#A0A0A0",
                 ratedFill: "#ffff00"
             }).on("rateyo.set", function(e, data) {
@@ -235,21 +251,21 @@
         $(function() {
 
             $("#rateYo1").rateYo({
-                rating: {{$ratingAvg?$ratingAvg:0}},
+                rating: {{ $ratingAvg ? $ratingAvg : 0 }},
                 normalFill: "#A0A0A0",
                 ratedFill: "#ffff00"
             }).on("rateyo.set", function(e, data) {
                 toastr.error("Bạn chưa đăng nhập vui lòng đăng nhập để đánh giá");
                 setTimeout(() => {
-                    window.location="{{route('login')}}" 
+                    window.location = "{{ route('login') }}"
                 }, 1200);
             });;
 
         });
     </script>
-       @if ($message = Session::get('success'))
-       <script>
-           toastr.success("{{ Session::get('success') }}");
-       </script>
-   @endif
+    @if ($message = Session::get('success'))
+        <script>
+            toastr.success("{{ Session::get('success') }}");
+        </script>
+    @endif
 @endsection
