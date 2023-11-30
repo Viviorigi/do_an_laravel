@@ -96,13 +96,30 @@ Thanh toán
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="checkout__order">
-                                <h4>Đơn hàng của bạn</h4>
-                                <div class="checkout__order__products">Sản phẩm <span>Tổng giá</span> <span class="mr-3"> Số lượng</span></div>
-                                <ul>
-                                    @foreach ($cart->list() as $item)
-                                        <li>{{$item['name']}} <span> {{number_format($item['price']*$item['quantity'])}}Đ</span> <span class="mr-3"> {{$item['quantity']}}</span></li>
-                                    @endforeach
-                                </ul>
+                                <h4 class="w-100">Đơn hàng của bạn</h4>
+                                <div class="checkout__order__products">
+                                    <div class="mb-3">
+                                        <h5>Sản phẩm </h5>
+                                        @foreach ($cart->list() as $item)
+                                            <p>{{$item['name']}}</p>
+                                        @endforeach
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h5>Tổng giá</h5>
+                                            @foreach ($cart->list() as $item)
+                                            <p>{{number_format($item['price']*$item['quantity'])}}Đ</p>
+                                            @endforeach 
+                                        </div>
+                                        <div class="col-6">
+                                            <h5> Số lượng</h5>
+                                            @foreach ($cart->list() as $item)
+                                                <p>{{$item['quantity']}}</p>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="checkout__order__subtotal">Phụ thu <span>0 Đ</span></div>
                                 <div class="checkout__order__total">Tổng số tiền <span>{{number_format($cart->getTotalPrice())}} Đ</span></div>
                                 <div class="form-group">

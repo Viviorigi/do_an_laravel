@@ -2259,10 +2259,14 @@ ol {
 }
 
 .checkout__order .checkout__order__products {
-	font-size: 18px;
 	color: #1c1c1c;
 	font-weight: 700;
 	margin-bottom: 10px;
+}
+
+.checkout__order__products p{
+	font-size: 18px;
+	font-weight: 500;
 }
 
 .checkout__order .checkout__order__products span {
